@@ -10,10 +10,19 @@ namespace SMSApp
         {
             InitializeComponent();
 
-            using (Context context = new Context())
+            using (DataAccess.AppContext context = new DataAccess.AppContext())
             {
-                Console.WriteLine(context.Users.Find(1));
-                context.SaveChanges();
+                var uow = new UnitOfWork(context);
+                uow.Users.Add(new User
+                {
+                    UserId=1,
+                    Login = "Logger",
+                    Name = "somename",
+                    CreatedDate = DateTime.Now,
+                    Permissions = 3,
+                });
+                uow.Complete();
+                var temp = uow.Users.Get(1);
             }
         }
     }

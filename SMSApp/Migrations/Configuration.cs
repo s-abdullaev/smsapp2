@@ -5,14 +5,14 @@ namespace SMSApp.Migrations
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Context>
+    internal sealed class Configuration : DbMigrationsConfiguration<DataAccess.AppContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Context context)
+        protected override void Seed(DataAccess.AppContext context)
         {
             //  This method will be called after migrating to the latest version.
 

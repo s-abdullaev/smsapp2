@@ -78,6 +78,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Core\Repositories\IUserRepository.cs" />
+    <Compile Include="DataAccess\AppContext.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="UnitOfWork\UnitOfWork.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -86,6 +91,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Repositories\IRepository.cs" />
     <Compile Include="DataAccess\Broadcast.cs" />
     <Compile Include="DataAccess\Contagion.cs" />
     <Compile Include="DataAccess\Disease.cs" />
@@ -105,7 +112,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccess\Context.cs" />
     <Compile Include="DataAccess\User.cs" />
     <Compile Include="Migrations\201806281259073_Initial.cs" />
     <Compile Include="Migrations\201806281259073_Initial.Designer.cs">
