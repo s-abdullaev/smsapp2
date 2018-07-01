@@ -8,7 +8,7 @@ namespace SMSApp.Repositories
 {
     public class MessageRepository : Repository<Message>, IMessageRepository
     {
-        public MessageRepository(DbContext dbContext)
+        public MessageRepository(Context dbContext)
             : base(dbContext)
         {
 

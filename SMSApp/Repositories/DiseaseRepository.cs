@@ -8,7 +8,7 @@ namespace SMSApp.Repositories
 {
     public class DiseaseRepository : Repository<Disease>, IDiseaseRepository
     {
-        public DiseaseRepository(DbContext dbContext)
+        public DiseaseRepository(Context dbContext)
             : base(dbContext)
         {
 

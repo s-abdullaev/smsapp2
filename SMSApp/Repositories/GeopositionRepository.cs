@@ -8,7 +8,7 @@ namespace SMSApp.Repositories
 {
     public class GeopositionRepository : Repository<Geoposition>, IGeopositionRepository
     {
-        public GeopositionRepository(DbContext dbContext)
+        public GeopositionRepository(Context dbContext)
             : base(dbContext)
         {
 

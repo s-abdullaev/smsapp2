@@ -8,7 +8,7 @@ namespace SMSApp.Repositories
 {
     public class BroadcastRepository : Repository<Broadcast>, IBroadcastRepository
     {
-        public BroadcastRepository(DbContext dbContext) :
+        public BroadcastRepository(Context dbContext) :
             base(dbContext)
         {
 

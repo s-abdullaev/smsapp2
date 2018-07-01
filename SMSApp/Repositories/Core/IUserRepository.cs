@@ -1,4 +1,4 @@
-﻿using EF6CodeFirstDemo.Enums;
+﻿using SMSApp.Enums;
 using SMSApp.DataAccess;
 using System.Collections.Generic;
 
@@ -12,14 +12,11 @@ namespace SMSApp.Repositories.Core
         /// <param name="user">user to check</param>
         /// <param name="permission">permission to check</param>
         /// <returns></returns>
-        bool CheckPermission(User user,UserPermissions permission);
+        bool CheckPermission(User user, UserPermissions permission);
 
-        /// <summary>
-        /// Finds the users with certain name (Can be used in searches)
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        IEnumerable<User> FindWithName(string name);
+        void SetPermission(User user, UserPermissions permission);
+
+        bool AuthUser(string login, string pwd);
 
         /// <summary>
         /// Finds the user with certain login (Can be used for signing up)

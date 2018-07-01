@@ -8,7 +8,7 @@ namespace SMSApp.Repositories
 {
     public class PestRepository : Repository<Pest>, IPestRepository
     {
-        public PestRepository(DbContext dbContext)
+        public PestRepository(Context dbContext)
             : base(dbContext)
         {
 

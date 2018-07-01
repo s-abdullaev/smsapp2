@@ -6,7 +6,7 @@ namespace SMSApp.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public UnitOfWork Instance { get; private set; }
+        public static UnitOfWork Instance { get; private set; }
 
         private readonly Context AppContext;
 
@@ -18,6 +18,28 @@ namespace SMSApp.Repositories
         }
 
         public IUserRepository Users { get; private set; }
+
+        public IBroadcastRepository Broadcasts => throw new System.NotImplementedException();
+
+        public IContagionRepository Contagions => throw new System.NotImplementedException();
+
+        public IDiseaseRepository Diseases => throw new System.NotImplementedException();
+
+        public IFarmRepository Farms => throw new System.NotImplementedException();
+
+        public IFarmPlantRepository FarmOwners => throw new System.NotImplementedException();
+
+        public IGeopositionRepository Geopositions => throw new System.NotImplementedException();
+
+        public IMessageRepository Messages => throw new System.NotImplementedException();
+
+        public IPestRepository Pests => throw new System.NotImplementedException();
+
+        public IPhotoRepository Photos => throw new System.NotImplementedException();
+
+        public IPlantRepository Plants => throw new System.NotImplementedException();
+
+        public ISoilReadingRepository SoilReadings => throw new System.NotImplementedException();
 
         public int Complete()
         {

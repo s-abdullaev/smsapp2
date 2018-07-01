@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using EF6CodeFirstDemo.Enums;
+using SMSApp.Enums;
 using SMSApp.DataAccess;
 using SMSApp.Repositories.Core;
 
@@ -22,22 +22,11 @@ namespace SMSApp.Repositories
         /// <returns></returns>
         public bool CheckPermission(User user, UserPermissions permission)
         {
-            var temp = (ApplicationContext.Users.Find(user.UserId));
-            return (temp.Permissions & (int)permission) != 0;
-
+            var temp = (mContext.Users.Find(user.UserId));
+            return (temp.Permissions & permission) != 0;
         }
 
-        /// <summary>
-        /// Get user by name (search)
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        public IEnumerable<User> FindWithName(string name)
-        {
-            return ApplicationContext.Users
-                .Where(a => a.Name == name);
-        }
-
+        
         /// <summary>
         /// Get user by login (sign up)
         /// </summary>
@@ -45,13 +34,29 @@ namespace SMSApp.Repositories
         /// <returns></returns>
         public User GetByLogin(string login)
         {
-            return ApplicationContext.Users
+            return mContext.Users
                 .Where(a => a.Login == login).First();
         }
 
-        /// <summary>
-        /// Context
-        /// </summary>
-        public Context ApplicationContext { get => mContext as Context; }
+        public void SetPermission(User user, UserPermissions permission)
+        {
+            user.Permissions |= permission;
+        }
+
+        public void UnsetPermission(User user, UserPermissions permission)
+        {
+            user.Permissions = user.Permissions & ~(permission);
+        }
+
+        public void ResetPermission(User user)
+        {
+            user.Permissions = 0;
+        }
+
+        public bool AuthUser(string login, string pwd)
+        {
+            throw new System.NotImplementedException();
+        }
+
     }
 }

@@ -8,7 +8,7 @@ namespace SMSApp.Repositories
 {
     public class SoilReadingRepository : Repository<SoilReading>, ISoilReadingRepository
     {
-        public SoilReadingRepository(DbContext dbContext)
+        public SoilReadingRepository(Context dbContext)
             : base(dbContext)
         {
 

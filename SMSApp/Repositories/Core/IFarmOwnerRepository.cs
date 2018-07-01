@@ -5,12 +5,7 @@ namespace SMSApp.Repositories.Core
 {
     public interface IFarmOwnerRepository:IRepository<FarmOwner>
     {
-        /// <summary>
-        /// Selects the <see cref="FarmOwner"/> in the given region (Search,Comboboxes)
-        /// </summary>
-        /// <param name="region"></param>
-        /// <returns></returns>
-        IEnumerable<FarmOwner> GetByRegion(string region);
+     
 
         /// <summary>
         /// Selects the <see cref="FarmOwner"/> in the given city (Search,Comboboxes)

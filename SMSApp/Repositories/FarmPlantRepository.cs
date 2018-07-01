@@ -8,7 +8,7 @@ namespace SMSApp.Repositories
 {
     public class FarmPlantRepository : Repository<FarmPlant>, IFarmPlantRepository
     {
-        public FarmPlantRepository(DbContext dbContext)
+        public FarmPlantRepository(Context dbContext)
             : base(dbContext)
         {
 

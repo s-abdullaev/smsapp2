@@ -16,9 +16,9 @@ namespace SMSApp.Repositories
     /// <typeparam name="TEntity"></typeparam>
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected readonly DbContext mContext;
+        protected readonly Context mContext;
 
-        public Repository(DbContext context)
+        public Repository(Context context)
         {
             mContext = context;
         }

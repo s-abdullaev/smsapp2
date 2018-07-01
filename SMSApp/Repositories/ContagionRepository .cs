@@ -8,7 +8,7 @@ namespace SMSApp.Repositories
 {
     public class ContagionRepository : Repository<Contagion>, IContagionRepository
     {
-        public ContagionRepository(DbContext dbContext)
+        public ContagionRepository(Context dbContext)
             : base(dbContext)
         {
 

@@ -1,4 +1,4 @@
-﻿namespace EF6CodeFirstDemo.Enums
+﻿namespace SMSApp.Enums
 {
     public enum Entities
     {

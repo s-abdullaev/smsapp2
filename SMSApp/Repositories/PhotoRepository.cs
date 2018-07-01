@@ -8,7 +8,7 @@ namespace SMSApp.Repositories
 {
     public class PhotoRepository : Repository<Photo>, IPhotoRepository
     {
-        public PhotoRepository(DbContext dbContext)
+        public PhotoRepository(Context dbContext)
             : base(dbContext)
         {
 
