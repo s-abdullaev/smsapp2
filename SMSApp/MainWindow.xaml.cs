@@ -1,6 +1,6 @@
-﻿using System;
-using System.Windows;
-using SMSApp.DataAccess;
+﻿using System.Windows;
+
+using SMSApp.Views;
 
 namespace SMSApp
 {
@@ -9,12 +9,8 @@ namespace SMSApp
         public MainWindow()
         {
             InitializeComponent();
-
-            using (Context context = new Context())
-            {
-                Console.WriteLine(context.Users.Find(1));
-                context.SaveChanges();
-            }
+            UserAddFormView view = new UserAddFormView();
+            view.ShowDialog();
         }
     }
 }

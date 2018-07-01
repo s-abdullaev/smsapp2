@@ -1,0 +1,39 @@
+﻿<Window x:Class="SMSApp.Views.UserAddFormView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+
+    <StackPanel Margin="10">
+        <Label HorizontalAlignment="Center" Margin="0 0 0 10" FontSize="16" FontWeight="Bold">ADD USER</Label>
+        <WrapPanel Margin="0 0 0 10">
+            <Label Width="80">Name:</Label>
+            <TextBox Width="200" Text="{Binding UserAddFormModel.Name, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0 0 0 10">
+            <Label Width="80">Login:</Label>
+            <TextBox Width="200" Text="{Binding UserAddFormModel.Login, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0 0 0 10">
+            <Label Width="80">Password:</Label>
+            <TextBox Width="200" Text="{Binding UserAddFormModel.Password, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0 0 0 10">
+            <Label Width="80">Email:</Label>
+            <TextBox Width="200" Text="{Binding UserAddFormModel.Email, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0 0 0 10">
+            <Label Width="80" VerticalAlignment="Top">Permissions:</Label>
+            <StackPanel>
+                <CheckBox Margin="0 0 0 5" IsChecked="{Binding UserAddFormModel.CanUpdateUsers}">Update Users</CheckBox>
+                <CheckBox Margin="0 0 0 5" IsChecked="{Binding UserAddFormModel.CanReadEntities}">Read Entities</CheckBox>
+                <CheckBox Margin="0 0 0 5" IsChecked="{Binding UserAddFormModel.CanUpdateEntities}">Update Entities</CheckBox>
+                <CheckBox Margin="0 0 0 5" IsChecked="{Binding UserAddFormModel.CanSendBroadcasts}">Send Broadcasts</CheckBox>
+                <CheckBox IsChecked="{Binding UserAddFormModel.CanPrintReports}">Print Reports</CheckBox>
+            </StackPanel>
+        </WrapPanel>
+        <WrapPanel HorizontalAlignment="Right">
+            <Button Margin="0 0 10 0" Padding="10 5" Width="80" Command="{Binding AddUserCommand}">Add</Button>
+            <Button Padding="10 5" Width="80" Command="{Binding CancelCommand}">Cancel</Button>
+        </WrapPanel>
+    </StackPanel>
+</Window>

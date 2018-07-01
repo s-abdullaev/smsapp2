@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using EF6CodeFirstDemo.Enums;
+
 namespace SMSApp.DataAccess
 {
     public class User
