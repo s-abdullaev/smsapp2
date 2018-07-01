@@ -90,9 +90,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModels\UserAddFormViewModel.cs" />
-    <Compile Include="Views\UserAddFormView.xaml.cs">
-      <DependentUpon>UserAddFormView.xaml</DependentUpon>
+    <Compile Include="ViewModels\UserAddViewModel.cs" />
+    <Compile Include="Views\UserAddView.xaml.cs">
+      <DependentUpon>UserAddView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -119,7 +119,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\UserAddFormView.xaml">
+    <Page Include="Views\UserAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,7 +132,7 @@
       <DependentUpon>201806281259073_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\UserAddFormModel.cs" />
+    <Compile Include="Models\UserAddModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

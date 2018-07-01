@@ -3,7 +3,7 @@ using Prism.Mvvm;
 
 namespace SMSApp.Models
 {
-    public class UserAddFormModel : BindableBase
+    public class UserAddModel : BindableBase
     {
         private string name;
         private string login;

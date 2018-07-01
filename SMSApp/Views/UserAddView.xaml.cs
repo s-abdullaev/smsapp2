@@ -4,12 +4,12 @@ using SMSApp.ViewModels;
 
 namespace SMSApp.Views
 {
-    public partial class UserAddFormView : Window
+    public partial class UserAddView : Window
     {
-        public UserAddFormView()
+        public UserAddView()
         {
             InitializeComponent();
-            DataContext = new UserAddFormViewModel(this);
+            DataContext = new UserAddViewModel(this);
         }
     }
 }

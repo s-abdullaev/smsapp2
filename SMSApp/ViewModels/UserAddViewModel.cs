@@ -8,28 +8,28 @@ using SMSApp.DataAccess;
 
 namespace SMSApp.ViewModels
 {
-    internal class UserAddFormViewModel : BindableBase
+    internal class UserAddViewModel : BindableBase
     {
         //Properties
-        private UserAddFormModel userAddFormModel;
-        public UserAddFormModel UserAddFormModel
+        private UserAddModel userAddModel;
+        public UserAddModel UserAddModel
         {
             get
             {
-                return userAddFormModel;
+                return userAddModel;
             }
             set
             {
-                if (userAddFormModel != null) userAddFormModel.PropertyChanged -= UserPropertyChanged;
-                SetProperty(ref userAddFormModel, value);
-                if (userAddFormModel != null) userAddFormModel.PropertyChanged += UserPropertyChanged;
+                if (userAddModel != null) userAddModel.PropertyChanged -= UserPropertyChanged;
+                SetProperty(ref userAddModel, value);
+                if (userAddModel != null) userAddModel.PropertyChanged += UserPropertyChanged;
             }
         }
 
         //Constructor
-        public UserAddFormViewModel(object parent)
+        public UserAddViewModel(object parent)
         {
-            UserAddFormModel = new UserAddFormModel();
+            UserAddModel = new UserAddModel();
             AddUserCommand = new DelegateCommand(ExecuteAddUserCommand, CanExecuteAddUserCommand);
             CancelCommand = new DelegateCommand(() => ExecuteCancelCommand(parent));
         }
@@ -41,26 +41,26 @@ namespace SMSApp.ViewModels
         {
             User user = new User()
             {
-                Name = UserAddFormModel.Name,
-                Login = UserAddFormModel.Login,
-                Password = UserAddFormModel.Password,
-                Email = UserAddFormModel.Email,
-                Permissions = UserAddFormModel.GetPermissions(),
+                Name = UserAddModel.Name,
+                Login = UserAddModel.Login,
+                Password = UserAddModel.Password,
+                Email = UserAddModel.Email,
+                Permissions = UserAddModel.GetPermissions(),
                 CreatedDate = DateTime.Now
             };
             //Perform data insertion using Repository operations
         }
         public bool CanExecuteAddUserCommand()
         {
-            if (UserAddFormModel == null)
+            if (UserAddModel == null)
                 return false;
-            if (String.IsNullOrWhiteSpace(UserAddFormModel.Name))
+            if (String.IsNullOrWhiteSpace(UserAddModel.Name))
                 return false;
-            if (String.IsNullOrWhiteSpace(UserAddFormModel.Email))
+            if (String.IsNullOrWhiteSpace(UserAddModel.Email))
                 return false;
-            if (String.IsNullOrWhiteSpace(UserAddFormModel.Login))
+            if (String.IsNullOrWhiteSpace(UserAddModel.Login))
                 return false;
-            if (String.IsNullOrWhiteSpace(UserAddFormModel.Password))
+            if (String.IsNullOrWhiteSpace(UserAddModel.Password))
                 return false;
             return true;
         }

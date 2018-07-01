@@ -9,8 +9,6 @@ namespace SMSApp
         public MainWindow()
         {
             InitializeComponent();
-            UserAddFormView view = new UserAddFormView();
-            view.ShowDialog();
         }
     }
 }
