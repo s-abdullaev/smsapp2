@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using EF6CodeFirstDemo.Enums;
-using SMSApp.Core.Repositories;
 using SMSApp.DataAccess;
+using SMSApp.Repositories.Core;
 
-namespace SMSApp
+namespace SMSApp.Repositories
 {
     public class UserRepository : Repository<User>, IUserRepository
     {
-        public UserRepository(AppContext context)
+        public UserRepository(Context context)
             : base(context)
         {
 
@@ -50,19 +50,8 @@ namespace SMSApp
         }
 
         /// <summary>
-        /// Retrieve the most recent 10 users
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<User> GetRecentUsers()
-        {
-            return ApplicationContext.Users
-                .OrderByDescending(u => u.CreatedDate)
-                .Take(10);
-        }
-
-        /// <summary>
         /// Context
         /// </summary>
-        public AppContext ApplicationContext { get => mContext as AppContext; }
+        public Context ApplicationContext { get => mContext as Context; }
     }
 }

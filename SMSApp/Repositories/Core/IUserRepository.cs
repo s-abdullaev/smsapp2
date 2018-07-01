@@ -2,7 +2,7 @@
 using SMSApp.DataAccess;
 using System.Collections.Generic;
 
-namespace SMSApp.Core.Repositories
+namespace SMSApp.Repositories.Core
 {
     public interface IUserRepository:IRepository<User>
     {
@@ -13,12 +13,6 @@ namespace SMSApp.Core.Repositories
         /// <param name="permission">permission to check</param>
         /// <returns></returns>
         bool CheckPermission(User user,UserPermissions permission);
-
-        /// <summary>
-        /// Gets the recent 10 users
-        /// </summary>
-        /// <returns></returns>
-        IEnumerable<User> GetRecentUsers();
 
         /// <summary>
         /// Finds the users with certain name (Can be used in searches)

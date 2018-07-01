@@ -2,11 +2,11 @@
 
 namespace SMSApp.DataAccess
 {
-    public class AppContext : DbContext
+    public class Context : DbContext
     {
-        public AppContext() : base()
+        public Context() : base()
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<AppContext>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<Context>());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

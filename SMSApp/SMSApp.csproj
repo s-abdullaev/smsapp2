@@ -78,11 +78,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Core\Repositories\IUserRepository.cs" />
-    <Compile Include="DataAccess\AppContext.cs" />
+    <Compile Include="Repositories\BroadcastRepository.cs" />
+    <Compile Include="Repositories\DiseaseRepository.cs" />
+    <Compile Include="Repositories\FarmRepository.cs" />
+    <Compile Include="Repositories\FarmPlantRepository.cs" />
+    <Compile Include="Repositories\GeopositionRepository.cs" />
+    <Compile Include="Repositories\MessageRepository.cs" />
+    <Compile Include="Repositories\PestRepository.cs" />
+    <Compile Include="Repositories\PhotoRepository.cs" />
+    <Compile Include="Repositories\SoilReadingRepository.cs" />
+    <Compile Include="Repositories\PlantRepository.cs" />
+    <Compile Include="Repositories\Core\IPlantRepository.cs" />
+    <Compile Include="Repositories\Core\IPhotoRepository.cs" />
+    <Compile Include="Repositories\Core\IPestRepository.cs" />
+    <Compile Include="Repositories\Core\IMessageRepository.cs" />
+    <Compile Include="Repositories\Core\IFarmPlantRepository.cs" />
+    <Compile Include="Repositories\Core\IDiseaseRepository.cs" />
+    <Compile Include="Repositories\Core\IBroadcastRepository.cs" />
+    <Compile Include="Repositories\Core\IFarmOwnerRepository.cs" />
+    <Compile Include="Repositories\Core\IContagionRepository.cs" />
+    <Compile Include="Repositories\Core\IGeopositionRepository.cs" />
+    <Compile Include="Repositories\Core\IFarmRepository.cs" />
+    <Compile Include="Repositories\Core\ISoilReadingRepository.cs" />
+    <Compile Include="Repositories\Core\IUserRepository.cs" />
+    <Compile Include="DataAccess\Context.cs" />
+    <Compile Include="Repositories\ContagionRepository .cs" />
+    <Compile Include="Repositories\FarmOwnerRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="UnitOfWork\UnitOfWork.cs" />
+    <Compile Include="Repositories\UnitOfWork.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -91,8 +115,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Core\IUnitOfWork.cs" />
-    <Compile Include="Core\Repositories\IRepository.cs" />
+    <Compile Include="Repositories\Core\IUnitOfWork.cs" />
+    <Compile Include="Repositories\Core\IRepository.cs" />
     <Compile Include="DataAccess\Broadcast.cs" />
     <Compile Include="DataAccess\Contagion.cs" />
     <Compile Include="DataAccess\Disease.cs" />

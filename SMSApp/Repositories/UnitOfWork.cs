@@ -1,15 +1,16 @@
-﻿using SMSApp.Core.Repositories;
-using SMSApp.DataAccess;
+﻿using SMSApp.DataAccess;
+using SMSApp.Repositories;
+using SMSApp.Repositories.Core;
 
-namespace SMSApp
+namespace SMSApp.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
         public UnitOfWork Instance { get; private set; }
 
-        private readonly AppContext AppContext;
+        private readonly Context AppContext;
 
-        public UnitOfWork(AppContext appContext)
+        public UnitOfWork(Context appContext)
         {
             AppContext = appContext;
             Users = new UserRepository(appContext);

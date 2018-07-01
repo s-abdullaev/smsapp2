@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using SMSApp.DataAccess;
+using SMSApp.Repositories;
 
 namespace SMSApp
 {
@@ -10,7 +11,7 @@ namespace SMSApp
         {
             InitializeComponent();
 
-            using (DataAccess.AppContext context = new DataAccess.AppContext())
+            using (DataAccess.Context context = new DataAccess.Context())
             {
                 var uow = new UnitOfWork(context);
                 uow.Users.Add(new User
