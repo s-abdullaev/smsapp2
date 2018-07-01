@@ -1,4 +1,4 @@
-﻿using EF6CodeFirstDemo.Enums;
+﻿using SMSApp.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;

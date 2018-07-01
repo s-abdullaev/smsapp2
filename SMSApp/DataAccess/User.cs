@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SMSApp.Enums;
+using System;
 using System.Collections.Generic;
 
 namespace SMSApp.DataAccess
@@ -10,7 +11,7 @@ namespace SMSApp.DataAccess
         public string Login { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        public int Permissions { get; set; }
+        public UserPermissions Permissions { get; set; }
         public DateTime CreatedDate { get; set; }
 
 
