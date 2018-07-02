@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-using SMSApp.Views;
+using SMSApp.ViewModels;
 
 namespace SMSApp
 {
@@ -9,6 +9,7 @@ namespace SMSApp
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainWindowViewModel();
         }
     }
 }

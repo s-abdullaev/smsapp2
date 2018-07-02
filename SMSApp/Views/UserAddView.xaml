@@ -1,7 +1,8 @@
 ﻿<Window x:Class="SMSApp.Views.UserAddView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+        ShowInTaskbar="False" WindowStartupLocation="CenterScreen" 
+        ResizeMode="NoResize" SizeToContent="WidthAndHeight">
 
     <StackPanel Margin="10">
         <Label HorizontalAlignment="Center" Margin="0 0 0 10" FontSize="16" FontWeight="Bold">ADD USER</Label>
