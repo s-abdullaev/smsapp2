@@ -13,6 +13,11 @@
             </MenuItem>
             <MenuItem Header="Inser">
                 <MenuItem Header="_Manage Users" Command="{Binding OpenUserManagerCommand}"/>
+                <MenuItem Header="_Manage Farm Owners" Command="{Binding OpenFarmOwnerManagerCommand}"/>
+                <MenuItem Header="_Manage Farms" Command="{Binding OpenFarmManagerCommand}"/>
+                <MenuItem Header="_Manage Plants" Command="{Binding OpenPlantManagerCommand}"/>
+                <MenuItem Header="_Manage Deseases" Command="{Binding OpenDiseaseManagerCommand}"/>
+                <MenuItem Header="_Manage Pests" Command="{Binding OpenPestManagerCommand}"/>
             </MenuItem>
         </Menu>
     </DockPanel>

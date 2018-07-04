@@ -93,6 +93,21 @@
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\UserAddViewModel.cs" />
     <Compile Include="ViewModels\UserManagerViewModel.cs" />
+    <Compile Include="Views\DiseaseManagerView.xaml.cs">
+      <DependentUpon>DiseaseManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FarmManagerView.xaml.cs">
+      <DependentUpon>FarmManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FarmOwnerManagerView.xaml.cs">
+      <DependentUpon>FarmOwnerManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PestManagerView.xaml.cs">
+      <DependentUpon>PestManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlantManagerView.xaml.cs">
+      <DependentUpon>PlantManagerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserAddView.xaml.cs">
       <DependentUpon>UserAddView.xaml</DependentUpon>
     </Compile>
@@ -124,6 +139,26 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\DiseaseManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FarmManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FarmOwnerManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PestManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlantManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -163,6 +198,11 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\SMSApp.DataAccess.Disease.datasource" />
+    <None Include="Properties\DataSources\SMSApp.DataAccess.Farm.datasource" />
+    <None Include="Properties\DataSources\SMSApp.DataAccess.FarmOwner.datasource" />
+    <None Include="Properties\DataSources\SMSApp.DataAccess.Pest.datasource" />
+    <None Include="Properties\DataSources\SMSApp.DataAccess.Plant.datasource" />
     <None Include="Properties\DataSources\SMSApp.DataAccess.User.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
