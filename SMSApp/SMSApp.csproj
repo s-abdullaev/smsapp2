@@ -93,17 +93,32 @@
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\UserAddViewModel.cs" />
     <Compile Include="ViewModels\UserManagerViewModel.cs" />
+    <Compile Include="Views\DiseaseAddView.xaml.cs">
+      <DependentUpon>DiseaseAddView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DiseaseManagerView.xaml.cs">
       <DependentUpon>DiseaseManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FarmAddView.xaml.cs">
+      <DependentUpon>FarmAddView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\FarmManagerView.xaml.cs">
       <DependentUpon>FarmManagerView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\FarmOwnerAddView.xaml.cs">
+      <DependentUpon>FarmOwnerAddView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\FarmOwnerManagerView.xaml.cs">
       <DependentUpon>FarmOwnerManagerView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PestAddView.xaml.cs">
+      <DependentUpon>PestAddView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PestManagerView.xaml.cs">
       <DependentUpon>PestManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlantAddView.xaml.cs">
+      <DependentUpon>PlantAddView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PlantManagerView.xaml.cs">
       <DependentUpon>PlantManagerView.xaml</DependentUpon>
@@ -139,7 +154,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\DiseaseAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DiseaseManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FarmAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,11 +170,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\FarmOwnerAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\FarmOwnerManagerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PestAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PestManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlantAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
