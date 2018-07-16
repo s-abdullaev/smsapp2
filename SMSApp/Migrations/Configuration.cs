@@ -5,7 +5,7 @@ namespace SMSApp.Migrations
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Context>
+    internal sealed class Configuration : DbMigrationsConfiguration<DataAccess.Context>
     {
         public Configuration()
         {
