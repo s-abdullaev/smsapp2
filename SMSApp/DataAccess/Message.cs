@@ -11,6 +11,8 @@ namespace SMSApp.DataAccess
         public MessageStatuses Status { get; set; }
         [Column("Feedback", TypeName = "ntext")]
         public string Feedback { get; set; }
+        [Column("MessageText", TypeName = "ntext")]
+        public string MessageText { get; set; }
         public DateTime Date { get; set; }
 
         /*FOREIGN KEYS*/

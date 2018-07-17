@@ -94,6 +94,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ExtensionMethods\AutofacExtensions.cs" />
+    <Compile Include="Migrations\201807172316494_messagesMessageTextAdded.cs" />
+    <Compile Include="Migrations\201807172316494_messagesMessageTextAdded.Designer.cs">
+      <DependentUpon>201807172316494_messagesMessageTextAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Startup\Bootstrapper.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\SendSMSViewModel.cs" />
@@ -195,7 +199,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-	 <Page Include="Views\DiseaseAddView.xaml">
+    <Page Include="Views\DiseaseAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -243,7 +247,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-	<Page Include="Views\SendSMSView.xaml">
+    <Page Include="Views\SendSMSView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -270,6 +274,9 @@
     </Compile>
     <EmbeddedResource Include="Migrations\201806281259073_Initial.resx">
       <DependentUpon>201806281259073_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807172316494_messagesMessageTextAdded.resx">
+      <DependentUpon>201807172316494_messagesMessageTextAdded.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
