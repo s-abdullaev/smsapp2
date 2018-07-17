@@ -5,7 +5,7 @@ using SMSApp.Repositories;
 using SMSApp.Repositories.Core;
 using SMSApp.ViewModels;
 using SMSApp.Views;
-
+using HeadwindGSM;
 
 namespace SMSApp.Startup
 {
@@ -21,6 +21,9 @@ namespace SMSApp.Startup
             builder.RegisterType<UserManagerView>().AsSelf();
             builder.RegisterType<UserManagerViewModel>().AsSelf();
 
+            builder.RegisterType<SendSMSView>().AsSelf();
+            builder.RegisterType<SendSMSViewModel>().AsSelf();
+
             builder.RegisterType<FarmOwnerManagerView>().AsSelf();
             builder.RegisterType<FarmManagerView>().AsSelf();
             builder.RegisterType<PlantManagerView>().AsSelf();
@@ -34,7 +37,7 @@ namespace SMSApp.Startup
 
             //models
             builder.RegisterType<User>().AsSelf();
-
+            builder.RegisterType<SMSMessage>().AsSelf();
 
             //singleton instance of unitOfWork for data access
             builder.RegisterInstance<UnitOfWork>(new UnitOfWork(new DataAccess.Context())).As<IUnitOfWork>();

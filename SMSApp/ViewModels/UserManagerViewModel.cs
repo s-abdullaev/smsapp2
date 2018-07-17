@@ -24,8 +24,8 @@ namespace SMSApp.ViewModels
         {
             uw = unitOfWork;
             OpenAddUserCommand = new DelegateCommand(ExecuteOpenAddUserCommand);
-            OpenEditUserCommand = new DelegateCommand(ExecuteEditAddUserCommand, ()=>selectedUser!=null);
-            RemoveUserCommand = new DelegateCommand(ExecuteRemoveUserCommand, ()=>selectedUser!=null);
+            OpenEditUserCommand = new DelegateCommand(ExecuteEditAddUserCommand, () => selectedUser!=null);
+            RemoveUserCommand = new DelegateCommand(ExecuteRemoveUserCommand, () => selectedUser!=null);
         }
       
         public IEnumerable<User> Users
