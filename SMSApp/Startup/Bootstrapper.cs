@@ -30,16 +30,15 @@ namespace SMSApp.Startup
             builder.RegisterType<DiseaseManagerView>().AsSelf();
             builder.RegisterType<PestManagerView>().AsSelf();
 
-
             builder.RegisterType<UserAddView>().AsSelf();
             builder.RegisterType<UserAddViewModel>().AsSelf();
-
 
             //models
             builder.RegisterType<User>().AsSelf();
             
             //singleton instance of unitOfWork for data access
-            builder.RegisterInstance<UnitOfWork>(new UnitOfWork(new DataAccess.Context())).As<IUnitOfWork>();
+            builder.RegisterType<Context>().AsSelf().SingleInstance();
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().SingleInstance();
 
             //registers container itself
             builder.RegisterSelf();
