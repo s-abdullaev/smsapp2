@@ -28,31 +28,31 @@ namespace SMSApp.ViewModels
         public bool CanUpdateUsers
         {
             get { return uw.Users.CheckPermission(UserModel, Enums.UserPermissions.CanUpdateUsers); }
-            set { uw.Users.SetPermission(UserModel, Enums.UserPermissions.CanUpdateUsers); RaisePropertyChanged(); }
+            set {uw.Users.ChangePermission(UserModel, Enums.UserPermissions.CanUpdateUsers, value); RaisePropertyChanged(); }
         }
 
         public bool CanUpdateEntities
         {
             get { return uw.Users.CheckPermission(UserModel, Enums.UserPermissions.CanUpdateEntities); }
-            set { uw.Users.SetPermission(UserModel, Enums.UserPermissions.CanUpdateEntities); RaisePropertyChanged(); }
+            set { uw.Users.ChangePermission(UserModel, Enums.UserPermissions.CanUpdateEntities, value); RaisePropertyChanged(); }
         }
 
         public bool CanSendBroadcasts
         {
             get { return uw.Users.CheckPermission(UserModel, Enums.UserPermissions.CanSendBroadcasts); }
-            set { uw.Users.SetPermission(UserModel, Enums.UserPermissions.CanSendBroadcasts); RaisePropertyChanged(); }
+            set { uw.Users.ChangePermission(UserModel, Enums.UserPermissions.CanSendBroadcasts, value); RaisePropertyChanged(); }
         }
 
         public bool CanReadEntities
         {
             get { return uw.Users.CheckPermission(UserModel, Enums.UserPermissions.CanReadEntities); }
-            set { uw.Users.SetPermission(UserModel, Enums.UserPermissions.CanReadEntities); RaisePropertyChanged(); }
+            set { uw.Users.ChangePermission(UserModel, Enums.UserPermissions.CanReadEntities, value); RaisePropertyChanged(); }
         }
 
         public bool CanPrintReports
         {
             get { return uw.Users.CheckPermission(UserModel, Enums.UserPermissions.CanPrintReports); }
-            set { uw.Users.SetPermission(UserModel, Enums.UserPermissions.CanPrintReports); RaisePropertyChanged(); }
+            set { uw.Users.ChangePermission(UserModel, Enums.UserPermissions.CanPrintReports, value); RaisePropertyChanged(); }
         }
 
         //Add User Command
