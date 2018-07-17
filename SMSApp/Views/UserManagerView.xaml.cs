@@ -6,10 +6,10 @@ namespace SMSApp.Views
 {
     public partial class UserManagerView : Window
     {
-        public UserManagerView()
+        public UserManagerView(UserManagerViewModel viewModel)
         {
             InitializeComponent();
-            DataContext = new UserManagerViewModel();
+            DataContext = viewModel;
         }
     }
 }

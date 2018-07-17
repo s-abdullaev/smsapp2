@@ -51,6 +51,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -90,9 +93,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ExtensionMethods\AutofacExtensions.cs" />
+    <Compile Include="Startup\Bootstrapper.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\UserAddViewModel.cs" />
     <Compile Include="ViewModels\UserManagerViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\DiseaseAddView.xaml.cs">
       <DependentUpon>DiseaseAddView.xaml</DependentUpon>
     </Compile>
@@ -129,7 +135,7 @@
     <Compile Include="Views\UserManagerView.xaml.cs">
       <DependentUpon>UserManagerView.xaml</DependentUpon>
     </Compile>
-	<Compile Include="Repositories\BroadcastRepository.cs" />
+    <Compile Include="Repositories\BroadcastRepository.cs" />
     <Compile Include="Repositories\DiseaseRepository.cs" />
     <Compile Include="Repositories\FarmRepository.cs" />
     <Compile Include="Repositories\FarmPlantRepository.cs" />
@@ -241,7 +247,6 @@
       <DependentUpon>201806281259073_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\UserAddModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -286,6 +291,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

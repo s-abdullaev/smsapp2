@@ -2,39 +2,55 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         ShowInTaskbar="False" WindowStartupLocation="CenterScreen" 
-        ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+        ResizeMode="NoResize" SizeToContent="WidthAndHeight" Title="User Details">
+    <Grid Width="349">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+       
+        <Label HorizontalAlignment="Center" Margin="10" FontSize="16" FontWeight="Bold" Grid.Row="0">USER DETAILS</Label>
+        <Grid Grid.Row="1" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0">Name:</Label>
+            <TextBox Margin="0 0 0 2" Grid.Row="0" Grid.Column="1" Text="{Binding UserModel.Name, Mode=TwoWay}"/>
 
-    <StackPanel Margin="10">
-        <Label HorizontalAlignment="Center" Margin="0 0 0 10" FontSize="16" FontWeight="Bold">ADD USER</Label>
-        <WrapPanel Margin="0 0 0 10">
-            <Label Width="80">Name:</Label>
-            <TextBox Width="200" Text="{Binding UserAddModel.Name, UpdateSourceTrigger=PropertyChanged}"/>
-        </WrapPanel>
-        <WrapPanel Margin="0 0 0 10">
-            <Label Width="80">Login:</Label>
-            <TextBox Width="200" Text="{Binding UserAddModel.Login, UpdateSourceTrigger=PropertyChanged}"/>
-        </WrapPanel>
-        <WrapPanel Margin="0 0 0 10">
-            <Label Width="80">Password:</Label>
-            <TextBox Width="200" Text="{Binding UserAddModel.Password, UpdateSourceTrigger=PropertyChanged}"/>
-        </WrapPanel>
-        <WrapPanel Margin="0 0 0 10">
-            <Label Width="80">Email:</Label>
-            <TextBox Width="200" Text="{Binding UserAddModel.Email, UpdateSourceTrigger=PropertyChanged}"/>
-        </WrapPanel>
-        <WrapPanel Margin="0 0 0 10">
-            <Label Width="80" VerticalAlignment="Top">Permissions:</Label>
-            <StackPanel>
-                <CheckBox Margin="0 0 0 5" IsChecked="{Binding UserAddModel.CanUpdateUsers}">Update Users</CheckBox>
-                <CheckBox Margin="0 0 0 5" IsChecked="{Binding UserAddModel.CanReadEntities}">Read Entities</CheckBox>
-                <CheckBox Margin="0 0 0 5" IsChecked="{Binding UserAddModel.CanUpdateEntities}">Update Entities</CheckBox>
-                <CheckBox Margin="0 0 0 5" IsChecked="{Binding UserAddModel.CanSendBroadcasts}">Send Broadcasts</CheckBox>
-                <CheckBox IsChecked="{Binding UserAddModel.CanPrintReports}">Print Reports</CheckBox>
+            <Label Grid.Row="1" Grid.Column="0">Login:</Label>
+            <TextBox Margin="0 0 0 2" Grid.Row="1" Grid.Column="1" Text="{Binding UserModel.Login, Mode=TwoWay}"/>
+
+
+            <Label Grid.Row="2" Grid.Column="0">Password:</Label>
+            <TextBox Margin="0 0 0 2" Grid.Row="2" Grid.Column="1" Text="{Binding UserModel.Password, Mode=TwoWay}"/>
+
+            <Label Grid.Row="3" Grid.Column="0">Email:</Label>
+            <TextBox Margin="0 0 0 2" Grid.Row="3" Grid.Column="1" Text="{Binding UserModel.Email, Mode=TwoWay}"/>
+
+            <Label Grid.Row="4" Grid.Column="0">Permissions:</Label>
+            <StackPanel Margin="0 5 0 0" Grid.Row="4" Grid.Column="1">
+                <CheckBox Margin="0 0 0 5" IsChecked="{Binding CanUpdateUsers, Mode=TwoWay}">Update Users</CheckBox>
+                <CheckBox Margin="0 0 0 5" IsChecked="{Binding CanReadEntities, Mode=TwoWay}">Read Entities</CheckBox>
+                <CheckBox Margin="0 0 0 5" IsChecked="{Binding CanUpdateEntities,Mode=TwoWay}">Update Entities</CheckBox>
+                <CheckBox Margin="0 0 0 5" IsChecked="{Binding CanSendBroadcasts, Mode=TwoWay}">Send Broadcasts</CheckBox>
+                <CheckBox IsChecked="{Binding CanPrintReports, Mode=TwoWay}">Print Reports</CheckBox>
             </StackPanel>
-        </WrapPanel>
-        <WrapPanel HorizontalAlignment="Right">
-            <Button Margin="0 0 10 0" Padding="10 5" Width="80" Command="{Binding AddUserCommand}">Add</Button>
-            <Button Padding="10 5" Width="80" Command="{Binding CancelCommand}">Cancel</Button>
-        </WrapPanel>
-    </StackPanel>
+            
+            <WrapPanel Margin="2 20 2 2" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+                <Button Margin="0 0 10 0"  Width="80" Command="{Binding AddUserCommand}">Save</Button>
+                <!--Closing window is a View's task, so implement it inside View using event handler-->
+                <Button Width="80" Click="Button_Click">Cancel</Button>
+            </WrapPanel>
+        </Grid>
+    </Grid>
+   
 </Window>

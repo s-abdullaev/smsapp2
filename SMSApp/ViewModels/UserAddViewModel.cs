@@ -1,78 +1,68 @@
-﻿using System;
+﻿using Autofac;
+using System;
 using Prism.Mvvm;
 using Prism.Commands;
-using System.ComponentModel;
-
-using SMSApp.Models;
 using SMSApp.DataAccess;
+using SMSApp.Repositories.Core;
 
 namespace SMSApp.ViewModels
 {
-    internal class UserAddViewModel : BindableBase
+    public class UserAddViewModel : ViewModelBase
     {
         //Properties
-        private UserAddModel userAddModel;
-        public UserAddModel UserAddModel
+        private IUnitOfWork uw;
+        private bool _isUpdate;
+
+        public User UserModel { get; set; }
+        
+        //Constructor
+        public UserAddViewModel(IContainer container, IUnitOfWork unitOfWork, User userModel, bool isUpdate=false): base(container)
         {
-            get
-            {
-                return userAddModel;
-            }
-            set
-            {
-                if (userAddModel != null) userAddModel.PropertyChanged -= UserPropertyChanged;
-                SetProperty(ref userAddModel, value);
-                if (userAddModel != null) userAddModel.PropertyChanged += UserPropertyChanged;
-            }
+            _isUpdate = isUpdate;
+
+            uw = unitOfWork;
+            UserModel = userModel;
+            AddUserCommand = new DelegateCommand(ExecuteAddUserCommand);
         }
 
-        //Constructor
-        public UserAddViewModel(object parent)
+        public bool CanUpdateUsers
         {
-            UserAddModel = new UserAddModel();
-            AddUserCommand = new DelegateCommand(ExecuteAddUserCommand, CanExecuteAddUserCommand);
-            CancelCommand = new DelegateCommand(() => ExecuteCancelCommand(parent));
+            get { return uw.Users.CheckPermission(UserModel, Enums.UserPermissions.CanUpdateUsers); }
+            set { uw.Users.SetPermission(UserModel, Enums.UserPermissions.CanUpdateUsers); RaisePropertyChanged(); }
         }
-        
-        #region Commands
+
+        public bool CanUpdateEntities
+        {
+            get { return uw.Users.CheckPermission(UserModel, Enums.UserPermissions.CanUpdateEntities); }
+            set { uw.Users.SetPermission(UserModel, Enums.UserPermissions.CanUpdateEntities); RaisePropertyChanged(); }
+        }
+
+        public bool CanSendBroadcasts
+        {
+            get { return uw.Users.CheckPermission(UserModel, Enums.UserPermissions.CanSendBroadcasts); }
+            set { uw.Users.SetPermission(UserModel, Enums.UserPermissions.CanSendBroadcasts); RaisePropertyChanged(); }
+        }
+
+        public bool CanReadEntities
+        {
+            get { return uw.Users.CheckPermission(UserModel, Enums.UserPermissions.CanReadEntities); }
+            set { uw.Users.SetPermission(UserModel, Enums.UserPermissions.CanReadEntities); RaisePropertyChanged(); }
+        }
+
+        public bool CanPrintReports
+        {
+            get { return uw.Users.CheckPermission(UserModel, Enums.UserPermissions.CanPrintReports); }
+            set { uw.Users.SetPermission(UserModel, Enums.UserPermissions.CanPrintReports); RaisePropertyChanged(); }
+        }
+
         //Add User Command
         public DelegateCommand AddUserCommand { get; set; }
         public void ExecuteAddUserCommand()
         {
-            User user = new User()
-            {
-                Name = UserAddModel.Name,
-                Login = UserAddModel.Login,
-                Password = UserAddModel.Password,
-                Email = UserAddModel.Email,
-                Permissions = UserAddModel.GetPermissions(),
-                CreatedDate = DateTime.Now
-            };
             //Perform data insertion using Repository operations
-        }
-        public bool CanExecuteAddUserCommand()
-        {
-            if (UserAddModel == null)
-                return false;
-            if (String.IsNullOrWhiteSpace(UserAddModel.Name))
-                return false;
-            if (String.IsNullOrWhiteSpace(UserAddModel.Email))
-                return false;
-            if (String.IsNullOrWhiteSpace(UserAddModel.Login))
-                return false;
-            if (String.IsNullOrWhiteSpace(UserAddModel.Password))
-                return false;
-            return true;
-        }
-
-        //Cancel Command
-        public DelegateCommand CancelCommand { get; private set; }
-        private void ExecuteCancelCommand(object parent) => (parent as System.Windows.Window).Close();
-        #endregion
-
-        private void UserPropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            AddUserCommand.RaiseCanExecuteChanged();
+            if(!_isUpdate) uw.Users.Add(UserModel);
+            uw.Complete();
+            CloseAction();
         }
     }
 }

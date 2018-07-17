@@ -5,46 +5,68 @@ using System.Collections.ObjectModel;
 
 using SMSApp.Views;
 using System.Threading.Tasks;
+using Autofac;
+using SMSApp.Repositories.Core;
+using System.Collections.Generic;
 
 namespace SMSApp.ViewModels
 {
-    internal class UserManagerViewModel : BindableBase
+    public class UserManagerViewModel : ViewModelBase
     {
-        private ObservableCollection<User> usersList;
-        public ObservableCollection<User> UsersList
-        {
-            get
-            {
-                return usersList;
-            }
-            set
-            {
-                SetProperty(ref usersList, value);
-            }
-        }
+        private IUnitOfWork uw;
 
-        public UserManagerViewModel()
-        {
-            OpenAddUserCommand = new DelegateCommand(ExecuteOpenAddUserCommand);
-            LoadUsers();
-        }
-
-        private void LoadUsers()
-        {
-            Task.Factory.StartNew(() =>
-            {
-                using (Context context = new Context())
-                {
-                    UsersList = new ObservableCollection<User>(context.Users);
-                }
-            });
-        }
 
         public DelegateCommand OpenAddUserCommand { get; private set; }
+        public DelegateCommand OpenEditUserCommand { get; private set; }
+        public DelegateCommand RemoveUserCommand { get; private set; }
+
+        public UserManagerViewModel(IContainer container, IUnitOfWork unitOfWork) : base(container)
+        {
+            uw = unitOfWork;
+            OpenAddUserCommand = new DelegateCommand(ExecuteOpenAddUserCommand);
+            OpenEditUserCommand = new DelegateCommand(ExecuteEditAddUserCommand, ()=>selectedUser!=null);
+            RemoveUserCommand = new DelegateCommand(ExecuteRemoveUserCommand, ()=>selectedUser!=null);
+        }
+      
+        public IEnumerable<User> Users
+        {
+            get { return uw.Users.GetAll();}
+        }
+
+        private User selectedUser;
+
+        public User SelectedUser
+        {
+            get { return selectedUser; }
+            set { selectedUser = value;
+                RaisePropertyChanged();
+                OpenEditUserCommand.RaiseCanExecuteChanged();
+                RemoveUserCommand.RaiseCanExecuteChanged(); }
+        }
+
         public void ExecuteOpenAddUserCommand()
         {
-            UserAddView view = new UserAddView();
+            UserAddView view = _container.Resolve<UserAddView>();
             view.ShowDialog();
+            RaisePropertyChanged("Users");
+        }
+
+        public void ExecuteEditAddUserCommand()
+        {
+            UserAddView view = _container.Resolve<UserAddView>(
+                new NamedParameter("viewModel", _container.Resolve<UserAddViewModel>(
+                    new NamedParameter("userModel", SelectedUser),
+                    new NamedParameter("isUpdate", true)
+                )));
+            view.ShowDialog();
+            RaisePropertyChanged("Users");
+        }
+
+        public void ExecuteRemoveUserCommand()
+        {
+            uw.Users.Remove(SelectedUser);
+            uw.Complete();
+            RaisePropertyChanged("Users");
         }
     }
 }

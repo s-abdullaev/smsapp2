@@ -2,25 +2,25 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         WindowStartupLocation="CenterScreen" 
-        Height="600" Width="800" ShowInTaskbar="False">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <DataGrid Background="White" ItemsSource="{Binding UsersList}" IsReadOnly="True" AutoGenerateColumns="False">
+        Height="400" Width="800" ShowInTaskbar="False"
+        Title="Users Manager">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Grid.Column="0" Background="White" Margin="5" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser, Mode=TwoWay}" IsReadOnly="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="Auto" Header="User Id" Binding="{Binding UserId}"/>
                 <DataGridTextColumn Width="*" Header="Name" Binding="{Binding Name}"/>
                 <DataGridTextColumn Width="*" Header="Email" Binding="{Binding Email}"/>
-                <DataGridTextColumn Width="*" Header="Login" Binding="{Binding Login}"/>
-                <DataGridTextColumn Width="*" Header="Password" Binding="{Binding Password}"/>
-                <DataGridTextColumn Width="Auto" Header="Permissions" Binding="{Binding Permissions}"/>
+                <DataGridTextColumn Width="Auto" Header="Login" Binding="{Binding Login}"/>
                 <DataGridTextColumn Width="*" Header="Created Date" Binding="{Binding CreatedDate}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <WrapPanel Grid.Row="1" HorizontalAlignment="Right">
-            <Button Padding="10 5" Width="80" Command="{Binding OpenAddUserCommand}">Add User</Button>
-        </WrapPanel>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Right" Margin="5">
+            <Button Margin="0 0 0 5" Width="80" Command="{Binding OpenAddUserCommand}">New</Button>
+            <Button Margin="0 0 0 5" Width="80" Command="{Binding OpenEditUserCommand}">Edit</Button>
+            <Button Width="80" Command="{Binding RemoveUserCommand}">Remove</Button>
+        </StackPanel>
     </Grid>
 </Window>
