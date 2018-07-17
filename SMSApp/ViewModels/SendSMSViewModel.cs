@@ -24,15 +24,16 @@ namespace SMSApp.ViewModels
 
         public DelegateCommand SendSMSCommand { get; set; }
 
-        public SendSMSViewModel(IContainer container, SMSMessage smsMsg) : base(container)
+        public SendSMSViewModel(IContainer container) : base(container)
         {
-            _smsMsg = smsMsg;
+            _smsMsg = new SMSMessage();
             SendSMSCommand = new DelegateCommand(ExecuteSendSMS);
         }
 
         public void ExecuteSendSMS()
         {
             _smsMsg.Send();
+            CloseAction();
         }
     }
 }

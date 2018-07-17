@@ -1,4 +1,5 @@
 ﻿using SMSApp.ViewModels;
+using System;
 using System.Windows;
 
 namespace SMSApp.Views
@@ -12,6 +13,7 @@ namespace SMSApp.Views
         {
             InitializeComponent();
             this.DataContext = viewModel;
+            viewModel.CloseAction = new Action(this.Close);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
