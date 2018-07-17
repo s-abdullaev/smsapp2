@@ -19,6 +19,13 @@
                 <MenuItem Header="_Manage Deseases" Command="{Binding OpenDiseaseManagerCommand}"/>
                 <MenuItem Header="_Manage Pests" Command="{Binding OpenPestManagerCommand}"/>
             </MenuItem>
+            <MenuItem Header="SMS">
+                <MenuItem Header="_Send SMS" Command="{Binding OpenSendSMSCommand}"/>
+                <MenuItem Header="Buy SMS"/>
+                <MenuItem Header="Check SMS Balance"/>
+                <Separator/>
+                <MenuItem Header="_Settings" Command="{Binding OpenSMSSettingsCommand}"/>
+            </MenuItem>
         </Menu>
     </DockPanel>
 </Window>

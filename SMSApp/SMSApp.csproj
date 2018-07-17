@@ -96,6 +96,7 @@
     <Compile Include="ExtensionMethods\AutofacExtensions.cs" />
     <Compile Include="Startup\Bootstrapper.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\SendSMSViewModel.cs" />
     <Compile Include="ViewModels\UserAddViewModel.cs" />
     <Compile Include="ViewModels\UserManagerViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
@@ -128,6 +129,9 @@
     </Compile>
     <Compile Include="Views\PlantManagerView.xaml.cs">
       <DependentUpon>PlantManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SendSMSView.xaml.cs">
+      <DependentUpon>SendSMSView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserAddView.xaml.cs">
       <DependentUpon>UserAddView.xaml</DependentUpon>
@@ -191,7 +195,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\DiseaseAddView.xaml">
+	 <Page Include="Views\DiseaseAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -236,6 +240,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+	<Page Include="Views\SendSMSView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -292,6 +300,17 @@
   <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="HeadwindGSM">
+      <Guid>{2EB5D3F7-51CE-4247-8E04-9BDEBBACA5FC}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

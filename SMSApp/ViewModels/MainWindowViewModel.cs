@@ -1,6 +1,4 @@
-﻿using Prism.Mvvm;
-using Prism.Commands;
-
+﻿using Prism.Commands;
 using SMSApp.Views;
 using Autofac;
 
@@ -16,6 +14,7 @@ namespace SMSApp.ViewModels
             OpenPlantManagerCommand = new DelegateCommand(ExecuteOpenPlantManagerCommand);
             OpenDiseaseManagerCommand = new DelegateCommand(ExecuteOpenDiseaseManagerCommand);
             OpenPestManagerCommand = new DelegateCommand(ExecuteOpenPestManagerCommand);
+            OpenSendSMSCommand = new DelegateCommand(ExecuteOpenSendSMSCommand);
         }
 
         public DelegateCommand OpenUserManagerCommand { get; private set; }
@@ -57,6 +56,13 @@ namespace SMSApp.ViewModels
         private void ExecuteOpenPestManagerCommand()
         {
             PestManagerView view = _container.Resolve<PestManagerView>();
+            view.ShowDialog();
+        }
+
+        public DelegateCommand OpenSendSMSCommand { get; private set; }
+        private void ExecuteOpenSendSMSCommand()
+        {
+            SendSMSView view = _container.Resolve<SendSMSView>();
             view.ShowDialog();
         }
     }
