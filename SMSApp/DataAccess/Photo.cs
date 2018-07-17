@@ -1,5 +1,5 @@
 ﻿using System;
-using EF6CodeFirstDemo.Enums;
+using SMSApp.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SMSApp.DataAccess

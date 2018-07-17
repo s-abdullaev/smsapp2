@@ -22,8 +22,7 @@ namespace SMSApp.Repositories
         /// <returns></returns>
         public bool CheckPermission(User user, UserPermissions permission)
         {
-            var temp = (mContext.Users.Find(user.UserId));
-            return (temp.Permissions & permission) != 0;
+            return (user.Permissions & permission) != 0;
         }
 
         

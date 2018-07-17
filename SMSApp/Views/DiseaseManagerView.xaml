@@ -1,0 +1,39 @@
+﻿<Window x:Class="SMSApp.Views.DiseaseManagerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        ShowInTaskbar="False" WindowStartupLocation="CenterScreen"
+        Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <DataGrid ItemsSource="{Binding DiseasesList}" 
+                  Background="White" 
+                  IsReadOnly="True" 
+                  AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding DiseaseId}"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Scientific name" Binding="{Binding ScientificName}"/>
+                    <DataGridTextColumn Header="Agricultural name" Binding="{Binding AgriculturalName}"/>
+                    <DataGridTextColumn Header="Scientific classification" Binding="{Binding ScientificClassification}"/>
+                    <DataGridTextColumn Header="Agricultural classification" Binding="{Binding AgriculturalClassification}"/>
+                    <DataGridTextColumn Header="Diagnostics" Binding="{Binding Diagnostics}"/>
+                    <DataGridTextColumn Header="Risks" Binding="{Binding Risks}"/>
+                    <DataGridTextColumn Header="Danger rating" Binding="{Binding DangerRating}"/>
+                    <DataGridTextColumn Header="Speed of transmission" Binding="{Binding SpeedOfTransmission}"/>
+                    <DataGridTextColumn Header="Chemical treatment" Binding="{Binding ChemicalTreatment}"/>
+                    <DataGridTextColumn Header="Non-chemical treatment" Binding="{Binding NonChemicalTreatment}"/>
+                    <DataGridTextColumn Header="Vaccinations" Binding="{Binding Vaccinations}"/>
+                    <DataGridTextColumn Header="Lifespan" Binding="{Binding Lifespan}"/>
+                    <DataGridTextColumn Header="Additional notes" Binding="{Binding AdditionalNotes}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Right">
+            <Button Padding="10 5">Add Disease</Button>
+        </WrapPanel>
+    </Grid>
+</Window>
