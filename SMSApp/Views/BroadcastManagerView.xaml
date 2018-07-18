@@ -1,0 +1,28 @@
+﻿<Window x:Class="SMSApp.Views.BroadcastManagerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SMSApp.Views"
+        mc:Ignorable="d"
+        Title="BroadcastView" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Type your message here:"></TextBlock>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBox Text="{Binding MessageText,Mode=TwoWay}"></TextBox>
+            <Button Margin="10 0 0 0" VerticalAlignment="Top" Grid.Column="1" Height="20" Content="Send"></Button>
+        </Grid>
+        <DataGrid ItemsSource="{Binding Farms}" Grid.Row="2">
+            
+        </DataGrid>
+    </Grid>
+</Window>

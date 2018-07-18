@@ -33,6 +33,9 @@ namespace SMSApp.Startup
             builder.RegisterType<UserAddView>().AsSelf();
             builder.RegisterType<UserAddViewModel>().AsSelf();
 
+            builder.RegisterType<SettingsView>().AsSelf();
+            builder.RegisterType<SettingsViewModel>().AsSelf();
+
             //models
             builder.RegisterType<User>().AsSelf();
             
