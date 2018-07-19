@@ -18,6 +18,7 @@ namespace SMSApp.ViewModels
             OpenPestManagerCommand = new DelegateCommand(ExecuteOpenPestManagerCommand);
             OpenSendSMSCommand = new DelegateCommand(ExecuteOpenSendSMSCommand);
             OpenSMSSettingsCommand = new DelegateCommand(ExecuteOpenSMSSettingsCommand);
+            OpenBroadcastCommand = new DelegateCommand(ExecuteOpenBroadcastCommand);
         }
 
         public DelegateCommand OpenUserManagerCommand { get; private set; }
@@ -94,7 +95,17 @@ namespace SMSApp.ViewModels
         public DelegateCommand CHeckSMSCommand { get; private set; }
         private void ExecuteCHeckSMSCommand()
         {
-            SettingsView view = _container.Resolve<SettingsView>();
+            var observer = new HeadwindGSM.SMSDriver();
+            var req = new HeadwindGSM.USSDRequest();
+            req.Content = USSDHelper.GetPropertyFromRegistry("CheckSMS");
+            observer.USSDReply += Observer_USSDReply;
+            req.SendWithReply(observer);
+        }
+
+        public DelegateCommand OpenBroadcastCommand { get; private set; }
+        private void ExecuteOpenBroadcastCommand()
+        {
+            var view = _container.Resolve<BroadcastManagerView>();
             view.ShowDialog();
         }
     }

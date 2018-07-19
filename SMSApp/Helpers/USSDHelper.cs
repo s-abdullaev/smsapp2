@@ -10,7 +10,7 @@ namespace SMSApp.Helpers
             const string subkey = "SMSapp";
             const string keyName = userRoot + "\\" + subkey;
 
-            return Registry.GetValue(keyName, nameOfTheProperty, "*100#") as string;
+            return Registry.GetValue(keyName, nameOfTheProperty, "") as string;
         }
         public static void SetPropertyInRegistry(string nameOfTheProperty, string value)
         {

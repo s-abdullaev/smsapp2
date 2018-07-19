@@ -19,8 +19,11 @@
                 <MenuItem Header="_Manage Deseases" Command="{Binding OpenDiseaseManagerCommand}"/>
                 <MenuItem Header="_Manage Pests" Command="{Binding OpenPestManagerCommand}"/>
             </MenuItem>
-            <MenuItem Header="SMS">
+            <MenuItem Header="_Broadcasts">
                 <MenuItem Header="_Send SMS" Command="{Binding OpenSendSMSCommand}"/>
+                <MenuItem Header="_Send Broadcast" Command="{Binding OpenBroadcastCommand}"/>
+                <MenuItem Header="_Broadcast History" Command="{Binding OpenBroadcastHistoryCommand}"/>
+                <Separator/>
                 <MenuItem Header="Buy SMS" Command="{Binding BuySMSCommand}"/>
                 <MenuItem Header="Check SMS Balance" Command="{Binding CheckSMSCommand}"/>
                 <Separator/>

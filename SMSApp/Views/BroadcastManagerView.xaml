@@ -16,13 +16,34 @@
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition Width="120"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBox Text="{Binding MessageText,Mode=TwoWay}"></TextBox>
-            <Button Margin="10 0 0 0" VerticalAlignment="Top" Grid.Column="1" Height="20" Content="Send"></Button>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button Margin="10 0 0 0" VerticalAlignment="Top" Height="20" Content="Send"></Button>
+                <TextBlock Margin="10 0 0 0" Text="Warning level:" Grid.Row="1"/>
+                <ComboBox Margin="10 0 0 0" Grid.Row="2" ItemsSource="{Binding WarningLevels}">
+                    <ComboBoxItem Content="No threat"></ComboBoxItem>
+                    <ComboBoxItem Content="Low threat"></ComboBoxItem>
+                    <ComboBoxItem Content="Moderate threat"></ComboBoxItem>
+                    <ComboBoxItem Content="High threat"></ComboBoxItem>
+                    <ComboBoxItem Content="Highest threat"></ComboBoxItem>
+                </ComboBox>
+            </Grid>
         </Grid>
         <DataGrid ItemsSource="{Binding Farms}" Grid.Row="2">
-            
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Binding="{Binding IsSelected}"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Address" Binding="{Binding Address}"></DataGridTextColumn>
+                <DataGridTextColumn Header="City" Binding="{Binding City}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Region" Binding="{Binding Region}"></DataGridTextColumn>
+            </DataGrid.Columns>
         </DataGrid>
     </Grid>
 </Window>
