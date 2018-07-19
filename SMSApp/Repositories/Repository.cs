@@ -47,7 +47,7 @@ namespace SMSApp.Repositories
         {
             return mContext.Set<TEntity>().ToList();
         }
-
+                
         public void Remove(TEntity entity)
         {
             mContext.Set<TEntity>().Remove(entity);

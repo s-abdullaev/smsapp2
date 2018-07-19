@@ -13,8 +13,7 @@ namespace SMSApp.Repositories.Core
         /// <param name="permission">permission to check</param>
         /// <returns></returns>
         bool CheckPermission(User user, UserPermissions permission);
-
-        void SetPermission(User user, UserPermissions permission);
+        void ChangePermission(User user, UserPermissions permissions, bool val);
 
         bool AuthUser(string login, string pwd);
 

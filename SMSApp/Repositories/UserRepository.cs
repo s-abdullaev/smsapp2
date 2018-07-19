@@ -22,16 +22,9 @@ namespace SMSApp.Repositories
         /// <returns></returns>
         public bool CheckPermission(User user, UserPermissions permission)
         {
-            var temp = (mContext.Users.Find(user.UserId));
-            return (temp.Permissions & permission) != 0;
+            return (user.Permissions & permission) != 0;
         }
 
-        
-        /// <summary>
-        /// Get user by login (sign up)
-        /// </summary>
-        /// <param name="login"></param>
-        /// <returns></returns>
         public User GetByLogin(string login)
         {
             return mContext.Users
@@ -46,6 +39,17 @@ namespace SMSApp.Repositories
         public void UnsetPermission(User user, UserPermissions permission)
         {
             user.Permissions = user.Permissions & ~(permission);
+        }
+
+        public void ChangePermission(User user, UserPermissions permissions, bool val)
+        {
+            if (val)
+            {
+                SetPermission(user, permissions);
+            } else
+            {
+                UnsetPermission(user, permissions);
+            }
         }
 
         public void ResetPermission(User user)

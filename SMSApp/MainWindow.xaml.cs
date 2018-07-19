@@ -1,30 +1,17 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using SMSApp.DataAccess;
 using SMSApp.Repositories;
+
+using SMSApp.ViewModels;
 
 namespace SMSApp
 {
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(MainWindowViewModel viewModel)
         {
             InitializeComponent();
-
-            using (DataAccess.Context context = new DataAccess.Context())
-            {
-                var uow = new UnitOfWork(context);
-                uow.Users.Add(new User
-                {
-                    UserId=1,
-                    Login = "Logger",
-                    Name = "somename",
-                    CreatedDate = DateTime.Now,
-                    Permissions = 3,
-                });
-                uow.Complete();
-                var temp = uow.Users.Get(1);
-            }
+            DataContext = viewModel;
         }
     }
 }

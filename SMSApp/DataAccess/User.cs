@@ -1,11 +1,17 @@
 ﻿using SMSApp.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SMSApp.DataAccess
 {
     public class User
     {
+        public User()
+        {
+            CreatedDate = DateTime.Now;
+        }
+
         public int UserId { get; set; }
         public string Name { get; set; }
         public string Login { get; set; }
@@ -13,7 +19,6 @@ namespace SMSApp.DataAccess
         public string Email { get; set; }
         public UserPermissions Permissions { get; set; }
         public DateTime CreatedDate { get; set; }
-
 
         public virtual ICollection<Farm> Farms { get; set; }
         public virtual ICollection<FarmOwner> FarmOwners { get; set; }
