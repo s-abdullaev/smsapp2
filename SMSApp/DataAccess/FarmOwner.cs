@@ -1,4 +1,4 @@
-﻿using SMSApp.Helpers;
+﻿using SMSApp.DataAccess.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;

@@ -1,4 +1,4 @@
-﻿namespace SMSApp.Helpers
+﻿namespace SMSApp.DataAccess.Core
 {
     public interface ISelectable
     {

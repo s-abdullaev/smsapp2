@@ -1,15 +1,21 @@
 ﻿using Prism.Commands;
 using SMSApp.Views;
 using Autofac;
-using SMSApp.Helpers;
 using System.Windows;
+using SMSApp.Services;
 
 namespace SMSApp.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public MainWindowViewModel(IContainer container):base(container)
+        
+
+        public MainWindowViewModel(IContainer container, AlertsService alertsService, SMSService smsService):base(container)
         {
+
+            _alertSvc = alertsService;
+            _smsSvc = smsService;
+
             OpenUserManagerCommand = new DelegateCommand(ExecuteOpenUserManagerCommand);
             OpenFarmOwnerManagerCommand = new DelegateCommand(ExecuteOpenFarmOwnerManagerCommand);
             OpenFarmManagerCommand = new DelegateCommand(ExecuteOpenFarmManagerCommand);
@@ -19,6 +25,25 @@ namespace SMSApp.ViewModels
             OpenSendSMSCommand = new DelegateCommand(ExecuteOpenSendSMSCommand);
             OpenSMSSettingsCommand = new DelegateCommand(ExecuteOpenSMSSettingsCommand);
             OpenBroadcastCommand = new DelegateCommand(ExecuteOpenBroadcastCommand);
+
+            BuySMSCommand = new DelegateCommand(ExecuteBuySMSCommand, () => !IsUSSDSending);
+            CheckSMSCommand = new DelegateCommand(ExecuteCheckSMSCommand, () => !IsUSSDSending);
+        }
+
+        private AlertsService _alertSvc;
+        private SMSService _smsSvc;
+
+        private bool _isUSSDSending;
+
+        public bool IsUSSDSending
+        {
+            get { return _isUSSDSending; }
+            set {
+                _isUSSDSending = value;
+                RaisePropertyChanged();
+                BuySMSCommand.RaiseCanExecuteChanged();
+                CheckSMSCommand.RaiseCanExecuteChanged();
+            }
         }
 
         public DelegateCommand OpenUserManagerCommand { get; private set; }
@@ -77,36 +102,29 @@ namespace SMSApp.ViewModels
             view.ShowDialog();
         }
 
-        public DelegateCommand BuySMSCommand { get; private set; }
-        private void ExecuteBuySMSCommand()
-        {
-            var observer = new HeadwindGSM.SMSDriver();
-            var req = new HeadwindGSM.USSDRequest();
-            req.Content = USSDHelper.GetPropertyFromRegistry("BuySMS");
-            observer.USSDReply += Observer_USSDReply;
-            req.SendWithReply(observer);
-        }
-
-        private void Observer_USSDReply(string sContent, uint nCode, string sRcpt)
-        {
-            MessageBox.Show(sContent);
-        }
-
-        public DelegateCommand CHeckSMSCommand { get; private set; }
-        private void ExecuteCHeckSMSCommand()
-        {
-            var observer = new HeadwindGSM.SMSDriver();
-            var req = new HeadwindGSM.USSDRequest();
-            req.Content = USSDHelper.GetPropertyFromRegistry("CheckSMS");
-            observer.USSDReply += Observer_USSDReply;
-            req.SendWithReply(observer);
-        }
-
         public DelegateCommand OpenBroadcastCommand { get; private set; }
         private void ExecuteOpenBroadcastCommand()
         {
             var view = _container.Resolve<BroadcastManagerView>();
             view.ShowDialog();
+        }
+
+        public DelegateCommand BuySMSCommand { get; private set; }
+        private async void ExecuteBuySMSCommand()
+        {
+
+            IsUSSDSending = true;
+            _alertSvc.ShowInfoMsg(await _smsSvc.SendBuySMS());
+            IsUSSDSending = false;
+        }
+
+        
+        public DelegateCommand CheckSMSCommand { get; private set; }
+        private async void ExecuteCheckSMSCommand()
+        {
+            IsUSSDSending = true;
+            _alertSvc.ShowInfoMsg(await _smsSvc.SendCheckSMS());
+            IsUSSDSending = false;
         }
     }
 }

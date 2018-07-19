@@ -8,7 +8,7 @@ namespace SMSApp.Views
     /// </summary>
     public partial class SettingsView : Window
     {
-        public SettingsView(SettingsViewModel model)
+        public SettingsView(BroadcastSettingsViewModel model)
         {
             InitializeComponent();
             model.CloseAction = new System.Action(this.Close);

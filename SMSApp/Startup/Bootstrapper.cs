@@ -3,6 +3,7 @@ using SMSApp.DataAccess;
 using SMSApp.ExtensionMethods;
 using SMSApp.Repositories;
 using SMSApp.Repositories.Core;
+using SMSApp.Services;
 using SMSApp.ViewModels;
 using SMSApp.Views;
 
@@ -34,7 +35,7 @@ namespace SMSApp.Startup
             builder.RegisterType<UserAddViewModel>().AsSelf();
 
             builder.RegisterType<SettingsView>().AsSelf();
-            builder.RegisterType<SettingsViewModel>().AsSelf();
+            builder.RegisterType<BroadcastSettingsViewModel>().AsSelf();
 
             builder.RegisterType<BroadcastManagerView>().AsSelf();
             builder.RegisterType<BroadcastManagerViewModel>().AsSelf();
@@ -42,9 +43,11 @@ namespace SMSApp.Startup
             //models
             builder.RegisterType<User>().AsSelf();
             
+
             //singleton instance of unitOfWork for data access
             builder.RegisterType<Context>().AsSelf().SingleInstance();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().SingleInstance();
+            builder.RegisterType<SMSService>().AsSelf().SingleInstance();
 
             //registers container itself
             builder.RegisterSelf();

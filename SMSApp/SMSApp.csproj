@@ -94,8 +94,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ExtensionMethods\AutofacExtensions.cs" />
-    <Compile Include="Helpers\ISelectable.cs" />
-    <Compile Include="Helpers\USSDHelper.cs" />
+    <Compile Include="DataAccess\Core\ISelectable.cs" />
+    <Compile Include="ExtensionMethods\RegistryExtensions.cs" />
+    <Compile Include="Services\AlertsService.cs" />
+    <Compile Include="Services\SMSService.cs" />
     <Compile Include="Migrations\201807172316494_messagesMessageTextAdded.cs" />
     <Compile Include="Migrations\201807172316494_messagesMessageTextAdded.Designer.cs">
       <DependentUpon>201807172316494_messagesMessageTextAdded.cs</DependentUpon>
@@ -104,7 +106,7 @@
     <Compile Include="ViewModels\BroadcastManagerViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\SendSMSViewModel.cs" />
-    <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\BroadcastSettingsViewModel.cs" />
     <Compile Include="ViewModels\UserAddViewModel.cs" />
     <Compile Include="ViewModels\UserManagerViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
