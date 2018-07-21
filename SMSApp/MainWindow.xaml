@@ -26,6 +26,12 @@
                 <Separator/>
                 <MenuItem Header="_Settings" Command="{Binding OpenSMSSettingsCommand}"/>
             </MenuItem>
+            <MenuItem Header="Map">
+                <MenuItem Header="_Open Map" Command="{Binding OpenMapCommand}"/>
+                <MenuItem Header="Edit Map"/>
+                <Separator/>
+                <MenuItem Header="_Settings"/>
+            </MenuItem>
         </Menu>
     </DockPanel>
 </Window>

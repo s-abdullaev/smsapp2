@@ -15,6 +15,14 @@ namespace SMSApp.ViewModels
             OpenDiseaseManagerCommand = new DelegateCommand(ExecuteOpenDiseaseManagerCommand);
             OpenPestManagerCommand = new DelegateCommand(ExecuteOpenPestManagerCommand);
             OpenSendSMSCommand = new DelegateCommand(ExecuteOpenSendSMSCommand);
+
+
+
+
+            OpenMapCommand = new DelegateCommand(ExecuteOpenMapCommand);
+
+
+
         }
 
         public DelegateCommand OpenUserManagerCommand { get; private set; }
@@ -65,5 +73,19 @@ namespace SMSApp.ViewModels
             SendSMSView view = _container.Resolve<SendSMSView>();
             view.ShowDialog();
         }
+
+
+
+
+
+        public DelegateCommand OpenMapCommand { get; private set; }
+        private void ExecuteOpenMapCommand()
+        {
+            ArcgisMapView view = _container.Resolve<ArcgisMapView>();
+            view.ShowDialog();
+        }
+
+
+
     }
 }

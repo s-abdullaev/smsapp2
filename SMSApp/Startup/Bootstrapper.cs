@@ -24,6 +24,15 @@ namespace SMSApp.Startup
             builder.RegisterType<SendSMSView>().AsSelf();
             builder.RegisterType<SendSMSViewModel>().AsSelf();
 
+
+
+            builder.RegisterType<ArcgisMapView>().AsSelf();
+            //builder.RegisterType<MapViewModel>().AsSelf();
+
+
+
+
+
             builder.RegisterType<FarmOwnerManagerView>().AsSelf();
             builder.RegisterType<FarmManagerView>().AsSelf();
             builder.RegisterType<PlantManagerView>().AsSelf();
