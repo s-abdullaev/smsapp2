@@ -98,6 +98,10 @@
     <Compile Include="Migrations\201807172316494_messagesMessageTextAdded.Designer.cs">
       <DependentUpon>201807172316494_messagesMessageTextAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807180907298_messagesSentToFarms.cs" />
+    <Compile Include="Migrations\201807180907298_messagesSentToFarms.Designer.cs">
+      <DependentUpon>201807180907298_messagesSentToFarms.cs</DependentUpon>
+    </Compile>
     <Compile Include="Startup\Bootstrapper.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\SendSMSViewModel.cs" />
@@ -277,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807172316494_messagesMessageTextAdded.resx">
       <DependentUpon>201807172316494_messagesMessageTextAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807180907298_messagesSentToFarms.resx">
+      <DependentUpon>201807180907298_messagesSentToFarms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
