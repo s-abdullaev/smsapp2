@@ -96,6 +96,10 @@
     <Compile Include="ExtensionMethods\AutofacExtensions.cs" />
     <Compile Include="DataAccess\Core\ISelectable.cs" />
     <Compile Include="ExtensionMethods\RegistryExtensions.cs" />
+    <Compile Include="Migrations\201807242250247_users_contraints.cs" />
+    <Compile Include="Migrations\201807242250247_users_contraints.Designer.cs">
+      <DependentUpon>201807242250247_users_contraints.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\AlertsService.cs" />
     <Compile Include="Services\SMSService.cs" />
     <Compile Include="Migrations\201807172316494_messagesMessageTextAdded.cs" />
@@ -107,8 +111,12 @@
       <DependentUpon>201807180907298_messagesSentToFarms.cs</DependentUpon>
     </Compile>
     <Compile Include="Startup\Bootstrapper.cs" />
+    <Compile Include="Validation\ModelWrapper.cs" />
+    <Compile Include="Validation\NotifyDataErrorBase.cs" />
+    <Compile Include="Validation\ValidationModelBase.cs" />
     <Compile Include="ViewModels\BroadcastManagerViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\NavigationMenuViewModel.cs" />
     <Compile Include="ViewModels\SendSMSViewModel.cs" />
     <Compile Include="ViewModels\BroadcastSettingsViewModel.cs" />
     <Compile Include="ViewModels\UserAddViewModel.cs" />
@@ -134,6 +142,9 @@
     </Compile>
     <Compile Include="Views\FarmOwnerManagerView.xaml.cs">
       <DependentUpon>FarmOwnerManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NavigationMenuView.xaml.cs">
+      <DependentUpon>NavigationMenuView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PestAddView.xaml.cs">
       <DependentUpon>PestAddView.xaml</DependentUpon>
@@ -243,6 +254,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\NavigationMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PestAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -305,6 +320,9 @@
     <EmbeddedResource Include="Migrations\201807180907298_messagesSentToFarms.resx">
       <DependentUpon>201807180907298_messagesSentToFarms.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807242250247_users_contraints.resx">
+      <DependentUpon>201807242250247_users_contraints.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -333,6 +351,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
+    <Folder Include="Events\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
