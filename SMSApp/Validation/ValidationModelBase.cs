@@ -8,9 +8,17 @@ namespace SMSApp.Validation
 {
     public class ValidationModelBase : BindableBase, IDataErrorInfo
     {
+
+        private List<ValidationResult> errors= new List<ValidationResult>();
+
         public string Error
         {
             get { return null; }
+        }
+
+        public bool HasErrors
+        {
+            get { return errors.Any(); }
         }
 
         public string this[string propertyName]
@@ -19,11 +27,13 @@ namespace SMSApp.Validation
             {
                 var value = GetType().GetProperty(propertyName).GetValue(this);
                 var context = new ValidationContext(this) { MemberName = propertyName };
-                var results = new List<ValidationResult>();
+                errors = new List<ValidationResult>();
 
-                Validator.TryValidateProperty(value, context, results);
+                Validator.TryValidateProperty(value, context, errors);
 
-                return results.Any()?results.First().ErrorMessage:null;
+                RaisePropertyChanged("HasErrors");
+
+                return errors.Any()?errors.First().ErrorMessage:null;
             }
         }
     }

@@ -17,13 +17,19 @@ namespace SMSApp.DataAccess
         public int UserId { get; set; }
 
 
-        [Required(ErrorMessage ="This is field is required")]
+        [Required]
         public string Name { get; set; }
 
-
+        [Required]
         public string Login { get; set; }
+
+        [Required]
+        [StringLength(50,MinimumLength=5)]
         public string Password { get; set; }
+
+        [EmailAddress]
         public string Email { get; set; }
+
         public UserPermissions Permissions { get; set; }
         public DateTime CreatedDate { get; set; }
 

@@ -100,6 +100,10 @@
     <Compile Include="Migrations\201807242250247_users_contraints.Designer.cs">
       <DependentUpon>201807242250247_users_contraints.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807251149549_userValidationChanges.cs" />
+    <Compile Include="Migrations\201807251149549_userValidationChanges.Designer.cs">
+      <DependentUpon>201807251149549_userValidationChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\AlertsService.cs" />
     <Compile Include="Services\SMSService.cs" />
     <Compile Include="Migrations\201807172316494_messagesMessageTextAdded.cs" />
@@ -322,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807242250247_users_contraints.resx">
       <DependentUpon>201807242250247_users_contraints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807251149549_userValidationChanges.resx">
+      <DependentUpon>201807251149549_userValidationChanges.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
