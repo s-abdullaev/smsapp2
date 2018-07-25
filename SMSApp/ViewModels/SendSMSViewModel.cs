@@ -1,38 +1,45 @@
 ﻿using Autofac;
 using Prism.Commands;
 using HeadwindGSM;
+using SMSApp.Services;
 
 namespace SMSApp.ViewModels
 {
     public class SendSMSViewModel : ViewModelBase
     {
-        
+        private string _sendTo;
+        private string _message;
+        private SMSService _smsSvc;
+
+        public SendSMSViewModel(IContainer _container, SMSService smsSvc): base(_container)
+        {
+            _smsSvc = smsSvc;
+        }
+
+
         public string SendTo
         {
-            get { return _smsMsg.To; }
-            set { _smsMsg.To = value; RaisePropertyChanged(); }
+            get { return _sendTo; }
+            set {_sendTo = value; RaisePropertyChanged(); }
         }
 
 
         public string Message
         {
-            get { return _smsMsg.Body; }
-            set { _smsMsg.Body = value; RaisePropertyChanged(); }
+            get { return _message; }
+            set { _message = value; RaisePropertyChanged(); }
         }
-
-        private SMSMessage _smsMsg;
 
         public DelegateCommand SendSMSCommand { get; set; }
 
         public SendSMSViewModel(IContainer container) : base(container)
         {
-            _smsMsg = new SMSMessage();
             SendSMSCommand = new DelegateCommand(ExecuteSendSMS);
         }
 
         public void ExecuteSendSMS()
         {
-            _smsMsg.Send();
+            _smsSvc.SendSMS(SendTo, Message);
             CloseAction();
         }
     }

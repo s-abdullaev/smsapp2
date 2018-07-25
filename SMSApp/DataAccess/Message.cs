@@ -11,6 +11,8 @@ namespace SMSApp.DataAccess
         public MessageStatuses Status { get; set; }
         [Column("Feedback", TypeName = "ntext")]
         public string Feedback { get; set; }
+        [Column("MessageText", TypeName = "ntext")]
+        public string MessageText { get; set; }
         public DateTime Date { get; set; }
 
         /*FOREIGN KEYS*/
@@ -19,7 +21,7 @@ namespace SMSApp.DataAccess
         public virtual Broadcast Broadcast { get; set; }
 
         [Index("IX_UniqueMessage", 2, IsUnique = true)]
-        public int FarmOwnerId { get; set; }
-        public FarmOwner FarmOwner { get; set; }
+        public int FarmId { get; set; }
+        public Farm Farm { get; set; }
     }
 }

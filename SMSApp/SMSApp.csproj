@@ -54,6 +54,9 @@
     <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.3\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -97,13 +100,48 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ExtensionMethods\AutofacExtensions.cs" />
+    <Compile Include="DataAccess\Core\ISelectable.cs" />
+    <Compile Include="ExtensionMethods\RegistryExtensions.cs" />
+    <Compile Include="ExtensionMethods\StringExtensions.cs" />
+    <Compile Include="Migrations\201807242250247_users_contraints.cs" />
+    <Compile Include="Migrations\201807242250247_users_contraints.Designer.cs">
+      <DependentUpon>201807242250247_users_contraints.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807251149549_userValidationChanges.cs" />
+    <Compile Include="Migrations\201807251149549_userValidationChanges.Designer.cs">
+      <DependentUpon>201807251149549_userValidationChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807251307006_diseaseValidations.cs" />
+    <Compile Include="Migrations\201807251307006_diseaseValidations.Designer.cs">
+      <DependentUpon>201807251307006_diseaseValidations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AlertsService.cs" />
+    <Compile Include="Services\SMSService.cs" />
+    <Compile Include="Migrations\201807172316494_messagesMessageTextAdded.cs" />
+    <Compile Include="Migrations\201807172316494_messagesMessageTextAdded.Designer.cs">
+      <DependentUpon>201807172316494_messagesMessageTextAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807180907298_messagesSentToFarms.cs" />
+    <Compile Include="Migrations\201807180907298_messagesSentToFarms.Designer.cs">
+      <DependentUpon>201807180907298_messagesSentToFarms.cs</DependentUpon>
+    </Compile>
     <Compile Include="Startup\Bootstrapper.cs" />
+    <Compile Include="Validation\ModelWrapper.cs" />
+    <Compile Include="Validation\NotifyDataErrorBase.cs" />
+    <Compile Include="Validation\ValidationModelBase.cs" />
+    <Compile Include="ViewModels\BroadcastManagerViewModel.cs" />
+    <Compile Include="ViewModels\EntityManagerViewModel.cs" />
     <Compile Include="ViewModels\ArcgisMapViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\NavigationMenuViewModel.cs" />
     <Compile Include="ViewModels\SendSMSViewModel.cs" />
+    <Compile Include="ViewModels\BroadcastSettingsViewModel.cs" />
     <Compile Include="ViewModels\UserAddViewModel.cs" />
     <Compile Include="ViewModels\UserManagerViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\BroadcastManagerView.xaml.cs">
+      <DependentUpon>BroadcastManagerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DiseaseAddView.xaml.cs">
       <DependentUpon>DiseaseAddView.xaml</DependentUpon>
     </Compile>
@@ -122,6 +160,9 @@
     <Compile Include="Views\FarmOwnerManagerView.xaml.cs">
       <DependentUpon>FarmOwnerManagerView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\NavigationMenuView.xaml.cs">
+      <DependentUpon>NavigationMenuView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ArcgisMapView.xaml.cs">
       <DependentUpon>ArcgisMapView.xaml</DependentUpon>
     </Compile>
@@ -139,6 +180,9 @@
     </Compile>
     <Compile Include="Views\SendSMSView.xaml.cs">
       <DependentUpon>SendSMSView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserAddView.xaml.cs">
       <DependentUpon>UserAddView.xaml</DependentUpon>
@@ -202,6 +246,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\BroadcastManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DiseaseAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -226,6 +274,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\NavigationMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ArcgisMapView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -243,6 +295,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PlantManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -282,6 +338,21 @@
     <EmbeddedResource Include="Migrations\201806281259073_Initial.resx">
       <DependentUpon>201806281259073_Initial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807172316494_messagesMessageTextAdded.resx">
+      <DependentUpon>201807172316494_messagesMessageTextAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807180907298_messagesSentToFarms.resx">
+      <DependentUpon>201807180907298_messagesSentToFarms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807242250247_users_contraints.resx">
+      <DependentUpon>201807242250247_users_contraints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807251149549_userValidationChanges.resx">
+      <DependentUpon>201807251149549_userValidationChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807251307006_diseaseValidations.resx">
+      <DependentUpon>201807251307006_diseaseValidations.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -310,6 +381,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
+    <Folder Include="Events\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
