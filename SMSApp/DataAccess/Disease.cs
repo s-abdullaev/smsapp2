@@ -1,23 +1,33 @@
 ﻿using SMSApp.Enums;
+using SMSApp.Validation;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SMSApp.DataAccess
 {
-    public class Disease
+    public class Disease:ValidationModelBase
     {
         public int DiseaseId { get; set; }
+
+        [Required]
         public string Name { get; set; }
+
         public string ScientificName { get; set; }
         public string AgriculturalName { get; set; }
         public string ScientificClassification { get; set; }
         public string AgriculturalClassification { get; set; }
+
+
         [Column("Risks", TypeName = "ntext")]
         public string Risks { get; set; }
         public DangerRating DangerRating { get; set; }
         public string SpeedOfTransmission { get; set; }
+
+
         [Column("Vaccinations", TypeName = "ntext")]
         public string Vaccinations { get; set; }
+
         [Column("Diagnostics", TypeName = "ntext")]
         public string Diagnostics { get; set; }
         [Column("ChemicalTreatment", TypeName = "ntext")]
