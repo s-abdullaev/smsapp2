@@ -17,6 +17,11 @@ namespace SMSApp.Repositories
             Instance = this;
         }
 
+        public IRepository<T> GetRepository<T>(string repoName) where T : class
+        {
+            return (IRepository<T>)GetType().GetProperty(repoName).GetValue(this);
+        }
+
         public IUserRepository Users { get; private set; }
 
         public IBroadcastRepository Broadcasts => throw new System.NotImplementedException();

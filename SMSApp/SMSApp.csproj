@@ -96,6 +96,7 @@
     <Compile Include="ExtensionMethods\AutofacExtensions.cs" />
     <Compile Include="DataAccess\Core\ISelectable.cs" />
     <Compile Include="ExtensionMethods\RegistryExtensions.cs" />
+    <Compile Include="ExtensionMethods\StringExtensions.cs" />
     <Compile Include="Migrations\201807242250247_users_contraints.cs" />
     <Compile Include="Migrations\201807242250247_users_contraints.Designer.cs">
       <DependentUpon>201807242250247_users_contraints.cs</DependentUpon>
@@ -119,6 +120,7 @@
     <Compile Include="Validation\NotifyDataErrorBase.cs" />
     <Compile Include="Validation\ValidationModelBase.cs" />
     <Compile Include="ViewModels\BroadcastManagerViewModel.cs" />
+    <Compile Include="ViewModels\EntityManagerViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NavigationMenuViewModel.cs" />
     <Compile Include="ViewModels\SendSMSViewModel.cs" />

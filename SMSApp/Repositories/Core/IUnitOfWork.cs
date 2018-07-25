@@ -17,5 +17,7 @@ namespace SMSApp.Repositories.Core
         IPlantRepository Plants { get; }
         ISoilReadingRepository SoilReadings { get; }
         IUserRepository Users { get; }
+
+        IRepository<T> GetRepository<T>(string repoName) where T : class;
     }
 }
