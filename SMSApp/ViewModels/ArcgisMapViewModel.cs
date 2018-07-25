@@ -435,12 +435,12 @@ namespace SMSApp.ViewModels
         private void ExecuteSaveMapDataCommand()
         {
             ExecuteZero();
-            InfoText = "Saving...";
+            //InfoText = "Saving...";
             string poinsJson = pointsData.ToJson();
             File.WriteAllText("pointsData.json", poinsJson);
             string polygonsJson = polygonsData.ToJson();
             File.WriteAllText("polygonsData.json", polygonsJson);
-            InfoText = "Saved successfully";
+            //InfoText = "Saved successfully";
         }
 
     }
