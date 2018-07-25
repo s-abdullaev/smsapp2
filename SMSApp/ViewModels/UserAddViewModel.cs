@@ -22,7 +22,19 @@ namespace SMSApp.ViewModels
 
             uw = unitOfWork;
             UserModel = userModel;
-            AddUserCommand = new DelegateCommand(ExecuteAddUserCommand);
+
+            UserModel.PropertyChanged += UserModel_PropertyChanged;
+            AddUserCommand = new DelegateCommand(ExecuteAddUserCommand, CanExecuteAddUserCommand);
+        }
+
+        private void UserModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "HasErrors") AddUserCommand.RaiseCanExecuteChanged();
+        }
+
+        private bool CanExecuteAddUserCommand()
+        {
+            return UserModel != null && !UserModel.HasErrors;
         }
 
         public bool CanUpdateUsers

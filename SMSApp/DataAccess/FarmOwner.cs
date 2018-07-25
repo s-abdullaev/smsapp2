@@ -1,10 +1,11 @@
-﻿using System;
+﻿using SMSApp.DataAccess.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SMSApp.DataAccess
 {
-    public class FarmOwner
+    public class FarmOwner : ISelectable
     {
         public int FarmOwnerId { get; set; }
         public string LastName { get; set; }
@@ -30,5 +31,10 @@ namespace SMSApp.DataAccess
         public virtual ICollection<Farm> Farms { get; set; }
         public virtual ICollection<Broadcast> Broadcasts { get; set; }
         public virtual ICollection<Photo> Photos { get; set; }
+        /// <summary>
+        /// Interface implementation
+        /// </summary>
+        [NotMapped]
+        public bool IsSelected { get; set; }
     }
 }
