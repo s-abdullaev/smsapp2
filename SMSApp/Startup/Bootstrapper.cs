@@ -43,7 +43,6 @@ namespace SMSApp.Startup
             //models
             builder.RegisterType<User>().AsSelf();
             
-
             //singleton instance of unitOfWork for data access
             builder.RegisterType<Context>().AsSelf().SingleInstance();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().SingleInstance();
@@ -51,7 +50,6 @@ namespace SMSApp.Startup
 
             //registers container itself
             builder.RegisterSelf();
-            
 
             return builder.Build();
         }
