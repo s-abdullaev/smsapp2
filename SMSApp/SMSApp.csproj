@@ -124,9 +124,12 @@
     <Compile Include="Validation\NotifyDataErrorBase.cs" />
     <Compile Include="Validation\ValidationModelBase.cs" />
     <Compile Include="ViewModels\BroadcastManagerViewModel.cs" />
+    <Compile Include="ViewModels\DiseaseManagerViewModel.cs" />
     <Compile Include="ViewModels\EntityManagerViewModel.cs" />
+    <Compile Include="ViewModels\FarmOwnerManagerViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NavigationMenuViewModel.cs" />
+    <Compile Include="ViewModels\PestManagerViewModel.cs" />
     <Compile Include="ViewModels\SendSMSViewModel.cs" />
     <Compile Include="ViewModels\BroadcastSettingsViewModel.cs" />
     <Compile Include="ViewModels\UserAddViewModel.cs" />
