@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Prism.Events;
 using SMSApp.DataAccess;
 using SMSApp.ExtensionMethods;
 using SMSApp.Repositories;
@@ -16,6 +17,8 @@ namespace SMSApp.Startup
         {
             var builder = new ContainerBuilder();
 
+            builder.RegisterType<EventAggregator>().As<IEventAggregator>().SingleInstance();
+            
             builder.RegisterType<MainWindow>().AsSelf();
             builder.RegisterType<MainWindowViewModel>().AsSelf();
             
@@ -24,6 +27,9 @@ namespace SMSApp.Startup
 
             builder.RegisterType<SendSMSView>().AsSelf();
             builder.RegisterType<SendSMSViewModel>().AsSelf();
+
+            builder.RegisterType<NavigationMenuViewModel>().AsSelf();
+
 
             builder.RegisterType<FarmOwnerManagerView>().AsSelf();
             builder.RegisterType<FarmManagerView>().AsSelf();
@@ -47,6 +53,7 @@ namespace SMSApp.Startup
             builder.RegisterType<Context>().AsSelf().SingleInstance();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().SingleInstance();
             builder.RegisterType<SMSService>().AsSelf().SingleInstance();
+            builder.RegisterType<AlertsService>().AsSelf().SingleInstance();
 
             //registers container itself
             builder.RegisterSelf();

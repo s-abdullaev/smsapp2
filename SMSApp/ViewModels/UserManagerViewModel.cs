@@ -1,10 +1,6 @@
-﻿using Prism.Mvvm;
-using Prism.Commands;
+﻿using Prism.Commands;
 using SMSApp.DataAccess;
-using System.Collections.ObjectModel;
-
 using SMSApp.Views;
-using System.Threading.Tasks;
 using Autofac;
 using SMSApp.Repositories.Core;
 using System.Collections.Generic;
