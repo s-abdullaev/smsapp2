@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SMSApp.DataAccess
 {
-    public class FarmPlant
+    public class FarmPlant:Validation.ValidationModelBase
     {
         public int FarmPlantId { get; set; }
         [Index("IX_UniqueFarmPlant", 3, IsUnique = true)]

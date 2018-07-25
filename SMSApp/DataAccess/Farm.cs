@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SMSApp.DataAccess
 {
-    public class Farm
+    public class Farm:Validation.ValidationModelBase
     {
         public int FarmId { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Address { get; set; }
         public string City { get; set; }
         public string Region { get; set; }

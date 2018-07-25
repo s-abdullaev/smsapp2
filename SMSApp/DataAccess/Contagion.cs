@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SMSApp.DataAccess
 {
-    public class Contagion
+    public class Contagion :Validation.ValidationModelBase
     {
         public int ContagionId { get; set; }
         public float DamageInMoney { get; set; }

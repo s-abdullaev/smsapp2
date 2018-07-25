@@ -1,14 +1,17 @@
 ﻿using SMSApp.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SMSApp.DataAccess
 {
-    public class Broadcast
+    public class Broadcast:Validation.ValidationModelBase
     {
+        
         public int BroadcastId { get; set; }
         [Column("MessageText", TypeName = "ntext")]
+        [Required]
         public string MessageText { get; set; }
         public BroadcastWarningLevels WarningLevel { get; set; }
         public DateTime Date { get; set; }
