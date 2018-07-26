@@ -19,9 +19,15 @@ namespace SMSApp.Views
     /// </summary>
     public partial class PlantAddView : Window
     {
-        public PlantAddView()
+        public PlantAddView(ViewModels.PlantAddViewModel viewModel)
         {
             InitializeComponent();
+            DataContext = viewModel;
+            viewModel.CloseAction = new Action(this.Close);
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SMSApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,10 @@ namespace SMSApp.Views
     /// </summary>
     public partial class FarmManagerView : Window
     {
-        public FarmManagerView()
+        public FarmManagerView(FarmManagerViewModel viewModel)
         {
             InitializeComponent();
+            this.DataContext = viewModel;
         }
     }
 }

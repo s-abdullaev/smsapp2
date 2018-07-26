@@ -1,12 +1,14 @@
 ﻿using SMSApp.Enums;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SMSApp.DataAccess
 {
-    public class Pest
+    public class Pest:Validation.ValidationModelBase
     {
         public int PestId { get; set; }
+        [Required]
         public string Name { get; set; }
         public string ScientificName { get; set; }
         public string AgriculturalName { get; set; }

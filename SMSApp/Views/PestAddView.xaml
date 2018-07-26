@@ -4,43 +4,44 @@
         WindowStartupLocation="CenterScreen" ShowInTaskbar="False" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
     <DockPanel Margin="20">
         <Label DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="0 0 0 10" FontSize="16" FontWeight="Bold">ADD PEST</Label>
-        <WrapPanel HorizontalAlignment="Right" DockPanel.Dock="Bottom" Margin="0 10 0 0">
-            <Button Margin="0 0 10 0" Padding="10 5" Width="80" Command="{Binding AddPlantCommand}">Add</Button>
-            <Button Padding="10 5" Width="80" Command="{Binding CancelCommand}">Cancel</Button>
+        <WrapPanel Margin="2 20 2 2" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+            <Button Margin="0 0 10 0"  Width="80" Command="{Binding AddEntityCommand}">Save</Button>
+            <!--Closing window is a View's task, so implement it inside View using event handler-->
+            <Button Width="80" Click="Button_Click">Cancel</Button>
         </WrapPanel>
         <StackPanel DockPanel.Dock="Left">
             <WrapPanel Margin="0 0 0 10">
                 <Label Width="160">Name:</Label>
-                <TextBox Width="200" Text="{Binding DiseaseAddModel.Name, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Width="200" Text="{Binding Model.Name, UpdateSourceTrigger=PropertyChanged}"/>
             </WrapPanel>
             <WrapPanel Margin="0 0 0 10">
                 <Label Width="160">Scientific name:</Label>
-                <TextBox Width="200" Text="{Binding DiseaseAddModel.ScientificName, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Width="200" Text="{Binding Model.ScientificName, UpdateSourceTrigger=PropertyChanged}"/>
             </WrapPanel>
             <WrapPanel Margin="0 0 0 10">
                 <Label Width="160">Scientific classification:</Label>
-                <TextBox Width="200" Text="{Binding DiseaseAddModel.ScientificClassification, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Width="200" Text="{Binding Model.ScientificClassification, UpdateSourceTrigger=PropertyChanged}"/>
             </WrapPanel>
             <WrapPanel Margin="0 0 0 10">
                 <Label Width="160">Agricultural name:</Label>
-                <TextBox Width="200" Text="{Binding DiseaseAddModel.AgriculturalName, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Width="200" Text="{Binding Model.AgriculturalName, UpdateSourceTrigger=PropertyChanged}"/>
             </WrapPanel>
             <WrapPanel Margin="0 0 0 10">
                 <Label Width="160">Agricultural classification:</Label>
-                <TextBox Width="200" Text="{Binding DiseaseAddModel.AgriculturalClassification, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Width="200" Text="{Binding Model.AgriculturalClassification, UpdateSourceTrigger=PropertyChanged}"/>
             </WrapPanel>
             <WrapPanel Margin="0 0 0 10">
                 <Label Width="160">Danger rating:</Label>
-                <ComboBox Width="200" ItemsSource="{Binding DiseaseAddModel.DangerRatings}" 
-                          SelectedItem="{Binding DiseaseAddModel.DangerRating, UpdateSourceTrigger=PropertyChanged}"/>
+                <ComboBox Width="200" ItemsSource="{Binding Model.DangerRatings}" 
+                          SelectedItem="{Binding Model.DangerRating, UpdateSourceTrigger=PropertyChanged}"/>
             </WrapPanel>
             <WrapPanel Margin="0 0 0 10">
                 <Label Width="160">Lifespan:</Label>
-                <TextBox Width="200" Text="{Binding DiseaseAddModel.Lifespan, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Width="200" Text="{Binding Model.Lifespan, UpdateSourceTrigger=PropertyChanged}"/>
             </WrapPanel>
             <WrapPanel>
                 <Label Width="160">Speed of growth:</Label>
-                <TextBox Width="200" Text="{Binding DiseaseAddModel.SpeedOfGrowth, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Width="200" Text="{Binding Model.SpeedOfGrowth, UpdateSourceTrigger=PropertyChanged}"/>
             </WrapPanel>
         </StackPanel>
         <Rectangle Margin="10 0" Fill="Gray" Width="1"/>
@@ -49,31 +50,31 @@
                 <Label>Detection:</Label>
                 <TextBox Margin="0 0 0 10" VerticalScrollBarVisibility="Auto"
                 TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" Height="100" Width="360"
-                Text="{Binding DiseaseAddModel.Detection, UpdateSourceTrigger=PropertyChanged}"/>
+                Text="{Binding Model.Detection, UpdateSourceTrigger=PropertyChanged}"/>
                 <Label>Chemical treatment:</Label>
                 <TextBox Margin="0 0 0 10" VerticalScrollBarVisibility="Auto"
                 TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" Height="100" Width="360"
-                Text="{Binding DiseaseAddModel.ChemicalTreatment, UpdateSourceTrigger=PropertyChanged}"/>
+                Text="{Binding Model.ChemicalTreatment, UpdateSourceTrigger=PropertyChanged}"/>
                 <Label>Non-chemical treatment:</Label>
                 <TextBox Margin="0 0 0 10" VerticalScrollBarVisibility="Auto"
                 TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" Height="100" Width="360"
-                Text="{Binding DiseaseAddModel.NonChemicalTreatment, UpdateSourceTrigger=PropertyChanged}"/>
+                Text="{Binding Model.NonChemicalTreatment, UpdateSourceTrigger=PropertyChanged}"/>
                 <Label>Prognosis:</Label>
                 <TextBox Margin="0 0 0 10" VerticalScrollBarVisibility="Auto"
                 TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" Height="100" Width="360"
-                Text="{Binding DiseaseAddModel.Prognosis, UpdateSourceTrigger=PropertyChanged}"/>
+                Text="{Binding Model.Prognosis, UpdateSourceTrigger=PropertyChanged}"/>
                 <Label>Risks:</Label>
                 <TextBox Margin="0 0 0 10" VerticalScrollBarVisibility="Auto"
                 TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" Height="100" Width="360"
-                Text="{Binding DiseaseAddModel.Risks, UpdateSourceTrigger=PropertyChanged}"/>
+                Text="{Binding Model.Risks, UpdateSourceTrigger=PropertyChanged}"/>
                 <Label>Prevention:</Label>
                 <TextBox Margin="0 0 0 10" VerticalScrollBarVisibility="Auto"
                 TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" Height="100" Width="360"
-                Text="{Binding DiseaseAddModel.Prevention, UpdateSourceTrigger=PropertyChanged}"/>
+                Text="{Binding Model.Prevention, UpdateSourceTrigger=PropertyChanged}"/>
                 <Label>Additional notes:</Label>
                 <TextBox Margin="0 0 0 10" VerticalScrollBarVisibility="Auto"
                 TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" Height="100" Width="360"
-                Text="{Binding DiseaseAddModel.AdditionalNotes, UpdateSourceTrigger=PropertyChanged}"/>
+                Text="{Binding Model.AdditionalNotes, UpdateSourceTrigger=PropertyChanged}"/>
                 <Label>Photos:</Label>
                 <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto" Width="320" Margin="0 0 0 10">
                     <ItemsControl ItemsSource="{Binding Photos}">

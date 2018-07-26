@@ -10,10 +10,11 @@
         </Grid.RowDefinitions>
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <DataGrid ItemsSource="{Binding Items}" 
-                  Background="White" 
-                  IsReadOnly="True" 
-                  AutoGenerateColumns="False"
-                      SelectedItem="{Binding SelectedItem,Mode=TwoWay}">
+                      Background="White" 
+                      IsReadOnly="True" 
+                      AutoGenerateColumns="False"
+                      SelectedItem="{Binding SelectedItem,Mode=TwoWay}"
+                      Margin="5">
                 <DataGrid.Columns>
                     <!--<DataGridTextColumn Header="Id" Binding="{Binding FarmId}"/>-->
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>

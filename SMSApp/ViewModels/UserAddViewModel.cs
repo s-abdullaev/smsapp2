@@ -9,7 +9,7 @@ namespace SMSApp.ViewModels
 {
     public class UserAddViewModel : EntityAddViewModel<User>
     {
-        public UserAddViewModel(IContainer container, bool isUpdate, IUnitOfWork unitOfWork, User model) : base(container, isUpdate, unitOfWork, model)
+        public UserAddViewModel(IContainer container, IUnitOfWork unitOfWork, User model, bool isUpdate = false) : base(container, isUpdate, unitOfWork, model)
         {
         }
 

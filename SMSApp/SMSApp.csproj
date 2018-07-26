@@ -109,6 +109,10 @@
     <Compile Include="Migrations\201807251307006_diseaseValidations.Designer.cs">
       <DependentUpon>201807251307006_diseaseValidations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807260922148_validations.cs" />
+    <Compile Include="Migrations\201807260922148_validations.Designer.cs">
+      <DependentUpon>201807260922148_validations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\AlertsService.cs" />
     <Compile Include="Services\SMSService.cs" />
     <Compile Include="Migrations\201807172316494_messagesMessageTextAdded.cs" />
@@ -128,11 +132,16 @@
     <Compile Include="ViewModels\DiseaseManagerViewModel.cs" />
     <Compile Include="ViewModels\EntityAddViewModel.cs" />
     <Compile Include="ViewModels\EntityManagerViewModel.cs" />
+    <Compile Include="ViewModels\FarmAddViewModel.cs" />
+    <Compile Include="ViewModels\FarmManagerViewModel.cs" />
     <Compile Include="ViewModels\FarmOwnerAddViewModel.cs" />
     <Compile Include="ViewModels\FarmOwnerManagerViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NavigationMenuViewModel.cs" />
+    <Compile Include="ViewModels\PestAddViewModel.cs" />
     <Compile Include="ViewModels\PestManagerViewModel.cs" />
+    <Compile Include="ViewModels\PlantAddViewModel.cs" />
+    <Compile Include="ViewModels\PlantManagerViewModel.cs" />
     <Compile Include="ViewModels\SendSMSViewModel.cs" />
     <Compile Include="ViewModels\BroadcastSettingsViewModel.cs" />
     <Compile Include="ViewModels\UserAddViewModel.cs" />
@@ -344,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807251307006_diseaseValidations.resx">
       <DependentUpon>201807251307006_diseaseValidations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807260922148_validations.resx">
+      <DependentUpon>201807260922148_validations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
