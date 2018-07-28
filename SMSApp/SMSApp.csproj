@@ -97,28 +97,12 @@
     <Compile Include="DataAccess\Core\ISelectable.cs" />
     <Compile Include="ExtensionMethods\RegistryExtensions.cs" />
     <Compile Include="ExtensionMethods\StringExtensions.cs" />
-    <Compile Include="Migrations\201807242250247_users_contraints.cs" />
-    <Compile Include="Migrations\201807242250247_users_contraints.Designer.cs">
-      <DependentUpon>201807242250247_users_contraints.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807251149549_userValidationChanges.cs" />
-    <Compile Include="Migrations\201807251149549_userValidationChanges.Designer.cs">
-      <DependentUpon>201807251149549_userValidationChanges.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807251307006_diseaseValidations.cs" />
-    <Compile Include="Migrations\201807251307006_diseaseValidations.Designer.cs">
-      <DependentUpon>201807251307006_diseaseValidations.cs</DependentUpon>
+    <Compile Include="Migrations\201807271256242_initial.cs" />
+    <Compile Include="Migrations\201807271256242_initial.Designer.cs">
+      <DependentUpon>201807271256242_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\AlertsService.cs" />
     <Compile Include="Services\SMSService.cs" />
-    <Compile Include="Migrations\201807172316494_messagesMessageTextAdded.cs" />
-    <Compile Include="Migrations\201807172316494_messagesMessageTextAdded.Designer.cs">
-      <DependentUpon>201807172316494_messagesMessageTextAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807180907298_messagesSentToFarms.cs" />
-    <Compile Include="Migrations\201807180907298_messagesSentToFarms.Designer.cs">
-      <DependentUpon>201807180907298_messagesSentToFarms.cs</DependentUpon>
-    </Compile>
     <Compile Include="Startup\Bootstrapper.cs" />
     <Compile Include="Validation\ModelWrapper.cs" />
     <Compile Include="Validation\NotifyDataErrorBase.cs" />
@@ -309,10 +293,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\User.cs" />
-    <Compile Include="Migrations\201806281259073_Initial.cs" />
-    <Compile Include="Migrations\201806281259073_Initial.Designer.cs">
-      <DependentUpon>201806281259073_Initial.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -327,23 +307,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201806281259073_Initial.resx">
-      <DependentUpon>201806281259073_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807172316494_messagesMessageTextAdded.resx">
-      <DependentUpon>201807172316494_messagesMessageTextAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807180907298_messagesSentToFarms.resx">
-      <DependentUpon>201807180907298_messagesSentToFarms.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807242250247_users_contraints.resx">
-      <DependentUpon>201807242250247_users_contraints.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807251149549_userValidationChanges.resx">
-      <DependentUpon>201807251149549_userValidationChanges.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807251307006_diseaseValidations.resx">
-      <DependentUpon>201807251307006_diseaseValidations.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807271256242_initial.resx">
+      <DependentUpon>201807271256242_initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

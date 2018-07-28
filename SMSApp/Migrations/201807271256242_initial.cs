@@ -3,7 +3,7 @@ namespace SMSApp.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -12,7 +12,7 @@ namespace SMSApp.Migrations
                 c => new
                     {
                         BroadcastId = c.Int(nullable: false, identity: true),
-                        MessageText = c.String(storeType: "ntext"),
+                        MessageText = c.String(nullable: false, storeType: "ntext"),
                         WarningLevel = c.Int(nullable: false),
                         Date = c.DateTime(nullable: false),
                         ContagionId = c.Int(),
@@ -52,7 +52,7 @@ namespace SMSApp.Migrations
                 c => new
                     {
                         DiseaseId = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(nullable: false),
                         ScientificName = c.String(),
                         AgriculturalName = c.String(),
                         ScientificClassification = c.String(),
@@ -136,8 +136,8 @@ namespace SMSApp.Migrations
                 c => new
                     {
                         FarmId = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Address = c.String(),
+                        Name = c.String(nullable: false),
+                        Address = c.String(nullable: false),
                         City = c.String(),
                         Region = c.String(),
                         RegistrationCertificateNum = c.String(),
@@ -160,15 +160,15 @@ namespace SMSApp.Migrations
                 c => new
                     {
                         FarmOwnerId = c.Int(nullable: false, identity: true),
-                        LastName = c.String(),
-                        FirstName = c.String(),
-                        PassportNumber = c.String(),
+                        LastName = c.String(nullable: false),
+                        FirstName = c.String(nullable: false),
+                        PassportNumber = c.String(nullable: false),
                         DateOfBirth = c.DateTime(nullable: false),
-                        MobilePhone1 = c.String(),
+                        MobilePhone1 = c.String(nullable: false),
                         MobilePhone2 = c.String(),
-                        HomePhone1 = c.String(),
+                        HomePhone1 = c.String(nullable: false),
                         HomePhone2 = c.String(),
-                        Email = c.String(),
+                        Email = c.String(nullable: false),
                         Address = c.String(),
                         City = c.String(),
                         Region = c.String(),
@@ -184,9 +184,9 @@ namespace SMSApp.Migrations
                 c => new
                     {
                         UserId = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Login = c.String(),
-                        Password = c.String(),
+                        Name = c.String(nullable: false),
+                        Login = c.String(nullable: false),
+                        Password = c.String(nullable: false, maxLength: 50),
                         Email = c.String(),
                         Permissions = c.Int(nullable: false),
                         CreatedDate = c.DateTime(nullable: false),
@@ -265,14 +265,15 @@ namespace SMSApp.Migrations
                         MessageId = c.Int(nullable: false, identity: true),
                         Status = c.Int(nullable: false),
                         Feedback = c.String(storeType: "ntext"),
+                        MessageText = c.String(storeType: "ntext"),
                         Date = c.DateTime(nullable: false),
                         BroadcastId = c.Int(),
-                        FarmOwnerId = c.Int(nullable: false),
+                        FarmId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.MessageId)
                 .ForeignKey("dbo.Broadcasts", t => t.BroadcastId)
-                .ForeignKey("dbo.FarmOwners", t => t.FarmOwnerId, cascadeDelete: true)
-                .Index(t => new { t.BroadcastId, t.FarmOwnerId }, unique: true, name: "IX_UniqueMessage");
+                .ForeignKey("dbo.Farms", t => t.FarmId, cascadeDelete: true)
+                .Index(t => new { t.BroadcastId, t.FarmId }, unique: true, name: "IX_UniqueMessage");
             
             CreateTable(
                 "dbo.DiseaseContagions",
@@ -305,7 +306,7 @@ namespace SMSApp.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.Broadcasts", "UserId", "dbo.Users");
-            DropForeignKey("dbo.Messages", "FarmOwnerId", "dbo.FarmOwners");
+            DropForeignKey("dbo.Messages", "FarmId", "dbo.Farms");
             DropForeignKey("dbo.Messages", "BroadcastId", "dbo.Broadcasts");
             DropForeignKey("dbo.Contagions", "UserId", "dbo.Users");
             DropForeignKey("dbo.Photos", "Contagion_ContagionId", "dbo.Contagions");

@@ -1,12 +1,14 @@
-﻿using System.Windows;
+﻿using SMSApp.ViewModels;
+using System.Windows;
 
 namespace SMSApp.Views
 {
     public partial class FarmOwnerManagerView : Window
     {
-        public FarmOwnerManagerView()
+        public FarmOwnerManagerView(FarmOwnerManagerViewModel viewModel)
         {
             InitializeComponent();
+            DataContext = viewModel;
         }
     }
 }
