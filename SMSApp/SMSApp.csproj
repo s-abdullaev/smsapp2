@@ -125,7 +125,6 @@
     <Compile Include="Migrations\201807180907298_messagesSentToFarms.Designer.cs">
       <DependentUpon>201807180907298_messagesSentToFarms.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings.cs" />
     <Compile Include="Startup\Bootstrapper.cs" />
     <Compile Include="Validation\ModelWrapper.cs" />
     <Compile Include="Validation\NotifyDataErrorBase.cs" />
