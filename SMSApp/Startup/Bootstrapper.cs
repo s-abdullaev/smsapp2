@@ -31,6 +31,7 @@ namespace SMSApp.Startup
             builder.RegisterType<NavigationMenuViewModel>().AsSelf();
             builder.RegisterType<ArcgisMapView>().AsSelf();
             //builder.RegisterType<MapViewModel>().AsSelf();
+
             builder.RegisterType<FarmOwnerManagerView>().AsSelf();
             builder.RegisterType<FarmManagerView>().AsSelf();
             builder.RegisterType<PlantManagerView>().AsSelf();

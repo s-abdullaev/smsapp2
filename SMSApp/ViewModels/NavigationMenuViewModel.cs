@@ -22,6 +22,8 @@ namespace SMSApp.ViewModels
             OpenSendSMSCommand = new DelegateCommand(ExecuteOpenSendSMSCommand);
             OpenSMSSettingsCommand = new DelegateCommand(ExecuteOpenSMSSettingsCommand);
             OpenBroadcastCommand = new DelegateCommand(ExecuteOpenBroadcastCommand);
+            OpenMapCommand = new DelegateCommand(ExecuteOpenMapCommand);
+
 
             BuySMSCommand = new DelegateCommand(ExecuteBuySMSCommand, () => !IsUSSDSending);
             CheckSMSCommand = new DelegateCommand(ExecuteCheckSMSCommand, () => !IsUSSDSending);
@@ -122,6 +124,13 @@ namespace SMSApp.ViewModels
             IsUSSDSending = true;
             _alertSvc.ShowInfoMsg(await _smsSvc.SendCheckSMS());
             IsUSSDSending = false;
+        }
+
+        public DelegateCommand OpenMapCommand { get; private set; }
+        private void ExecuteOpenMapCommand()
+        {
+            ArcgisMapView view = _container.Resolve<ArcgisMapView>();
+            view.ShowDialog();
         }
     }
 }

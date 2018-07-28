@@ -33,6 +33,9 @@
                 <Separator/>
                 <MenuItem Header="_Settings" Command="{Binding OpenSMSSettingsCommand}"/>
             </MenuItem>
+            <MenuItem Header="_Map">
+                <MenuItem Header="_Map" Command="{Binding OpenMapCommand}"></MenuItem>
+            </MenuItem>
         </Menu>
     </Grid>
 </UserControl>
