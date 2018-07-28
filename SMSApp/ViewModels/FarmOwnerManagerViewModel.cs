@@ -11,7 +11,6 @@ namespace SMSApp.ViewModels
         {
         }
 
-<<<<<<< HEAD
         public override void ExecuteOpenAddItemCommand()
         {
             FarmOwnerAddView view = _container.Resolve<FarmOwnerAddView>();
@@ -19,8 +18,6 @@ namespace SMSApp.ViewModels
             RaisePropertyChanged("Items");
         }
 
-=======
->>>>>>> bfeed3d5209ffdc796f6cd4465037fd5d1398a37
         public override void ExecuteEditAddItemCommand()
         {
             FarmOwnerAddView view = _container.Resolve<FarmOwnerAddView>(
@@ -31,15 +28,6 @@ namespace SMSApp.ViewModels
             view.ShowDialog();
             RaisePropertyChanged("Items");
         }
-<<<<<<< HEAD
-=======
 
-        public override void ExecuteOpenAddItemCommand()
-        {
-            FarmOwnerAddView view = _container.Resolve<FarmOwnerAddView>();
-            view.ShowDialog();
-            RaisePropertyChanged("Items");
-        }
->>>>>>> bfeed3d5209ffdc796f6cd4465037fd5d1398a37
     }
 }

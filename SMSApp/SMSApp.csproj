@@ -97,13 +97,9 @@
     <Compile Include="DataAccess\Core\ISelectable.cs" />
     <Compile Include="ExtensionMethods\RegistryExtensions.cs" />
     <Compile Include="ExtensionMethods\StringExtensions.cs" />
-    <Compile Include="Migrations\201807271256242_initial.cs" />
-    <Compile Include="Migrations\201807271256242_initial.Designer.cs">
-      <DependentUpon>201807271256242_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807260922148_validations.cs" />
-    <Compile Include="Migrations\201807260922148_validations.Designer.cs">
-      <DependentUpon>201807260922148_validations.cs</DependentUpon>
+    <Compile Include="Migrations\201807281100154_initial.cs" />
+    <Compile Include="Migrations\201807281100154_initial.Designer.cs">
+      <DependentUpon>201807281100154_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\AlertsService.cs" />
     <Compile Include="Services\SMSService.cs" />
@@ -316,11 +312,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201807271256242_initial.resx">
-      <DependentUpon>201807271256242_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807260922148_validations.resx">
-      <DependentUpon>201807260922148_validations.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807281100154_initial.resx">
+      <DependentUpon>201807281100154_initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

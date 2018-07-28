@@ -13,7 +13,7 @@ namespace SMSApp.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201807271256242_initial"; }
+            get { return "201807281100154_initial"; }
         }
         
         string IMigrationMetadata.Source

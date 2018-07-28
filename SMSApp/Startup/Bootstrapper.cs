@@ -18,43 +18,28 @@ namespace SMSApp.Startup
             var builder = new ContainerBuilder();
 
             builder.RegisterType<EventAggregator>().As<IEventAggregator>().SingleInstance();
-            
+
+
+            // Views
             builder.RegisterType<MainWindow>().AsSelf();
-            builder.RegisterType<MainWindowViewModel>().AsSelf();
-            
             builder.RegisterType<UserManagerView>().AsSelf();
-            builder.RegisterType<UserManagerViewModel>().AsSelf();
-
             builder.RegisterType<SendSMSView>().AsSelf();
-            builder.RegisterType<SendSMSViewModel>().AsSelf();
-
-            builder.RegisterType<NavigationMenuViewModel>().AsSelf();
-
-
             builder.RegisterType<FarmOwnerManagerView>().AsSelf();
-            builder.RegisterType<FarmOwnerManagerViewModel>().AsSelf();
-
             builder.RegisterType<FarmOwnerAddView>().AsSelf();
-            builder.RegisterType<FarmOwnerAddViewModel>().AsSelf();
-
             builder.RegisterType<FarmManagerView>().AsSelf();
-
             builder.RegisterType<FarmAddView>().AsSelf();
-
             builder.RegisterType<PlantManagerView>().AsSelf();
-
             builder.RegisterType<PlantAddView>().AsSelf();
-
             builder.RegisterType<DiseaseManagerView>().AsSelf();
-
             builder.RegisterType<DiseaseAddView>().AsSelf();
-
             builder.RegisterType<PestManagerView>().AsSelf();
-
             builder.RegisterType<PestAddView>().AsSelf();
+            builder.RegisterType<UserAddView>().AsSelf();
+            builder.RegisterType<SettingsView>().AsSelf();
+            builder.RegisterType<BroadcastManagerView>().AsSelf();
 
-<<<<<<< HEAD
-=======
+            // ViewModels
+            builder.RegisterType<MainWindowViewModel>().AsSelf();
             builder.RegisterType<FarmOwnerManagerViewModel>().AsSelf();
             builder.RegisterType<FarmOwnerAddViewModel>().AsSelf();
             builder.RegisterType<FarmManagerViewModel>().AsSelf();
@@ -65,16 +50,11 @@ namespace SMSApp.Startup
             builder.RegisterType<DiseaseAddViewModel>().AsSelf();
             builder.RegisterType<PestManagerViewModel>().AsSelf();
             builder.RegisterType<PestAddViewModel>().AsSelf();
-
->>>>>>> bfeed3d5209ffdc796f6cd4465037fd5d1398a37
-            builder.RegisterType<UserAddView>().AsSelf();
+            builder.RegisterType<SendSMSViewModel>().AsSelf();
+            builder.RegisterType<NavigationMenuViewModel>().AsSelf();
+            builder.RegisterType<UserManagerViewModel>().AsSelf();
             builder.RegisterType<UserAddViewModel>().AsSelf();
-
-            builder.RegisterType<SettingsView>().AsSelf();
-
             builder.RegisterType<BroadcastSettingsViewModel>().AsSelf();
-
-            builder.RegisterType<BroadcastManagerView>().AsSelf();
             builder.RegisterType<BroadcastManagerViewModel>().AsSelf();
 
             //models

@@ -77,7 +77,7 @@ namespace SMSApp.Migrations
                         PhotoId = c.Int(nullable: false, identity: true),
                         Title = c.String(),
                         Description = c.String(storeType: "ntext"),
-                        URL = c.String(),
+                        URL = c.String(nullable: false),
                         CreatedDate = c.DateTime(nullable: false),
                         Disease_DiseaseId = c.Int(),
                         FarmOwner_FarmOwnerId = c.Int(),
@@ -121,7 +121,7 @@ namespace SMSApp.Migrations
                 c => new
                     {
                         GeopositionId = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(nullable: false),
                         GeoData = c.String(storeType: "ntext"),
                         Area = c.Single(nullable: false),
                         AdditionalNotes = c.String(storeType: "ntext"),
@@ -220,7 +220,7 @@ namespace SMSApp.Migrations
                 c => new
                     {
                         PlantId = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(nullable: false),
                         ScientificName = c.String(),
                         AgriculturalName = c.String(),
                         VendorCode = c.String(),
@@ -240,7 +240,7 @@ namespace SMSApp.Migrations
                 c => new
                     {
                         PestId = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(nullable: false),
                         ScientificName = c.String(),
                         AgriculturalName = c.String(),
                         ScientificClassification = c.String(),
@@ -265,7 +265,7 @@ namespace SMSApp.Migrations
                         MessageId = c.Int(nullable: false, identity: true),
                         Status = c.Int(nullable: false),
                         Feedback = c.String(storeType: "ntext"),
-                        MessageText = c.String(storeType: "ntext"),
+                        MessageText = c.String(nullable: false, storeType: "ntext"),
                         Date = c.DateTime(nullable: false),
                         BroadcastId = c.Int(),
                         FarmId = c.Int(nullable: false),
