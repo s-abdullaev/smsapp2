@@ -13,18 +13,18 @@ namespace SMSApp.ViewModels
 
         public override void ExecuteEditAddItemCommand()
         {
-            DiseaseAddView view = _container.Resolve<DiseaseAddView>();
+            DiseaseAddView view = _container.Resolve<DiseaseAddView>(
+                new NamedParameter("viewModel", _container.Resolve<DiseaseAddViewModel>(
+                    new NamedParameter("model", SelectedItem),
+                    new NamedParameter("isUpdate", true)
+                )));
             view.ShowDialog();
             RaisePropertyChanged("Items");
         }
 
         public override void ExecuteOpenAddItemCommand()
         {
-            DiseaseAddView view = _container.Resolve<DiseaseAddView>(
-                new NamedParameter("viewModel", _container.Resolve<DiseaseAddView>(
-                    new NamedParameter("userModel", SelectedItem),
-                    new NamedParameter("isUpdate", true)
-                )));
+            DiseaseAddView view = _container.Resolve<DiseaseAddView>();
             view.ShowDialog();
             RaisePropertyChanged("Items");
         }

@@ -27,9 +27,15 @@ namespace SMSApp.Migrations
 
             IList<FarmOwner> farmOwners = new List<FarmOwner>
             {
+<<<<<<< HEAD
                 new FarmOwner { LastName = "Lastname1", FirstName = "FirstName1", PassportNumber = "AA0112233", DateOfBirth = DateTime.Parse("2011-03-21"), Gender = 'M', MobilePhone1 = "+998971234567", HomePhone1="+998971234567", Email = "farmer1@mail.com", Address = "Address1", City = "Tashkent", Region = "Region", User = users[0] },
                 new FarmOwner { LastName = "Lastname2", FirstName = "FirstName2", PassportNumber = "AA0112234", DateOfBirth = DateTime.Parse("2010-03-21"), Gender = 'F', MobilePhone1 = "+998971234568", HomePhone1="+998971234561", Email = "farmer2@mail.com", Address = "Address2", City = "Tashkent", Region = "Region", User = users[1] },
                 new FarmOwner { LastName = "Lastname3", FirstName = "FirstName3", PassportNumber = "AA0112235", DateOfBirth = DateTime.Parse("2012-03-21"), Gender = 'M', MobilePhone1 = "+998971234569", HomePhone1="+998971234562", Email = "farmer3@mail.com", Address = "Address3", City = "Tashkent", Region = "Region", User = users[2] }
+=======
+                new FarmOwner { LastName = "Lastname1", FirstName = "FirstName1", PassportNumber = "AA0112233", DateOfBirth = DateTime.Parse("2011-03-21"), Gender = 'M', MobilePhone1 = "+998971234567",HomePhone1 = "+998971234567", Email = "farmer1@mail.com", Address = "Address1", City = "Tashkent", Region = "Region", User = users[0] },
+                new FarmOwner { LastName = "Lastname2", FirstName = "FirstName2", PassportNumber = "AA0112234", DateOfBirth = DateTime.Parse("2010-03-21"), Gender = 'F', MobilePhone1 = "+998971234568",HomePhone1 = "+998971234568", Email = "farmer2@mail.com", Address = "Address2", City = "Tashkent", Region = "Region", User = users[1] },
+                new FarmOwner { LastName = "Lastname3", FirstName = "FirstName3", PassportNumber = "AA0112235", DateOfBirth = DateTime.Parse("2012-03-21"), Gender = 'M', MobilePhone1 = "+998971234569",HomePhone1 = "+998971234569", Email = "farmer3@mail.com", Address = "Address3", City = "Tashkent", Region = "Region", User = users[2] }
+>>>>>>> bfeed3d5209ffdc796f6cd4465037fd5d1398a37
             };
 
             IList<Farm> farms = new List<Farm>

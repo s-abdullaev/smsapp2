@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SMSApp.DataAccess
 {
-    public class SoilReading
+    public class SoilReading:Validation.ValidationModelBase
     {
         public int SoilReadingId { get; set; }
         public float HumusLevel { get; set; }

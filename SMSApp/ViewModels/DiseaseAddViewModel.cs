@@ -6,7 +6,7 @@ namespace SMSApp.ViewModels
 {
     public class DiseaseAddViewModel : EntityAddViewModel<Disease>
     {
-        public DiseaseAddViewModel(IContainer container, bool isUpdate, IUnitOfWork unitOfWork, Disease model) : base(container, isUpdate, unitOfWork, model)
+        public DiseaseAddViewModel(IContainer container, IUnitOfWork unitOfWork, Disease model, bool isUpdate=false) : base(container, isUpdate, unitOfWork, model)
         {
         }
     }

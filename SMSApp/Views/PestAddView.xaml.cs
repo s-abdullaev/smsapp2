@@ -19,9 +19,15 @@ namespace SMSApp.Views
     /// </summary>
     public partial class PestAddView : Window
     {
-        public PestAddView()
+        public PestAddView(ViewModels.PestAddViewModel viewModel)
         {
             InitializeComponent();
+            this.DataContext = viewModel;
+            viewModel.CloseAction = new Action(this.Close);
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

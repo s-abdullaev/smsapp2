@@ -10,9 +10,10 @@
         </Grid.RowDefinitions>
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <DataGrid ItemsSource="{Binding PlantsList}" 
-                  Background="White" 
-                  IsReadOnly="True" 
-                  AutoGenerateColumns="False"
+                      Background="White" 
+                      IsReadOnly="True" 
+                      AutoGenerateColumns="False"
+                      Margin="5"
                       SelectedItem="{Binding SelectedItem}">
                 <DataGrid.Columns>
                     <!--<DataGridTextColumn Header="Id" Binding="{Binding PlantId}"/>-->

@@ -5,13 +5,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SMSApp.DataAccess
 {
-    public class Message
+    public class Message:Validation.ValidationModelBase
     {
         public int MessageId { get; set; }
         public MessageStatuses Status { get; set; }
         [Column("Feedback", TypeName = "ntext")]
         public string Feedback { get; set; }
         [Column("MessageText", TypeName = "ntext")]
+        [Required]
         public string MessageText { get; set; }
         public DateTime Date { get; set; }
 

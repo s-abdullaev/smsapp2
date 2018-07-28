@@ -53,6 +53,20 @@ namespace SMSApp.Startup
 
             builder.RegisterType<PestAddView>().AsSelf();
 
+<<<<<<< HEAD
+=======
+            builder.RegisterType<FarmOwnerManagerViewModel>().AsSelf();
+            builder.RegisterType<FarmOwnerAddViewModel>().AsSelf();
+            builder.RegisterType<FarmManagerViewModel>().AsSelf();
+            builder.RegisterType<FarmAddViewModel>().AsSelf();
+            builder.RegisterType<PlantManagerViewModel>().AsSelf();
+            builder.RegisterType<PlantAddViewModel>().AsSelf();
+            builder.RegisterType<DiseaseManagerViewModel>().AsSelf();
+            builder.RegisterType<DiseaseAddViewModel>().AsSelf();
+            builder.RegisterType<PestManagerViewModel>().AsSelf();
+            builder.RegisterType<PestAddViewModel>().AsSelf();
+
+>>>>>>> bfeed3d5209ffdc796f6cd4465037fd5d1398a37
             builder.RegisterType<UserAddView>().AsSelf();
             builder.RegisterType<UserAddViewModel>().AsSelf();
 

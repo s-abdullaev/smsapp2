@@ -9,7 +9,7 @@ namespace SMSApp.Repositories.Core
         IContagionRepository Contagions { get; }
         IDiseaseRepository Diseases { get; }
         IFarmRepository Farms { get; }
-        IFarmPlantRepository FarmOwners { get; }
+        IFarmOwnerRepository FarmOwners { get; }
         IGeopositionRepository Geopositions { get; }
         IMessageRepository Messages { get; }
         IPestRepository Pests { get; }

@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SMSApp.DataAccess
 {
-    public class Plant
+    public class Plant:Validation.ValidationModelBase
     {
         public int PlantId { get; set; }
+        [Required]
         public string Name { get; set; }
         public string ScientificName { get; set; }
         public string AgriculturalName { get; set; }

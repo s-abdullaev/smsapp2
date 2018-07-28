@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SMSApp.DataAccess
 {
-    public class Geoposition
+    public class Geoposition:Validation.ValidationModelBase
     {
         public int GeopositionId { get; set; }
+        [Required]
         public string Name { get; set; }
         [Column("GeoData", TypeName = "ntext")]
         public string GeoData { get; set; }

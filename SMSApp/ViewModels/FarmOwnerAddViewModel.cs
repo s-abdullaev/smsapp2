@@ -6,7 +6,7 @@ namespace SMSApp.ViewModels
 {
     public class FarmOwnerAddViewModel : EntityAddViewModel<FarmOwner>
     {
-        public FarmOwnerAddViewModel(IContainer container, bool isUpdate, IUnitOfWork unitOfWork, FarmOwner model) : base(container, isUpdate, unitOfWork, model)
+        public FarmOwnerAddViewModel(IContainer container, IUnitOfWork unitOfWork, FarmOwner model, bool isUpdate=false) : base(container, isUpdate, unitOfWork, model)
         {
         }
     }
