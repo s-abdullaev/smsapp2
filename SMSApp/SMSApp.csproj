@@ -93,13 +93,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\NegationConverter.cs" />
+    <Compile Include="Events\SignedInEvent.cs" />
     <Compile Include="ExtensionMethods\AutofacExtensions.cs" />
     <Compile Include="DataAccess\Core\ISelectable.cs" />
     <Compile Include="ExtensionMethods\RegistryExtensions.cs" />
     <Compile Include="ExtensionMethods\StringExtensions.cs" />
+    <Compile Include="LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201807281100154_initial.cs" />
     <Compile Include="Migrations\201807281100154_initial.Designer.cs">
       <DependentUpon>201807281100154_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807281136350_generateChangedToBool.cs" />
+    <Compile Include="Migrations\201807281136350_generateChangedToBool.Designer.cs">
+      <DependentUpon>201807281136350_generateChangedToBool.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\AlertsService.cs" />
     <Compile Include="Services\SMSService.cs" />
@@ -116,6 +125,7 @@
     <Compile Include="ViewModels\FarmManagerViewModel.cs" />
     <Compile Include="ViewModels\FarmOwnerAddViewModel.cs" />
     <Compile Include="ViewModels\FarmOwnerManagerViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NavigationMenuViewModel.cs" />
     <Compile Include="ViewModels\PestAddViewModel.cs" />
@@ -204,6 +214,10 @@
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
+    <Page Include="LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -315,6 +329,9 @@
     <EmbeddedResource Include="Migrations\201807281100154_initial.resx">
       <DependentUpon>201807281100154_initial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807281136350_generateChangedToBool.resx">
+      <DependentUpon>201807281136350_generateChangedToBool.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -343,7 +360,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
-    <Folder Include="Events\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

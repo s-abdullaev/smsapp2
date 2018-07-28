@@ -16,7 +16,7 @@ namespace SMSApp.DataAccess
         [Required]
         public string PassportNumber { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public char Gender { get; set; }
+        public bool Gender { get; set; }
         [Required]
         public string MobilePhone1 { get; set; }
         public string MobilePhone2 { get; set; }

@@ -8,7 +8,7 @@ namespace SMSApp.ViewModels
     {
         protected IContainer _container;
         public Action CloseAction { get; set; }
-
+        
         public ViewModelBase(IContainer container)
         {
             _container = container;

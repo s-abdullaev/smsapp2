@@ -4,6 +4,10 @@
              Startup="Application_Startup"
              DispatcherUnhandledException="Application_DispatcherUnhandledException">
     <Application.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="80"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+        </Style>
         <Style TargetType="TextBox">
             <!--<Setter Property="Validation.ErrorTemplate">
                 <Setter.Value>

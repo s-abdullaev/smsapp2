@@ -37,6 +37,7 @@ namespace SMSApp.Startup
             builder.RegisterType<UserAddView>().AsSelf();
             builder.RegisterType<SettingsView>().AsSelf();
             builder.RegisterType<BroadcastManagerView>().AsSelf();
+            builder.RegisterType<LoginView>().AsSelf();
 
             // ViewModels
             builder.RegisterType<MainWindowViewModel>().AsSelf();
@@ -56,9 +57,11 @@ namespace SMSApp.Startup
             builder.RegisterType<UserAddViewModel>().AsSelf();
             builder.RegisterType<BroadcastSettingsViewModel>().AsSelf();
             builder.RegisterType<BroadcastManagerViewModel>().AsSelf();
+            builder.RegisterType<LoginViewModel>().AsSelf();
 
             //models
             builder.RegisterType<User>().AsSelf();
+            builder.RegisterType<FarmOwner>().AsSelf();
             
             //singleton instance of unitOfWork for data access
             builder.RegisterType<Context>().AsSelf().SingleInstance();

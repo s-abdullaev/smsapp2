@@ -1,4 +1,7 @@
 ﻿using Autofac;
+using Prism.Events;
+using SMSApp.Events;
+using SMSApp.Repositories.Core;
 using SMSApp.Startup;
 using System;
 using System.Windows;
@@ -14,10 +17,29 @@ namespace SMSApp
         {
             var bootstrapper = new Bootstrapper();
             var container = bootstrapper.Bootstrap();
-
             var mainWindow = container.Resolve<MainWindow>();
+            
             mainWindow.Show();
+
+#if !DEBUG
+            mainWindow.IsEnabled = false;
+
+            var loginWindow = container.Resolve<LoginView>();
+            loginWindow.ShowDialog();
+            if (loginWindow.DialogResult == true)
+            {
+                mainWindow.IsEnabled = true;
+            }
+            else
+            {
+                mainWindow.Close();
+            };
+#else
+            var uw = container.Resolve<IUnitOfWork>();
+                uw.Users.AuthUser("user_1", "password");
+#endif    
         }
+
 
         private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
