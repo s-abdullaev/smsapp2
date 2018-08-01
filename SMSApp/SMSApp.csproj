@@ -129,6 +129,7 @@
     <Compile Include="ViewModels\NavigationMenuViewModel.cs" />
     <Compile Include="ViewModels\PestAddViewModel.cs" />
     <Compile Include="ViewModels\PestManagerViewModel.cs" />
+    <Compile Include="ViewModels\PhotoAddViewModel.cs" />
     <Compile Include="ViewModels\PlantAddViewModel.cs" />
     <Compile Include="ViewModels\PlantManagerViewModel.cs" />
     <Compile Include="ViewModels\SendSMSViewModel.cs" />
@@ -165,6 +166,9 @@
     </Compile>
     <Compile Include="Views\PestManagerView.xaml.cs">
       <DependentUpon>PestManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PhotoAddView.xaml.cs">
+      <DependentUpon>PhotoAddView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PlantAddView.xaml.cs">
       <DependentUpon>PlantAddView.xaml</DependentUpon>
@@ -285,6 +289,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PestManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PhotoAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

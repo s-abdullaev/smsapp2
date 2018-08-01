@@ -5,13 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SMSApp.Controls.FilePicker"
              mc:Ignorable="d" 
-             Height="30" d:DesignWidth="400">
+             Height="30" Width="300">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBox Margin="2" IsReadOnly="True" x:Name="txtFilePath" Grid.Column="0"></TextBox>
+        
+            <TextBox Margin="2" IsReadOnly="True" x:Name="txtFilePath" Grid.Column="0"></TextBox>
         <Button Content="Browse" Grid.Column="1" Click="Button_Click"></Button>
     </Grid>
 </UserControl>
