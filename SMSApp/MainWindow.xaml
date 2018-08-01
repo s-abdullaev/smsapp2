@@ -2,10 +2,12 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:view="clr-namespace:SMSApp.Views"
-        WindowStartupLocation="CenterScreen" Height="450" Width="800">
+        xmlns:map="clr-namespace:SMSApp.Controls.MapControl"
+    WindowStartupLocation="CenterScreen" Height="450" Width="800">
     <DockPanel>
         <view:NavigationMenuView
             DataContext="{Binding NavVwMdl}"
             DockPanel.Dock="Top" VerticalAlignment="Top"></view:NavigationMenuView>
+        <map:MapControlView />
     </DockPanel>
 </Window>

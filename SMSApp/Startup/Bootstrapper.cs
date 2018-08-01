@@ -29,7 +29,7 @@ namespace SMSApp.Startup
             builder.RegisterType<SendSMSViewModel>().AsSelf();
 
             builder.RegisterType<NavigationMenuViewModel>().AsSelf();
-            builder.RegisterType<ArcgisMapView>().AsSelf();
+            //builder.RegisterType<ArcgisMapView>().AsSelf();
             //builder.RegisterType<MapViewModel>().AsSelf();
 
             builder.RegisterType<FarmOwnerManagerView>().AsSelf();

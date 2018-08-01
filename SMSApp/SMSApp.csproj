@@ -131,7 +131,7 @@
     <Compile Include="Validation\ValidationModelBase.cs" />
     <Compile Include="ViewModels\BroadcastManagerViewModel.cs" />
     <Compile Include="ViewModels\EntityManagerViewModel.cs" />
-    <Compile Include="ViewModels\ArcgisMapViewModel.cs" />
+    <Compile Include="Controls\MapControl\MapControlViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NavigationMenuViewModel.cs" />
     <Compile Include="ViewModels\SendSMSViewModel.cs" />
@@ -163,8 +163,8 @@
     <Compile Include="Views\NavigationMenuView.xaml.cs">
       <DependentUpon>NavigationMenuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ArcgisMapView.xaml.cs">
-      <DependentUpon>ArcgisMapView.xaml</DependentUpon>
+    <Compile Include="Controls\MapControl\MapControlView.xaml.cs">
+      <DependentUpon>MapControlView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PestAddView.xaml.cs">
       <DependentUpon>PestAddView.xaml</DependentUpon>
@@ -281,7 +281,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ArcgisMapView.xaml">
+    <Page Include="Controls\MapControl\MapControlView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -342,6 +342,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="Resources\Icons\icons8-save-as-32.png" />
+    <Resource Include="Resources\Icons\icons8-forward-arrow-32.png" />
+    <Resource Include="Resources\Icons\icons8-hand-cursor-32.png" />
+    <Resource Include="Resources\Icons\icons8-marker-32.png" />
+    <Resource Include="Resources\Icons\icons8-polygon-32.png" />
+    <Resource Include="Resources\Icons\icons8-select-32.png" />
+    <Resource Include="Resources\Icons\icons8-undo-32.png" />
     <EmbeddedResource Include="Migrations\201806281259073_Initial.resx">
       <DependentUpon>201806281259073_Initial.cs</DependentUpon>
     </EmbeddedResource>
@@ -364,6 +371,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="Map\Map.mmpk">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SMSApp.DataAccess.Disease.datasource" />
     <None Include="Properties\DataSources\SMSApp.DataAccess.Farm.datasource" />
