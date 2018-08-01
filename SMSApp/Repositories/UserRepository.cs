@@ -8,9 +8,9 @@ namespace SMSApp.Repositories
 {
     public class UserRepository : Repository<User>, IUserRepository
     {
-        private User _currentUser;
+        private User _currentUser=null;
 
-        public User CurrentUser { get => _currentUser; private set => _currentUser = value; }
+        public User CurrentUser() { return _currentUser; }
 
         public UserRepository(Context context)
             : base(context)
@@ -66,7 +66,7 @@ namespace SMSApp.Repositories
             var user = GetByLogin(login);
             if (user !=null && user.Password==pwd)
             {
-                CurrentUser = user;
+                _currentUser = user;
                 return true;
             }
             return false;

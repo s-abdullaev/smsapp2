@@ -30,7 +30,7 @@ namespace SMSApp.ViewModels
 
         //Add User Command
         public DelegateCommand AddEntityCommand { get; set; }
-        public void ExecuteAddEntityCommand()
+        public virtual void ExecuteAddEntityCommand()
         {
             //Perform data insertion using Repository operations
             if (!_isUpdate) GetRepository().Add(Model);

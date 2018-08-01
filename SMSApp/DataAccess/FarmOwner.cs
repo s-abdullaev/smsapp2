@@ -14,16 +14,22 @@ namespace SMSApp.DataAccess
         [Required]
         public string FirstName { get; set; }
         [Required]
+        [RegularExpression("^[A-Z]{2}\\d{7}$", ErrorMessage = "Please, input passport number in this format: AA1234567")]
         public string PassportNumber { get; set; }
         public DateTime DateOfBirth { get; set; }
         public bool Gender { get; set; }
         [Required]
+        [RegularExpression("^\\+998\\d{9}$", ErrorMessage ="Please, input phone number in this format: +998971234567")]
         public string MobilePhone1 { get; set; }
+        [RegularExpression("^\\+998\\d{9}$", ErrorMessage = "Please, input phone number in this format: +998971234567")]
         public string MobilePhone2 { get; set; }
         [Required]
+        [RegularExpression("^\\+998\\d{9}$", ErrorMessage = "Please, input phone number in this format: +998971234567")]
         public string HomePhone1 { get; set; }
+        [RegularExpression("^\\+998\\d{9}$", ErrorMessage = "Please, input phone number in this format: +998971234567")]
         public string HomePhone2 { get; set; }
         [Required]
+        [EmailAddress]
         public string Email { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
@@ -43,5 +49,11 @@ namespace SMSApp.DataAccess
         /// </summary>
         [NotMapped]
         public bool IsSelected { get; set; }
+
+
+        public FarmOwner()
+        {
+            DateOfBirth = DateTime.Now;
+        }
     }
 }

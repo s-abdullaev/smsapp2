@@ -93,6 +93,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\FilePicker\FilePickerControlView.xaml.cs">
+      <DependentUpon>FilePickerControlView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\NegationConverter.cs" />
     <Compile Include="Events\SignedInEvent.cs" />
     <Compile Include="ExtensionMethods\AutofacExtensions.cs" />
@@ -210,6 +213,10 @@
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
+    <Page Include="Controls\FilePicker\FilePickerControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

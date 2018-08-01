@@ -16,6 +16,7 @@ namespace SMSApp.Repositories.Core
         void ChangePermission(User user, UserPermissions permissions, bool val);
 
         bool AuthUser(string login, string pwd);
+        User CurrentUser();
 
         /// <summary>
         /// Finds the user with certain login (Can be used for signing up)
