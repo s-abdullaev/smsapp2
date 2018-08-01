@@ -51,21 +51,21 @@ namespace SMSApp.DataAccess
                 .HasRequired(f => f.FarmOwner)
                 .WithMany(fo => fo.Farms)
                 .HasForeignKey(f => f.FarmOwnerId)
-                .WillCascadeOnDelete();
+                .WillCascadeOnDelete(false);
 
             /*Farm_Geoposition FK Configurations*/
             modelBuilder.Entity<Geoposition>()
                 .HasRequired(g => g.Farm)
                 .WithMany(f => f.Geopositions)
                 .HasForeignKey(f => f.FarmId)
-                .WillCascadeOnDelete();
+                .WillCascadeOnDelete(false);
 
             /*Geoposition_SoilReading FK Configurations*/
             modelBuilder.Entity<SoilReading>()
                 .HasRequired(s => s.Geoposition)
                 .WithMany(g => g.SoilReadings)
                 .HasForeignKey(s => s.GeopositionId)
-                .WillCascadeOnDelete();
+                .WillCascadeOnDelete(false);
         }
 
         public DbSet<User> Users { get; set; }

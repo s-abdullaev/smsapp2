@@ -20,7 +20,7 @@ namespace SMSApp.DataAccess
         public int? ContagionId { get; set; }
         public virtual Contagion Contagion { get; set; }
         
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         public virtual User User { get; set; }
 
         public virtual ICollection<Message> Messages { get; set; }

@@ -7,13 +7,13 @@ namespace SMSApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class generateChangedToBool : IMigrationMetadata
+    public sealed partial class initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(generateChangedToBool));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201807281136350_generateChangedToBool"; }
+            get { return "201808010150171_initial"; }
         }
         
         string IMigrationMetadata.Source

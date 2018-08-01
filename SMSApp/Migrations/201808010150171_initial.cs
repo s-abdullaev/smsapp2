@@ -128,7 +128,7 @@ namespace SMSApp.Migrations
                         FarmId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.GeopositionId)
-                .ForeignKey("dbo.Farms", t => t.FarmId, cascadeDelete: true)
+                .ForeignKey("dbo.Farms", t => t.FarmId)
                 .Index(t => t.FarmId);
             
             CreateTable(
@@ -150,7 +150,7 @@ namespace SMSApp.Migrations
                         FarmOwnerId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.FarmId)
-                .ForeignKey("dbo.FarmOwners", t => t.FarmOwnerId, cascadeDelete: true)
+                .ForeignKey("dbo.FarmOwners", t => t.FarmOwnerId)
                 .ForeignKey("dbo.Users", t => t.UserId)
                 .Index(t => t.UserId)
                 .Index(t => t.FarmOwnerId);
@@ -164,6 +164,7 @@ namespace SMSApp.Migrations
                         FirstName = c.String(nullable: false),
                         PassportNumber = c.String(nullable: false),
                         DateOfBirth = c.DateTime(nullable: false),
+                        Gender = c.Boolean(nullable: false),
                         MobilePhone1 = c.String(nullable: false),
                         MobilePhone2 = c.String(),
                         HomePhone1 = c.String(nullable: false),
@@ -210,7 +211,7 @@ namespace SMSApp.Migrations
                         UserId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.SoilReadingId)
-                .ForeignKey("dbo.Geopositions", t => t.GeopositionId, cascadeDelete: true)
+                .ForeignKey("dbo.Geopositions", t => t.GeopositionId)
                 .ForeignKey("dbo.Users", t => t.UserId)
                 .Index(t => t.GeopositionId)
                 .Index(t => t.UserId);

@@ -32,7 +32,7 @@ namespace SMSApp.DataAccess
         public string AdditionalNotes { get; set; }
 
         /*FOREIGN KEYS*/
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         public virtual User User { get; set; }
 
         public virtual ICollection<Farm> Farms { get; set; }

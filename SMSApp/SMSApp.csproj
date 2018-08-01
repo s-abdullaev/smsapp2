@@ -102,13 +102,9 @@
     <Compile Include="LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807281100154_initial.cs" />
-    <Compile Include="Migrations\201807281100154_initial.Designer.cs">
-      <DependentUpon>201807281100154_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807281136350_generateChangedToBool.cs" />
-    <Compile Include="Migrations\201807281136350_generateChangedToBool.Designer.cs">
-      <DependentUpon>201807281136350_generateChangedToBool.cs</DependentUpon>
+    <Compile Include="Migrations\201808010150171_initial.cs" />
+    <Compile Include="Migrations\201808010150171_initial.Designer.cs">
+      <DependentUpon>201808010150171_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\AlertsService.cs" />
     <Compile Include="Services\SMSService.cs" />
@@ -326,11 +322,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201807281100154_initial.resx">
-      <DependentUpon>201807281100154_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807281136350_generateChangedToBool.resx">
-      <DependentUpon>201807281136350_generateChangedToBool.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808010150171_initial.resx">
+      <DependentUpon>201808010150171_initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
