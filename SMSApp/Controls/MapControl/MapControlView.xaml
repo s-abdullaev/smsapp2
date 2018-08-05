@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SMSApp.Views"
         xmlns:esri="http://schemas.esri.com/arcgis/runtime/2013"
-        
         mc:Ignorable="d"
         Height="450" Width="800">
     <UserControl.Resources>
@@ -30,34 +29,36 @@
                 <Button Command="{Binding RedoCommand}">
                     <Image Style="{StaticResource buttonImage}" Source="pack://application:,,,/Resources/Icons/icons8-forward-arrow-32.png"></Image>
                 </Button>
+            </ToolBar>
+            <ToolBar>
                 <Button Command="{Binding ZeroCommand}">
                     <Image Style="{StaticResource buttonImage}" Source="pack://application:,,,/Resources/Icons/icons8-hand-cursor-32.png"></Image>
                 </Button>
-            </ToolBar>
-            <ToolBar>
                 <Button Command="{Binding DrawPointBtnClickCommand}">
                     <Image Style="{StaticResource buttonImage}" Source="pack://application:,,,/Resources/Icons/icons8-marker-32.png"></Image>
                 </Button>
-                <!--<Button Command="{Binding RemovePointBtnClickCommand}" Width="50" Height="50">Remove Point</Button>-->
                 <Button Command="{Binding DrawPolygonBtnClickCommand}">
                     <Image Style="{StaticResource buttonImage}" Source="pack://application:,,,/Resources/Icons/icons8-polygon-32.png"></Image>
                 </Button>
-                <!--<Button Width="50" Height="50">Remove Polygon</Button>-->
                 <Button Command="{Binding SelectByRadiusBtnClickCommand}" ToolTip="Selects regions">
                     <Image Style="{StaticResource buttonImage}" Source="pack://application:,,,/Resources/Icons/icons8-select-32.png"></Image>
                 </Button>
-                <!--<Button Width="50" Height="50"></Button>-->
+                <Button Command="{Binding RemoveBtnClickCommand}" ToolTip="Polygon Eraser">
+                    <!--<Image Style="{StaticResource buttonImage}" Source="pack://application:,,,/Resources/Icons/icons8-select-32.png"></Image>-->
+                    X
+                </Button>
+            </ToolBar>
+            <ToolBar>
                 <Button Command="{Binding SaveMapDataCommand}">
                     <Image Style="{StaticResource buttonImage}" Source="pack://application:,,,/Resources/Icons/icons8-save-as-32.png"></Image>
                 </Button>
             </ToolBar>
         </ToolBarTray>
-        
-        
+
+
         <esri:MapView x:Name="MyMapView" Map="{Binding MyMap}" Grid.Row="1"/>
 
-
-        <!--<TextBox Text="{Binding InfoText, Mode=TwoWay}" TextWrapping="Wrap" Grid.Column="1" Grid.Row="1" Height="100"></TextBox>-->
-
+        <TextBox VerticalAlignment="Bottom" Text="{Binding InfoText, Mode=TwoWay}" TextWrapping="Wrap" Grid.Column="1" Grid.Row="1" Height="100"></TextBox>
+        
     </Grid>
 </UserControl>
