@@ -12,6 +12,8 @@ namespace SMSApp
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
+            Esri.ArcGISRuntime.ArcGISRuntimeEnvironment.Initialize();
+
             var bootstrapper = new Bootstrapper();
             var container = bootstrapper.Bootstrap();
 
