@@ -9,7 +9,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
        
-        <Label HorizontalAlignment="Center" Margin="10" FontSize="16" FontWeight="Bold" Grid.Row="0">USER DETAILS</Label>
+        <Label HorizontalAlignment="Center" Margin="10" FontSize="16" FontWeight="Bold" Grid.Row="0">User Details</Label>
         <Grid Grid.Row="1" Margin="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"></ColumnDefinition>

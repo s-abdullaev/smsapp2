@@ -30,6 +30,6 @@
             <Button Command="{Binding AddEntityCommand}" Margin="2">Save</Button>
             <Button Click="Button_Click" Margin="2">Cancel</Button>
         </WrapPanel>-->
-        <controls:FilePickerControlView  SelectedPath="{Binding Model.Url}"></controls:FilePickerControlView>
+        <!--<controls:FilePickerControlView  SelectedPath="{Binding Model.Url}"></controls:FilePickerControlView>-->
     </Grid>     
 </Window>

@@ -15,7 +15,7 @@
                 <Separator/>
                 <MenuItem Header="_Exit"/>
             </MenuItem>
-            <MenuItem Header="Create">
+            <MenuItem Header="_Entities">
                 <MenuItem Header="_Manage Users" Command="{Binding OpenUserManagerCommand}"/>
                 <MenuItem Header="_Manage Farm Owners" Command="{Binding OpenFarmOwnerManagerCommand}"/>
                 <MenuItem Header="_Manage Farms" Command="{Binding OpenFarmManagerCommand}"/>

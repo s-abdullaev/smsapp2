@@ -1,18 +1,46 @@
-﻿<UserControl x:Class="SMSApp.Controls.FilePicker.FilePickerControlView"
+﻿<UserControl 
+    x:Class="SMSApp.Controls.FilePicker.FilePickerControlView"         
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"  
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SMSApp.Controls.FilePicker"
              mc:Ignorable="d" 
-             Height="30" Width="300">
+             HorizontalAlignment="Stretch" 
+			 VerticalAlignment="Stretch">
     <Grid>
-        <Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid  Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock  Text="Choose A File To Upload"/>
+            <telerik:RadCloudUpload Grid.Row="1"
+                                    x:Name="cloudUpload"
+                                    Buttons="AddFiles,Cancel,Clear" 
+                                    AutoStart="False">
+                <telerik:RadCloudUpload.Provider>
+                    <local:FileProvider></local:FileProvider>
+                </telerik:RadCloudUpload.Provider>
+                <telerik:RadCloudUpload.ValidationRules>
+                    <local:FileExtensionRule />
+                </telerik:RadCloudUpload.ValidationRules>
+            </telerik:RadCloudUpload>
+        </Grid>
+        <Grid Grid.Row="1">
+            <telerik:RadCloudUploadList ItemsSource="{Binding Items, ElementName=cloudUpload}" />
+        </Grid>
+
+        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
             <TextBox Margin="2" IsReadOnly="True" x:Name="txtFilePath" Grid.Column="0"></TextBox>
-        <Button Content="Browse" Grid.Column="1" Click="Button_Click"></Button>
+            <Button Content="Browse" Grid.Column="1" Click="Button_Click"></Button>-->
     </Grid>
 </UserControl>

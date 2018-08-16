@@ -5,6 +5,7 @@ using SMSApp.Repositories.Core;
 using SMSApp.Startup;
 using System;
 using System.Windows;
+using Telerik.Windows.Controls;
 
 namespace SMSApp
 {
@@ -15,6 +16,8 @@ namespace SMSApp
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
+            StyleManager.ApplicationTheme = new Office2016Theme();
+
             var bootstrapper = new Bootstrapper();
             var container = bootstrapper.Bootstrap();
             var mainWindow = container.Resolve<MainWindow>();
