@@ -7,13 +7,17 @@
         <Setter Property="Width" Value="200"></Setter>
     </Style>
 
-    <Style TargetType="DatePickerTextBox">
-        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+    <Style TargetType="DatePicker">
+        <Setter Property="HorizontalAlignment" Value="Left"></Setter>
         <Setter Property="Margin" Value="2"></Setter>
+        <Setter Property="Width" Value="200"></Setter>
+        <Setter Property="Height" Value="25"></Setter>
     </Style>
 
     <Style TargetType="RadioButton">
         <Setter Property="VerticalAlignment" Value="Top"></Setter>
         <Setter Property="Margin" Value="2"></Setter>
     </Style>
+    
+    
 </ResourceDictionary>

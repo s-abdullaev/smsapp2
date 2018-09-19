@@ -11,9 +11,12 @@ namespace SMSApp.ViewModels
         private string _message;
         private SMSService _smsSvc;
 
+        public DelegateCommand SendSMSCommand { get; set; }
+
         public SendSMSViewModel(IContainer _container, SMSService smsSvc): base(_container)
         {
             _smsSvc = smsSvc;
+            SendSMSCommand = new DelegateCommand(ExecuteSendSMS);
         }
 
 
@@ -28,13 +31,6 @@ namespace SMSApp.ViewModels
         {
             get { return _message; }
             set { _message = value; RaisePropertyChanged(); }
-        }
-
-        public DelegateCommand SendSMSCommand { get; set; }
-
-        public SendSMSViewModel(IContainer container) : base(container)
-        {
-            SendSMSCommand = new DelegateCommand(ExecuteSendSMS);
         }
 
         public void ExecuteSendSMS()

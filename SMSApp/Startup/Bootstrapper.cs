@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Prism.Events;
+using SMSApp.Controls.FilePicker;
 using SMSApp.DataAccess;
 using SMSApp.ExtensionMethods;
 using SMSApp.Repositories;
@@ -60,6 +61,7 @@ namespace SMSApp.Startup
             builder.RegisterType<BroadcastManagerViewModel>().AsSelf();
             builder.RegisterType<LoginViewModel>().AsSelf();
             builder.RegisterType<PhotoAddViewModel>().AsSelf();
+            builder.RegisterType<FilePickerControlViewModel>().AsSelf();
 
             //models
             builder.RegisterType<User>().AsSelf();

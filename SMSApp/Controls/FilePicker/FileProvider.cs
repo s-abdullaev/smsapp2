@@ -19,9 +19,27 @@ namespace SMSApp.Controls.FilePicker
         {
             var directory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             var tempFileName = Path.ChangeExtension(Guid.NewGuid().ToString(), Path.GetExtension(fileName));
-            var tempFilePath = Path.Combine(directory, FILES_FOLDER, fileName);
+            var tempFileDir = Path.Combine(directory, FILES_FOLDER);
 
-            File.Copy(fileName, tempFilePath);
+            if (!Directory.Exists(tempFileDir)) Directory.CreateDirectory(tempFileDir);
+
+            var tempFilePath = Path.Combine(tempFileDir, tempFileName);
+
+            using (FileStream f = new FileStream(tempFilePath, FileMode.CreateNew, FileAccess.Write))
+            {
+                int length = 256;
+                Byte[] buffer = new Byte[length];
+                int bytesRead = fileStream.Read(buffer, 0, length);
+                // write the required bytes
+                while (bytesRead > 0)
+                {
+                    f.Write(buffer, 0, bytesRead);
+                    bytesRead = fileStream.Read(buffer, 0, length);
+                    uploadProgressChanged(f.Length);
+                }
+                f.Close();
+            }
+            //File.Copy(fileName, tempFilePath);
 
             return tempFilePath;
         }

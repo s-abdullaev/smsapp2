@@ -7,10 +7,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SMSApp.Controls.FilePicker"
              mc:Ignorable="d" 
-             HorizontalAlignment="Stretch" 
-			 VerticalAlignment="Stretch">
+           >
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
@@ -18,29 +18,27 @@
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBlock  Text="Choose A File To Upload"/>
-            <telerik:RadCloudUpload Grid.Row="1"
-                                    x:Name="cloudUpload"
-                                    Buttons="AddFiles,Cancel,Clear" 
-                                    AutoStart="False">
-                <telerik:RadCloudUpload.Provider>
-                    <local:FileProvider></local:FileProvider>
-                </telerik:RadCloudUpload.Provider>
-                <telerik:RadCloudUpload.ValidationRules>
-                    <local:FileExtensionRule />
-                </telerik:RadCloudUpload.ValidationRules>
-            </telerik:RadCloudUpload>
-        </Grid>
-        <Grid Grid.Row="1">
-            <telerik:RadCloudUploadList ItemsSource="{Binding Items, ElementName=cloudUpload}" />
-        </Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="180"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Choose A File To Upload"/>
 
-        <!--<Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-            <TextBox Margin="2" IsReadOnly="True" x:Name="txtFilePath" Grid.Column="0"></TextBox>
-            <Button Content="Browse" Grid.Column="1" Click="Button_Click"></Button>-->
+            <TextBox x:Name="txtFilePath" IsReadOnly="True" Grid.Row="1" Grid.Column="0" Margin="2" Height="25" Width="190" Text="{Binding CurrentFilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <StackPanel Orientation="Horizontal" Margin="2" Grid.Row="1" Grid.Column="1">
+                <Button x:Name="btnBrowse" Click="btnBrowse_Click" Content="Browse" Margin="2"></Button>
+                <Button x:Name="btnUpload" Command="{Binding UploadFileCmd}" Content="Upload" Margin="2"></Button>
+            </StackPanel>
+        </Grid>
+        <ScrollViewer Grid.Row="1" Grid.ColumnSpan="2" Margin="2 2 2 0" VerticalScrollBarVisibility="Auto" Height="130" HorizontalScrollBarVisibility="Auto">
+            <ListBox x:Name="lstFiles" DisplayMemberPath="FileName" ItemsSource="{Binding Files}" SelectedItem="{Binding SelectedFileItem}"></ListBox>
+        </ScrollViewer>
+        <StackPanel Orientation="Horizontal" Margin="2" Grid.Row="2">
+            <Button  Command="{Binding DownloadCmd}" Content="Open" Margin="2"></Button>
+            <Button  Command="{Binding DeleteCmd}" Content="Delete" Margin="2"></Button>
+        </StackPanel>
     </Grid>
 </UserControl>

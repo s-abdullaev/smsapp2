@@ -100,6 +100,7 @@
     <Compile Include="Controls\FilePicker\FilePickerControlView.xaml.cs">
       <DependentUpon>FilePickerControlView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\FilePicker\FilePickerControlViewModel.cs" />
     <Compile Include="Controls\FilePicker\FileProvider.cs" />
     <Compile Include="Converters\NegationConverter.cs" />
     <Compile Include="Events\SignedInEvent.cs" />
