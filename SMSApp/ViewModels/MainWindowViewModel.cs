@@ -4,11 +4,14 @@ namespace SMSApp.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public MainWindowViewModel(IContainer container, NavigationMenuViewModel navVwMdl) : base(container)
+
+        public FarmOwnerManagerViewModel FarmOwnerVwMdl { get; }
+
+        public MainWindowViewModel(IContainer container) : base(container)
         {
-            NavVwMdl = navVwMdl;
+            FarmOwnerVwMdl = container.Resolve<FarmOwnerManagerViewModel>();
         }
 
-        public NavigationMenuViewModel NavVwMdl { get; }
+        
     }
 }

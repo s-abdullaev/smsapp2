@@ -12,12 +12,6 @@ namespace SMSApp.Controls.FilePicker
     /// </summary>
     /// 
 
-    public class FileItem
-    {
-        public string FileName { get; set; }
-        public string FilePath { get; set; }
-    }
-
     public partial class FilePickerControlView : UserControl
     {
 

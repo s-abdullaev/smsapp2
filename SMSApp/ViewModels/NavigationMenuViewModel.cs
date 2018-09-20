@@ -14,7 +14,7 @@ namespace SMSApp.ViewModels
             _smsSvc = smsService;
 
             OpenUserManagerCommand = new DelegateCommand(ExecuteOpenUserManagerCommand);
-            OpenFarmOwnerManagerCommand = new DelegateCommand(ExecuteOpenFarmOwnerManagerCommand);
+            
             OpenFarmManagerCommand = new DelegateCommand(ExecuteOpenFarmManagerCommand);
             OpenPlantManagerCommand = new DelegateCommand(ExecuteOpenPlantManagerCommand);
             OpenDiseaseManagerCommand = new DelegateCommand(ExecuteOpenDiseaseManagerCommand);
@@ -51,12 +51,7 @@ namespace SMSApp.ViewModels
             view.ShowDialog();
         }
 
-        public DelegateCommand OpenFarmOwnerManagerCommand { get; private set; }
-        private void ExecuteOpenFarmOwnerManagerCommand()
-        {
-            FarmOwnerManagerView view = _container.Resolve<FarmOwnerManagerView>();
-            view.ShowDialog();
-        }
+        
 
         public DelegateCommand OpenFarmManagerCommand { get; private set; }
         private void ExecuteOpenFarmManagerCommand()
@@ -76,6 +71,7 @@ namespace SMSApp.ViewModels
         private void ExecuteOpenDiseaseManagerCommand()
         {
             DiseaseManagerView view = _container.Resolve<DiseaseManagerView>();
+            
             view.ShowDialog();
         }
 

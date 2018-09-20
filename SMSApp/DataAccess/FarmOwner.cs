@@ -16,7 +16,7 @@ namespace SMSApp.DataAccess
         [Required]
         [RegularExpression("^[A-Z]{2}\\d{7}$", ErrorMessage = "Please, input passport number in this format: AA1234567")]
         public string PassportNumber { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }= DateTime.Now;
         public bool Gender { get; set; }
         [Required]
         [RegularExpression("^\\+998\\d{9}$", ErrorMessage ="Please, input phone number in this format: +998971234567")]
@@ -50,10 +50,5 @@ namespace SMSApp.DataAccess
         [NotMapped]
         public bool IsSelected { get; set; }
 
-
-        public FarmOwner()
-        {
-            DateOfBirth = DateTime.Now;
-        }
     }
 }

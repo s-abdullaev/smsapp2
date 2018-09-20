@@ -2,6 +2,7 @@
 using Prism.Commands;
 using SMSApp.Controls.FilePicker;
 using SMSApp.DataAccess;
+using SMSApp.ExtensionMethods;
 using SMSApp.Repositories.Core;
 using SMSApp.Views;
 
@@ -16,13 +17,23 @@ namespace SMSApp.ViewModels
         {
 
             FilePickerVwMdl = container.Resolve<FilePickerControlViewModel>();
-
-            AddFarmOwnerPhotoCommand = new DelegateCommand(() =>
+            FilePickerVwMdl.Files = Model.Photos.xToObservableCollection<Photo>();
+            FilePickerVwMdl.UploadEvent += (f) =>
             {
-                var dialog = container.Resolve<PhotoAddView>();
-                dialog.ShowDialog();
-                RaisePropertyChanged("Model");
-            });
+                Model.Photos.Add(f);
+            };
+            FilePickerVwMdl.DeleteEvent += (f) =>
+            {
+                Model.Photos.Remove(f);
+            };
+
+
+            //AddFarmOwnerPhotoCommand = new DelegateCommand(() =>
+            //{
+            //    var dialog = container.Resolve<PhotoAddView>();
+            //    dialog.ShowDialog();
+            //    RaisePropertyChanged("Model");
+            //});
         }
 
         public override void ExecuteAddEntityCommand()

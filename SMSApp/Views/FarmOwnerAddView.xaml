@@ -88,35 +88,10 @@
 
             <Label Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0">Additional notes:</Label>
             <TextBox Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="5" Grid.Row="1" VerticalScrollBarVisibility="Auto"
-                TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" Height="150" Width="380"
-                Text="{Binding Model.AdditionalNotes, UpdateSourceTrigger=PropertyChanged}"/>
+                TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" Height="150" Width="Auto"
+                Text="{Binding Model.AdditionalNotes, UpdateSourceTrigger=PropertyChanged}" Margin="3,2,2,0"/>
 
-            <filepicker:FilePickerControlView Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="6" Grid.RowSpan="7" Margin="2" Width="380" DataContext="{Binding FilePickerVwMdl}"></filepicker:FilePickerControlView>
-
-
-            <!--<StackPanel Orientation="Horizontal">
-                        <Label>Photos:</Label>
-                        <Button HorizontalAlignment="Right" Command="{Binding AddFarmOwnerPhotoCommand}">Add Photo</Button>
-                    </StackPanel>
-                
-                    <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto" Width="320" Margin="0 0 0 10">
-                        <ItemsControl ItemsSource="{Binding Photos}">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <StackPanel Orientation="Horizontal"/>
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Border Width="100" Height="100" BorderBrush="Gray" BorderThickness="1">
-                                        <Image Source="{Binding URL}" RenderOptions.BitmapScalingMode="Fant" Stretch="Fill"/>
-                                    </Border>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                    </ScrollViewer>-->
-
-
+            <filepicker:FilePickerControlView Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="6" Grid.RowSpan="7" Margin="2" DataContext="{Binding FilePickerVwMdl}"></filepicker:FilePickerControlView>
         </Grid>
         <WrapPanel Grid.Row="2" Margin="5" HorizontalAlignment="Right">
             <Button Margin="0 0 10 0" Command="{Binding AddEntityCommand}">Save</Button>

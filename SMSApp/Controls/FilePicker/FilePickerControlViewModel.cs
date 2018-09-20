@@ -1,5 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using SMSApp.DataAccess;
 using SMSApp.Services;
 using System;
 using System.Collections.Generic;
@@ -17,19 +18,22 @@ namespace SMSApp.Controls.FilePicker
     {
         const string FILES_FOLDER = "SMSAppDBFiles";
 
-        public delegate void onDeleteHandler(FileItem fItem);
+        public delegate void onDeleteHandler(Photo fItem);
         public event onDeleteHandler DeleteEvent;
 
-        public delegate void onUploadHandler(FileItem fItem);
+        public delegate void onUploadHandler(Photo fItem);
         public event onUploadHandler UploadEvent;
 
-        private ObservableCollection<FileItem> _files;
+        private ObservableCollection<Photo> _files;
         private string _currentFilePath;
-        private FileItem _selectedFileItem;
+        private Photo _selectedFileItem;
 
-        public ObservableCollection<FileItem> Files { get => _files; set { _files = value; RaisePropertyChanged(); } }
+        public ObservableCollection<Photo> Files { get => _files; set { _files = value; RaisePropertyChanged(); } }
         public string CurrentFilePath { get => _currentFilePath; set { _currentFilePath = value; RaisePropertyChanged(); } }
-        public FileItem SelectedFileItem { get => _selectedFileItem; set { _selectedFileItem = value; RaisePropertyChanged(); } }
+        public Photo SelectedFileItem { get => _selectedFileItem; set { _selectedFileItem = value; RaisePropertyChanged(); } }
+
+        public string Title { get => _title; set { _title = value; RaisePropertyChanged(); } }
+        public string Description { get => _description; set { _description = value; RaisePropertyChanged(); } }
 
 
         public DelegateCommand UploadFileCmd { get; set; }
@@ -37,9 +41,12 @@ namespace SMSApp.Controls.FilePicker
         public DelegateCommand DownloadCmd { get; set; }
 
         private AlertsService _alerts;
+        private string _title;
+        private string _description;
+
         public FilePickerControlViewModel(AlertsService alerts)
         {
-            Files = new ObservableCollection<FileItem>();
+            Files = new ObservableCollection<Photo>();
             UploadFileCmd = new DelegateCommand(UploadFile);
             DeleteCmd = new DelegateCommand(DeleteFile);
             DownloadCmd = new DelegateCommand(DownloadFile);
@@ -48,6 +55,9 @@ namespace SMSApp.Controls.FilePicker
 
         private void UploadFile()
         {
+            if (String.IsNullOrEmpty(CurrentFilePath)) { _alerts.ShowWarningMsg("Please, select a file first"); return; }
+            if (String.IsNullOrEmpty(Title)) { _alerts.ShowWarningMsg("Please, input a name first"); return; }
+
             var fileName = CurrentFilePath;
             var directory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             var tempFileName = Path.ChangeExtension(Guid.NewGuid().ToString(), Path.GetExtension(fileName));
@@ -58,9 +68,10 @@ namespace SMSApp.Controls.FilePicker
             var tempFilePath = Path.Combine(tempFileDir, tempFileName);
 
             File.Copy(fileName, tempFilePath);
-            var fItem = new FileItem() { FileName = fileName, FilePath = tempFilePath };
+            var fItem = new Photo() { Title = Title, Description = Description, URL = tempFilePath };
 
             Files.Add(fItem);
+            Title = "";
 
             UploadEvent?.Invoke(fItem);
         }
@@ -74,9 +85,9 @@ namespace SMSApp.Controls.FilePicker
 
             try
             {
-                File.Delete(SelectedFileItem.FilePath);
+                File.Delete(SelectedFileItem.URL);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
@@ -85,7 +96,7 @@ namespace SMSApp.Controls.FilePicker
 
         private void DownloadFile()
         {
-            Process.Start(SelectedFileItem.FilePath);
+            Process.Start(SelectedFileItem.URL);
         }
     }
 }

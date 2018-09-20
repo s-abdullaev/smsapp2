@@ -96,16 +96,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controls\FilePicker\FileExtensionRule.cs" />
     <Compile Include="Controls\FilePicker\FilePickerControlView.xaml.cs">
       <DependentUpon>FilePickerControlView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\FilePicker\FilePickerControlViewModel.cs" />
-    <Compile Include="Controls\FilePicker\FileProvider.cs" />
     <Compile Include="Converters\NegationConverter.cs" />
     <Compile Include="Events\SignedInEvent.cs" />
     <Compile Include="ExtensionMethods\AutofacExtensions.cs" />
     <Compile Include="DataAccess\Core\ISelectable.cs" />
+    <Compile Include="ExtensionMethods\CollectionExtensions.cs" />
     <Compile Include="ExtensionMethods\RegistryExtensions.cs" />
     <Compile Include="ExtensionMethods\StringExtensions.cs" />
     <Compile Include="LoginView.xaml.cs">
@@ -114,6 +113,10 @@
     <Compile Include="Migrations\201808010150171_initial.cs" />
     <Compile Include="Migrations\201808010150171_initial.Designer.cs">
       <DependentUpon>201808010150171_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809192147115_photos_changed.cs" />
+    <Compile Include="Migrations\201809192147115_photos_changed.Designer.cs">
+      <DependentUpon>201809192147115_photos_changed.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\AlertsService.cs" />
     <Compile Include="Services\SMSService.cs" />
@@ -357,6 +360,9 @@
     </Compile>
     <EmbeddedResource Include="Migrations\201808010150171_initial.resx">
       <DependentUpon>201808010150171_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809192147115_photos_changed.resx">
+      <DependentUpon>201809192147115_photos_changed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

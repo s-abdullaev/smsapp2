@@ -3,9 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:view="clr-namespace:SMSApp.Views"
         WindowStartupLocation="CenterScreen" Height="450" Width="800">
-    <DockPanel>
-        <view:NavigationMenuView
-            DataContext="{Binding NavVwMdl}"
-            DockPanel.Dock="Top" VerticalAlignment="Top"></view:NavigationMenuView>
-    </DockPanel>
+    <Grid>
+        <TabControl Margin="5">
+            <TabItem Header="Farm Owners">
+                <view:FarmOwnerManagerView DataContext="{Binding FarmOwnerVwMdl}"></view:FarmOwnerManagerView>
+            </TabItem>
+        </TabControl>
+        
+        
+    </Grid>
 </Window>

@@ -13,8 +13,26 @@ namespace SMSApp.DataAccess
         public string Description { get; set; }
         [Required]
         public string URL { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+
+        public int? FarmOwnerId { get; set; }
+        public virtual FarmOwner FarmOwner { get; set; }
+
+        public int? PlantId { get; set; }
+        public virtual Plant Plant { get; set; }
+
+        public int? DiseaseId { get; set; }
+        public virtual Disease Disease { get; set; }
+
+        public int? PestId { get; set; }
+        public virtual Pest Pest { get; set; }
+
+        public int? ContagionId { get; set; }
+        public virtual Contagion Contagion { get; set; }
+
         //public Entities Entity { get; set; }
         //public int ItemId { get; set; }
+
+        
     }
 }
