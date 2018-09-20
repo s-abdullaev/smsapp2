@@ -9,7 +9,5 @@
                 <view:FarmOwnerManagerView DataContext="{Binding FarmOwnerVwMdl}"></view:FarmOwnerManagerView>
             </TabItem>
         </TabControl>
-        
-        
     </Grid>
 </Window>

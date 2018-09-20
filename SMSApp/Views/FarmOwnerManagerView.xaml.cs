@@ -9,6 +9,7 @@ namespace SMSApp.Views
         public FarmOwnerManagerView()
         {
             InitializeComponent();
+            
         }
     }
 }
