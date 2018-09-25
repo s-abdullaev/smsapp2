@@ -25,6 +25,10 @@ namespace SMSApp.Startup
             builder.RegisterType<MainWindow>().AsSelf();
             builder.RegisterType<UserManagerView>().AsSelf();
             builder.RegisterType<SendSMSView>().AsSelf();
+            builder.RegisterType<SendSMSViewModel>().AsSelf();
+
+
+
             builder.RegisterType<FarmOwnerManagerView>().AsSelf();
             builder.RegisterType<FarmOwnerAddView>().AsSelf();
             builder.RegisterType<FarmManagerView>().AsSelf();

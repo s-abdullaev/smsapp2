@@ -16,8 +16,8 @@ namespace SMSApp
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
+            Esri.ArcGISRuntime.ArcGISRuntimeEnvironment.Initialize();
             StyleManager.ApplicationTheme = new Office2016Theme();
-
             var bootstrapper = new Bootstrapper();
             var container = bootstrapper.Bootstrap();
             var mainWindow = container.Resolve<MainWindow>();
