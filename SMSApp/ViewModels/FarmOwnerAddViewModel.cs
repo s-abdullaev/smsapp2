@@ -17,15 +17,15 @@ namespace SMSApp.ViewModels
         {
 
             FilePickerVwMdl = container.Resolve<FilePickerControlViewModel>();
-            FilePickerVwMdl.Files = Model.Photos.xToObservableCollection<Photo>();
-            FilePickerVwMdl.UploadEvent += (f) =>
-            {
-                Model.Photos.Add(f);
-            };
-            FilePickerVwMdl.DeleteEvent += (f) =>
-            {
-                Model.Photos.Remove(f);
-            };
+            FilePickerVwMdl.Files = Model.Photos;
+            //FilePickerVwMdl.UploadEvent += (f) =>
+            //{
+            //    Model.Photos.Add(f);
+            //};
+            //FilePickerVwMdl.DeleteEvent += (f) =>
+            //{
+            //    Model.Photos.Remove(f);
+            //};
 
 
             //AddFarmOwnerPhotoCommand = new DelegateCommand(() =>
@@ -36,13 +36,13 @@ namespace SMSApp.ViewModels
             //});
         }
 
-        public override void ExecuteAddEntityCommand()
-        {
-            Model.User = uw.Users.CurrentUser();
-            base.ExecuteAddEntityCommand();
-        }
+        //public override void ExecuteAddEntityCommand()
+        //{
+        //    Model.User = uw.Users.CurrentUser();
+        //    base.ExecuteAddEntityCommand();
+        //}
 
 
-        public DelegateCommand AddFarmOwnerPhotoCommand { set; get; }
+        //public DelegateCommand AddFarmOwnerPhotoCommand { set; get; }
     }
 }

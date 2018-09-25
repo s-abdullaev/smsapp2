@@ -312,15 +312,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PestAddView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Controls\MapControl\MapControlView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PestAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PestManagerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -352,10 +352,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Window1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\User.cs" />
@@ -373,6 +369,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="Resources\Icons\icons8-field-48.png" />
     <Resource Include="Resources\Icons\icons8-save-as-32.png" />
     <Resource Include="Resources\Icons\icons8-forward-arrow-32.png" />
     <Resource Include="Resources\Icons\icons8-hand-cursor-32.png" />
@@ -380,21 +377,6 @@
     <Resource Include="Resources\Icons\icons8-polygon-32.png" />
     <Resource Include="Resources\Icons\icons8-select-32.png" />
     <Resource Include="Resources\Icons\icons8-undo-32.png" />
-    <EmbeddedResource Include="Migrations\201806281259073_Initial.resx">
-      <DependentUpon>201806281259073_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807172316494_messagesMessageTextAdded.resx">
-      <DependentUpon>201807172316494_messagesMessageTextAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807180907298_messagesSentToFarms.resx">
-      <DependentUpon>201807180907298_messagesSentToFarms.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807242250247_users_contraints.resx">
-      <DependentUpon>201807242250247_users_contraints.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807251149549_userValidationChanges.resx">
-      <DependentUpon>201807251149549_userValidationChanges.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809192147115_photos_changed.resx">
       <DependentUpon>201809192147115_photos_changed.cs</DependentUpon>
     </EmbeddedResource>

@@ -69,6 +69,7 @@ namespace SMSApp.Startup
             //models
             builder.RegisterType<User>().AsSelf();
             builder.RegisterType<FarmOwner>().AsSelf();
+            builder.RegisterType<Plant>().AsSelf();
             builder.RegisterType<Photo>().AsSelf();
 
             //singleton instance of unitOfWork for data access

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -22,6 +23,6 @@ namespace SMSApp.DataAccess
         [Column("AdditionalNotes", TypeName = "ntext")]
         public string AdditionalNotes { get; set; }
 
-        public virtual ICollection<Photo> Photos { get; set; }
+        public virtual ObservableCollection<Photo> Photos { get; set; } = new ObservableCollection<Photo>();
     }
 }

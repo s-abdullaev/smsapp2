@@ -1,6 +1,7 @@
 ﻿using SMSApp.DataAccess.Core;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,6 +17,7 @@ namespace SMSApp.DataAccess
         [Required]
         [RegularExpression("^[A-Z]{2}\\d{7}$", ErrorMessage = "Please, input passport number in this format: AA1234567")]
         public string PassportNumber { get; set; }
+
         public DateTime DateOfBirth { get; set; }= DateTime.Now;
         public bool Gender { get; set; }
         [Required]
@@ -41,9 +43,9 @@ namespace SMSApp.DataAccess
         public int? UserId { get; set; }
         public virtual User User { get; set; }
 
-        public virtual ICollection<Farm> Farms { get; set; }
-        public virtual ICollection<Broadcast> Broadcasts { get; set; }
-        public virtual ICollection<Photo> Photos { get; set; }
+        public virtual ObservableCollection<Farm> Farms { get; set; } = new ObservableCollection<Farm>();
+        public virtual ObservableCollection<Broadcast> Broadcasts { get; set; } = new ObservableCollection<Broadcast>();
+        public virtual ObservableCollection<Photo> Photos { get; set; } = new ObservableCollection<Photo>();
         /// <summary>
         /// Interface implementation
         /// </summary>

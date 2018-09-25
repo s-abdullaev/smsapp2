@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:view="clr-namespace:SMSApp.Views"
         Title="SMS Farm"
-        
+        Icon="pack://application:,,,/Resources/Icons/icons8-field-48.png"
         WindowStartupLocation="CenterScreen" Height="450" Width="800">
     <Grid>
         <TabControl Margin="5">
@@ -20,7 +20,7 @@
 
             </TabItem>
             <TabItem Header="Plants">
-                
+                <view:PlantManagerView DataContext="{Binding PlantVwMdl}"></view:PlantManagerView>
             </TabItem>
             <TabItem Header="Pests">
 
