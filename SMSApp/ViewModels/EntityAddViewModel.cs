@@ -1,8 +1,11 @@
 ﻿using Autofac;
 using Prism.Commands;
+using SMSApp.Controls.FilePicker;
+using SMSApp.DataAccess;
 using SMSApp.ExtensionMethods;
 using SMSApp.Repositories.Core;
 using SMSApp.Validation;
+using System.Collections.ObjectModel;
 
 namespace SMSApp.ViewModels
 {
@@ -15,6 +18,14 @@ namespace SMSApp.ViewModels
             Model = model;
             Model.PropertyChanged += Model_PropertyChanged;
             AddEntityCommand = new DelegateCommand(ExecuteAddEntityCommand, CanExecuteAddEntityCommand);
+
+            FilePickerVwMdl = container.Resolve<FilePickerControlViewModel>();
+            var photosProp = Model.GetType().GetProperty("Photos");
+
+            if (photosProp != null)
+            {
+                FilePickerVwMdl.Files = (ObservableCollection<Photo>)photosProp.GetValue(Model);
+            }
         }
 
         private void Model_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -23,6 +34,11 @@ namespace SMSApp.ViewModels
         }
 
         //Properties
+        private FilePickerControlViewModel _filePickerVwMdl;
+        public FilePickerControlViewModel FilePickerVwMdl { get => _filePickerVwMdl; set { _filePickerVwMdl = value; RaisePropertyChanged(); } }
+
+
+
         protected IUnitOfWork uw;
         protected bool _isUpdate;
 

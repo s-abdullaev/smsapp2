@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SMSApp.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,11 @@ namespace SMSApp.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            cbxDangerRating.ItemsSource = Enum.GetValues(typeof(DangerRating)).Cast<DangerRating>();
         }
     }
 }

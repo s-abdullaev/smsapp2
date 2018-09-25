@@ -7,11 +7,13 @@ namespace SMSApp.ViewModels
 
         public FarmOwnerManagerViewModel FarmOwnerVwMdl { get; }
         public PlantManagerViewModel PlantVwMdl { get; }
+        public PestManagerViewModel PestVwMdl { get; }
 
         public MainWindowViewModel(IContainer container) : base(container)
         {
             FarmOwnerVwMdl = container.Resolve<FarmOwnerManagerViewModel>();
             PlantVwMdl = container.Resolve<PlantManagerViewModel>();
+            PestVwMdl = container.Resolve<PestManagerViewModel>();
         }
 
         

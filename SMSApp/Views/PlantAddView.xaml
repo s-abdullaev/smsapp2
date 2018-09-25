@@ -2,7 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:converters="clr-namespace:SMSApp.Converters"
-        xmlns:filepicker="clr-namespace:SMSApp.Controls.FilePicker"        
+        xmlns:filepicker="clr-namespace:SMSApp.Controls.FilePicker"
+        Title="Plant Details"
         WindowStartupLocation="CenterScreen" ShowInTaskbar="False" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
     <Window.Resources>
         <ResourceDictionary>

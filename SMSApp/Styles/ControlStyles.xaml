@@ -19,6 +19,10 @@
         <Setter Property="VerticalAlignment" Value="Top"></Setter>
         <Setter Property="Margin" Value="2"></Setter>
     </Style>
-    
-    
+
+    <Style TargetType="ComboBox">
+        <Setter Property="Margin" Value="2"></Setter>
+    </Style>
+
+
 </ResourceDictionary>

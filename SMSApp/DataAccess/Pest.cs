@@ -1,5 +1,6 @@
 ﻿using SMSApp.Enums;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -33,6 +34,6 @@ namespace SMSApp.DataAccess
         public string AdditionalNotes { get; set; }
 
         public virtual ICollection<Contagion> Contagions { get; set; }
-        public virtual ICollection<Photo> Photos { get; set; }
+        public virtual ObservableCollection<Photo> Photos { get; set; } = new ObservableCollection<Photo>();
     }
 }

@@ -39,10 +39,11 @@
 
     public enum DangerRating
     {
+        VeryLow,
         Low,
         Moderate,
         High,
-        Higest
+        VeryHigh
     }
 
     public enum PlantGrowthStatus

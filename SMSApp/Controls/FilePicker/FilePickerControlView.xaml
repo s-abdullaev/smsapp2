@@ -22,11 +22,11 @@
 
             <WrapPanel Grid.Row="0" >
                 <TextBlock Width="50" Text="Name:" VerticalAlignment="Center"/>
-                <TextBox Margin="2" Height="25" Text="{Binding Title, Mode=TwoWay}" Width="324"></TextBox>
+                <TextBox Margin="2" Height="25" Text="{Binding Title, Mode=TwoWay}"></TextBox>
             </WrapPanel>
             <WrapPanel Grid.Row="1">
                 <TextBlock Width="50" Text="File:" VerticalAlignment="Center"/>
-                <TextBox x:Name="txtFilePath" IsReadOnly="True" Margin="2" Height="25" Width="190" Text="{Binding CurrentFilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBox x:Name="txtFilePath" IsReadOnly="True" Margin="2" Height="25"  Text="{Binding CurrentFilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                 <Button x:Name="btnBrowse" Click="btnBrowse_Click" Content="Browse" Margin="2"></Button>
                 <Button x:Name="btnUpload" Command="{Binding UploadFileCmd}" Content="Upload" Margin="2"></Button>
             </WrapPanel>

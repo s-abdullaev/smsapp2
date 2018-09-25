@@ -23,7 +23,7 @@
                 <view:PlantManagerView DataContext="{Binding PlantVwMdl}"></view:PlantManagerView>
             </TabItem>
             <TabItem Header="Pests">
-
+                <view:PestManagerView DataContext="{Binding PestVwMdl}"></view:PestManagerView>
             </TabItem>
             <TabItem Header="Diseases">
 
