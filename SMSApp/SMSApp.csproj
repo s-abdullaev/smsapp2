@@ -140,7 +140,6 @@
     <Compile Include="ViewModels\FarmOwnerManagerViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\NavigationMenuViewModel.cs" />
     <Compile Include="ViewModels\PestAddViewModel.cs" />
     <Compile Include="ViewModels\PestManagerViewModel.cs" />
     <Compile Include="ViewModels\PhotoAddViewModel.cs" />
@@ -171,9 +170,6 @@
     </Compile>
     <Compile Include="Views\FarmOwnerManagerView.xaml.cs">
       <DependentUpon>FarmOwnerManagerView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\NavigationMenuView.xaml.cs">
-      <DependentUpon>NavigationMenuView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PestAddView.xaml.cs">
       <DependentUpon>PestAddView.xaml</DependentUpon>
@@ -303,10 +299,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\FarmOwnerManagerView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NavigationMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

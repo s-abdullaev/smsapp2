@@ -3,13 +3,9 @@ using Prism.Mvvm;
 using SMSApp.DataAccess;
 using SMSApp.Services;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace SMSApp.Controls.FilePicker
@@ -96,7 +92,16 @@ namespace SMSApp.Controls.FilePicker
 
         private void DownloadFile()
         {
-            Process.Start(SelectedFileItem.URL);
+
+            try
+            {
+                Process.Start(SelectedFileItem.URL);
+            }
+            catch (Exception)
+            {
+
+                _alerts.ShowWarningMsg("Cannot open the file. The URL is invalid.");
+            }
         }
     }
 }

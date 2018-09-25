@@ -54,7 +54,6 @@ namespace SMSApp.Startup
             builder.RegisterType<PestManagerViewModel>().AsSelf();
             builder.RegisterType<PestAddViewModel>().AsSelf();
             builder.RegisterType<SendSMSViewModel>().AsSelf();
-            builder.RegisterType<NavigationMenuViewModel>().AsSelf();
             builder.RegisterType<UserManagerViewModel>().AsSelf();
             builder.RegisterType<UserAddViewModel>().AsSelf();
             builder.RegisterType<BroadcastSettingsViewModel>().AsSelf();

@@ -2,11 +2,31 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:view="clr-namespace:SMSApp.Views"
+        Title="SMS Farm"
+        
         WindowStartupLocation="CenterScreen" Height="450" Width="800">
     <Grid>
         <TabControl Margin="5">
+            <TabItem Header="Dashboard">
+                
+            </TabItem>
+            <TabItem Header="Farms">
+
+            </TabItem>
             <TabItem Header="Farm Owners">
                 <view:FarmOwnerManagerView DataContext="{Binding FarmOwnerVwMdl}"></view:FarmOwnerManagerView>
+            </TabItem>
+            <TabItem Header="Broadcasts">
+
+            </TabItem>
+            <TabItem Header="Plants">
+                
+            </TabItem>
+            <TabItem Header="Pests">
+
+            </TabItem>
+            <TabItem Header="Diseases">
+
             </TabItem>
         </TabControl>
     </Grid>
