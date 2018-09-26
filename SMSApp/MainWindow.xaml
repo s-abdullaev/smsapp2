@@ -26,7 +26,7 @@
                 <view:PestManagerView DataContext="{Binding PestVwMdl}"></view:PestManagerView>
             </TabItem>
             <TabItem Header="Diseases">
-
+                <view:DiseaseManagerView DataContext="{Binding DiseaseVwMdl}"></view:DiseaseManagerView>
             </TabItem>
         </TabControl>
     </Grid>
