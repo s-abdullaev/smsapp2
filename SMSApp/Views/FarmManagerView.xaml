@@ -1,38 +1,274 @@
-﻿<Window x:Class="SMSApp.Views.FarmManagerView"
+﻿<UserControl x:Class="SMSApp.Views.FarmManagerView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        ShowInTaskbar="False" WindowStartupLocation="CenterScreen"
-        Height="600" Width="800">
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="300"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <DataGrid ItemsSource="{Binding Items}" 
-                      Background="White" 
-                      IsReadOnly="True" 
-                      AutoGenerateColumns="False"
-                      SelectedItem="{Binding SelectedItem,Mode=TwoWay}"
-                      Margin="5">
-                <DataGrid.Columns>
-                    <!--<DataGridTextColumn Header="Id" Binding="{Binding FarmId}"/>-->
-                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                    <DataGridTextColumn Header="Registration certificate number" Binding="{Binding RegistrationCertificateNum}"/>
-                    <DataGridTextColumn Header="Established year" Binding="{Binding EstablishedYear}"/>
-                    <DataGridTextColumn Header="Industry type" Binding="{Binding IndustryType}"/>
-                    <!--<DataGridTextColumn Header="Area" Binding="{Binding Area}"/>-->
-                    <DataGridTextColumn Header="City" Binding="{Binding City}"/>
-                    <!--<DataGridTextColumn Header="Region" Binding="{Binding Region}"/>-->
-                    <!--<DataGridTextColumn Header="Address" Binding="{Binding Address}"/>-->
-                    <!--<DataGridTextColumn Header="Additional notes" Binding="{Binding AdditionalNotes}"/>-->
-                </DataGrid.Columns>
-            </DataGrid>
-        </ScrollViewer>
-        <StackPanel Grid.Column="1" HorizontalAlignment="Right" Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <telerik:RadGridView Grid.Column="0" 
+                             Grid.Row="0"
+                             Margin="5" 
+                             ItemsSource="{Binding Items}" 
+                             SelectedItem="{Binding SelectedItem, Mode=TwoWay}" 
+                             IsReadOnly="True" 
+                             AutoGenerateColumns="False"
+                             ShowSearchPanel="True"
+                             ShowGroupPanel="False"
+                             IsSearchingDeferred="False"
+                             CanUserSearchInHiddenColumns="True"
+                             CanUserGroupColumns="False"
+                             CanUserFreezeColumns="False"
+                             RowIndicatorVisibility="Collapsed"
+                             IsFilteringAllowed="True"
+                             >
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Name}" Header="Name" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding RegistrationCertificateNum}" Header="Registration Number" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding EstablishedYear}" Header="Established Year" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Area}" Header="Area" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding IndustryType}" Header="Industry" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Address}" Header="Address" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding City}" Header="City" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Region}" Header="Region" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding FarmOwner.DisplayName}" Header="Owner Name" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding FarmOwner.MobilePhone1}" Header="Mobile Phone" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding FarmOwner.MobilePhone2}" Header="Mobile Phone 2" ></telerik:GridViewDataColumn>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+        <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="5">
             <Button Margin="0 0 0 5" Width="80" Command="{Binding OpenAddEntityCommand}">New</Button>
-            <Button Margin="0 0 0 5" Width="80" Command="{Binding OpenEditEntityCommand}">Edit</Button>
+            <Button Margin="0 0 0 5" Width="80" Command="{Binding OpenEditEntityCommand}">View</Button>
             <Button Width="80" Command="{Binding RemoveEntityCommand}">Remove</Button>
         </StackPanel>
+
+        <TabControl Margin="5" Grid.Row="1" Grid.Column="0">
+            <TabItem Header="Maps">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition ></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <telerik:GroupBox Header="Geopositions" Grid.Column="0">
+                            <telerik:RadGridView  
+                             Margin="5"
+                             ItemsSource="{Binding SelectedFarmVwMdl.Geopositions}" 
+                             SelectedItem="{Binding SelectedFarmVwMdl.SelectedGeoposition, Mode=TwoWay}" 
+                             IsReadOnly="True" 
+                             AutoGenerateColumns="False"
+                             ShowSearchPanel="True"
+                             ShowGroupPanel="False"
+                             IsSearchingDeferred="False"
+                             CanUserSearchInHiddenColumns="True"
+                             CanUserGroupColumns="False"
+                             CanUserFreezeColumns="False"
+                             RowIndicatorVisibility="Collapsed"
+                             IsFilteringAllowed="True"
+                             >
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Name}" Header="Name" ></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Area}" Header="Area" ></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding AdditionalNotes}" Header="Notes" ></telerik:GridViewDataColumn>
+                                </telerik:RadGridView.Columns>
+                            </telerik:RadGridView>
+                        </telerik:GroupBox>
+                        <StackPanel HorizontalAlignment="Right" Margin="5" Grid.Column="1">
+                            <Button Margin="0 0 0 5" Width="80" Command="{Binding NewMapCommand}">New</Button>
+                            <Button Margin="0 0 0 5" Width="80" Command="{Binding ViewMapCommand}">View</Button>
+                            <Button Width="80" Command="{Binding RemoveMapCommand}">Remove</Button>
+                        </StackPanel>
+                    </Grid>
+
+
+                    <Grid  Grid.Column="0" Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <telerik:GroupBox Header="Soil Readings" Grid.Column="0">
+                            <telerik:RadGridView  
+                             Grid.Row="2"
+                             Margin="5"
+                             ItemsSource="{Binding SelectedFarmVwMdl.SelectedGeoposition.SoilReadings}" 
+                             SelectedItem="{Binding SelectedFarmVwMdl.SelectedGeoposition.SelectedSoilReading, Mode=TwoWay}" 
+                             IsReadOnly="True" 
+                             AutoGenerateColumns="False"
+                             ShowSearchPanel="True"
+                             ShowGroupPanel="False"
+                             IsSearchingDeferred="False"
+                             CanUserSearchInHiddenColumns="True"
+                             CanUserGroupColumns="False"
+                             CanUserFreezeColumns="False"
+                             RowIndicatorVisibility="Collapsed"
+                             IsFilteringAllowed="True"
+                             >
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Year}" Header="Year" ></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Season}" Header="Season" ></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding GrowthStatus}" Header="Growth Status" ></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ExpectedYield}" Header="Expected Yield" ></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding InitialInvestment}" Header="Investment" ></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Plant.Name}" Header="Plant" ></telerik:GridViewDataColumn>
+                                </telerik:RadGridView.Columns>
+                            </telerik:RadGridView>
+                        </telerik:GroupBox>
+                        <StackPanel Grid.Column="1" HorizontalAlignment="Right" Margin="5">
+                            <Button Margin="0 0 0 5" Width="80" Command="{Binding NewSoilReadingCommand}">New</Button>
+                            <Button Margin="0 0 0 5" Width="80" Command="{Binding ViewSoilReadingCommand}">View</Button>
+                            <Button Width="80" Command="{Binding RemoveSoilReadingCommand}">Remove</Button>
+                        </StackPanel>
+                    </Grid>
+                    
+                    <telerik:GroupBox Header="Map" Grid.RowSpan="2" Grid.Column="1">
+                        <telerik:RadMap MinHeight="300" Center="41.001339,71.401199" ZoomLevel="10">
+                            <telerik:RadMap.Provider>
+                                <telerik:BingRestMapProvider ApplicationId="IKLPuJIbLs99CcnwN55k~hWh9H4NVlcbrAE0JqyNGmg~AipEycKGlwcVhymfRpbg8rdFHVFWZocW7kzNw1cDWqmANT6y2lcUqN85TxitKZUg"
+                                 Mode="AerialOnDemand"
+                                 IsTileCachingEnabled="True"
+                                 IsLabelVisible="True"/>
+                            </telerik:RadMap.Provider>
+                        </telerik:RadMap>
+                    </telerik:GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Seasons">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <telerik:GroupBox Header="Seasons" Grid.Column="0" Grid.Row="0">
+                        <telerik:RadGridView
+                             Margin="5" 
+                             ItemsSource="{Binding SelectedFarmVwMdl.Seasons}" 
+                             SelectedItem="{Binding SelectedFarmVwMdl.SelectedSeason, Mode=TwoWay}" 
+                             IsReadOnly="True" 
+                             AutoGenerateColumns="False"
+                             ShowSearchPanel="True"
+                             ShowGroupPanel="False"
+                             IsSearchingDeferred="False"
+                             CanUserSearchInHiddenColumns="True"
+                             CanUserGroupColumns="False"
+                             CanUserFreezeColumns="False"
+                             RowIndicatorVisibility="Collapsed"
+                             IsFilteringAllowed="True"
+                             >
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Year}" Header="Year" ></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Season}" Header="Season" ></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding GrowthStatus}" Header="Growth Status" ></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding ExpectedYield}" Header="Expected Yield" ></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding InitialInvestment}" Header="Investment" ></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Plant.Name}" Header="Plant" ></telerik:GridViewDataColumn>
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+                    </telerik:GroupBox>
+
+                    <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="5">
+                        <Button Margin="0 0 0 5" Width="80" Command="{Binding NewSeasonCommand}">New</Button>
+                        <Button Margin="0 0 0 5" Width="80" Command="{Binding ViewSeasonCommand}">View</Button>
+                        <Button Width="80" Command="{Binding RemoveSeasonCommand}">Remove</Button>
+                    </StackPanel>
+
+                    <telerik:GroupBox Header="Contagions" Grid.Column="0" Grid.Row="1">
+                        <telerik:RadGridView 
+                             Margin="5"
+                             ItemsSource="{Binding SelectedFarmVwMdl.SelectedSeason.Contagions}" 
+                             SelectedItem="{Binding SelectedFarmVwMdl.SelectedSeason.SelectedContagion, Mode=TwoWay}" 
+                             IsReadOnly="True" 
+                             AutoGenerateColumns="False"
+                             ShowSearchPanel="True"
+                             ShowGroupPanel="False"
+                             IsSearchingDeferred="False"
+                             CanUserSearchInHiddenColumns="True"
+                             CanUserGroupColumns="False"
+                             CanUserFreezeColumns="False"
+                             RowIndicatorVisibility="Collapsed"
+                             IsFilteringAllowed="True"
+                             >
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding DamageInMoney}" Header="Damage In Money" ></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding DamageInCropVolume}" Header="Damage In Crop Volume" ></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding DamageInPercentage}" Header="Damage In Percentage" ></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding StartDate}" Header="Start Date" ></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding EndDate}" Header="End Date" ></telerik:GridViewDataColumn>
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+                    </telerik:GroupBox>
+
+                    <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Margin="5">
+                        <Button Margin="0 0 0 5" Width="80" Command="{Binding NewContagionCommand}">New</Button>
+                        <Button Margin="0 0 0 5" Width="80" Command="{Binding ViewContagionCommand}">View</Button>
+                        <Button Width="80" Command="{Binding RemoveContagionCommand}">Remove</Button>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Messages">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <telerik:GroupBox Header="Message" Grid.Column="0" Grid.Row="0">
+                        <telerik:RadGridView
+                             Margin="5" 
+                             ItemsSource="{Binding SelectedFarmVwMdl.Messages}" 
+                             IsReadOnly="True" 
+                             AutoGenerateColumns="False"
+                             ShowSearchPanel="True"
+                             ShowGroupPanel="False"
+                             IsSearchingDeferred="False"
+                             CanUserSearchInHiddenColumns="True"
+                             CanUserGroupColumns="False"
+                             CanUserFreezeColumns="False"
+                             RowIndicatorVisibility="Collapsed"
+                             IsFilteringAllowed="True"
+                             >
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding MessageText}" Header="Message" ></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Status}" Header="Status" ></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Date}" Header="Date" ></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Feedback}" Header="Feedback" ></telerik:GridViewDataColumn>
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+                    </telerik:GroupBox>
+
+                    <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="5">
+                        <Button Margin="0 0 0 5" Width="80" Command="{Binding NewMessageCommand}">New</Button>
+                        <Button Margin="0 0 0 5" Width="80" Command="{Binding ViewMessageCommand}">View</Button>
+                        <!--<Button Width="80" Command="{Binding RemoveSeasonCommand}">Remove</Button>-->
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            
+            
+        </TabControl>
+
     </Grid>
-</Window>
+</UserControl>

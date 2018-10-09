@@ -4,7 +4,7 @@
         xmlns:filepicker="clr-namespace:SMSApp.Controls.FilePicker"
         Title="Disease Details"
         Loaded="Window_Loaded"
-        WindowStartupLocation="CenterScreen" ShowInTaskbar="False" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+        WindowStartupLocation="CenterScreen" ShowInTaskbar="False" SizeToContent="Height"  Width="800">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

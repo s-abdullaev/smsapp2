@@ -69,6 +69,7 @@ namespace SMSApp.Startup
             //models
             builder.RegisterType<User>().AsSelf();
             builder.RegisterType<FarmOwner>().AsSelf();
+            builder.RegisterType<Farm>().AsSelf();
             builder.RegisterType<Plant>().AsSelf();
             builder.RegisterType<Pest>().AsSelf();
             builder.RegisterType<Disease>().AsSelf();

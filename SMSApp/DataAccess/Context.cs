@@ -12,39 +12,39 @@ namespace SMSApp.DataAccess
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             /*User_FarmOwner FK Configurations*/
-            modelBuilder.Entity<FarmOwner>()
-                .HasRequired(f => f.User)
-                .WithMany(u => u.FarmOwners)
-                .HasForeignKey(f => f.UserId)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<FarmOwner>()
+            //    .HasRequired(f => f.User)
+            //    .WithMany(u => u.FarmOwners)
+            //    .HasForeignKey(f => f.UserId)
+            //    .WillCascadeOnDelete(false);
 
             /*User_Farm FK Configurations*/
-            modelBuilder.Entity<Farm>()
-                .HasRequired(f => f.User)
-                .WithMany(u => u.Farms)
-                .HasForeignKey(f => f.UserId)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Farm>()
+            //    .HasRequired(f => f.User)
+            //    .WithMany(u => u.Farms)
+            //    .HasForeignKey(f => f.UserId)
+            //    .WillCascadeOnDelete(false);
 
             /*User_SoilReading FK Configurations*/
-            modelBuilder.Entity<SoilReading>()
-                .HasRequired(s => s.User)
-                .WithMany(u => u.SoilReadings)
-                .HasForeignKey(s => s.UserId)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<SoilReading>()
+            //    .HasRequired(s => s.User)
+            //    .WithMany(u => u.SoilReadings)
+            //    .HasForeignKey(s => s.UserId)
+            //    .WillCascadeOnDelete(false);
 
             /*User_Contagion FK Configurations*/
-            modelBuilder.Entity<Contagion>()
-                .HasRequired(s => s.User)
-                .WithMany(u => u.Contagions)
-                .HasForeignKey(s => s.UserId)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Contagion>()
+            //    .HasRequired(s => s.User)
+            //    .WithMany(u => u.Contagions)
+            //    .HasForeignKey(s => s.UserId)
+            //    .WillCascadeOnDelete(false);
 
             /*User_Broadcast FK Configurations*/
-            modelBuilder.Entity<Broadcast>()
-                .HasRequired(b => b.User)
-                .WithMany(u => u.Broadcasts)
-                .HasForeignKey(b => b.UserId)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Broadcast>()
+            //    .HasRequired(b => b.User)
+            //    .WithMany(u => u.Broadcasts)
+            //    .HasForeignKey(b => b.UserId)
+            //    .WillCascadeOnDelete(false);
 
             /*FarmOwner_Farm FK Configurations*/
             modelBuilder.Entity<Farm>()

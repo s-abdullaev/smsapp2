@@ -18,12 +18,11 @@ namespace SMSApp.Views
     /// <summary>
     /// Interaction logic for FarmManagerView.xaml
     /// </summary>
-    public partial class FarmManagerView : Window
+    public partial class FarmManagerView : UserControl
     {
-        public FarmManagerView(FarmManagerViewModel viewModel)
+        public FarmManagerView()
         {
             InitializeComponent();
-            this.DataContext = viewModel;
         }
     }
 }

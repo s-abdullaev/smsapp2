@@ -20,7 +20,7 @@ namespace SMSApp.DataAccess
         public int? GeopositionId { get; set; }
         public virtual Geoposition Geoposition { get; set; }
 
-        public int? UserId { get; set; }
-        public virtual User User { get; set; }
+        //public int? UserId { get; set; }
+        //public virtual User User { get; set; }
     }
 }

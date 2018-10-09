@@ -1,5 +1,6 @@
 ﻿using SMSApp.Enums;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -27,6 +28,6 @@ namespace SMSApp.DataAccess
         public int? PlantId { get; set; }
         public Plant Plant { get; set; }
 
-        public virtual ICollection<Contagion> Contagions { get; set; }
+        public virtual ObservableCollection<Contagion> Contagions { get; set; }
     }
 }

@@ -11,7 +11,7 @@
                 
             </TabItem>
             <TabItem Header="Farms">
-
+                <view:FarmManagerView DataContext="{Binding FarmVwMdl}"></view:FarmManagerView>
             </TabItem>
             <TabItem Header="Farm Owners">
                 <view:FarmOwnerManagerView DataContext="{Binding FarmOwnerVwMdl}"></view:FarmOwnerManagerView>

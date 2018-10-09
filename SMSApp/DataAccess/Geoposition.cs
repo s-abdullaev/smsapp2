@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,6 +20,6 @@ namespace SMSApp.DataAccess
         public int FarmId { get; set; }
         public virtual Farm Farm { get; set; }
 
-        public virtual ICollection<SoilReading> SoilReadings { get; set; }
+        public virtual ObservableCollection<SoilReading> SoilReadings { get; set; } = new ObservableCollection<SoilReading>();
     }
 }

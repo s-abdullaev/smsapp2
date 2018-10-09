@@ -19,14 +19,19 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="170"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Width="50" Text="Name:" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0 "/>
+            <TextBox Margin="2" Height="25" Text="{Binding Title, Mode=TwoWay}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"></TextBox>
 
-            <WrapPanel Grid.Row="0" >
-                <TextBlock Width="50" Text="Name:" VerticalAlignment="Center"/>
-                <TextBox Margin="2" Height="25" Text="{Binding Title, Mode=TwoWay}"></TextBox>
-            </WrapPanel>
-            <WrapPanel Grid.Row="1">
-                <TextBlock Width="50" Text="File:" VerticalAlignment="Center"/>
-                <TextBox x:Name="txtFilePath" IsReadOnly="True" Margin="2" Height="25"  Text="{Binding CurrentFilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBlock Width="50" Text="File:" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
+            <TextBox x:Name="txtFilePath" IsReadOnly="True" Margin="2" Height="25"  Text="{Binding CurrentFilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1"></TextBox>
+
+            <WrapPanel Grid.Row="1" Grid.Column="2">
                 <Button x:Name="btnBrowse" Click="btnBrowse_Click" Content="Browse" Margin="2"></Button>
                 <Button x:Name="btnUpload" Command="{Binding UploadFileCmd}" Content="Upload" Margin="2"></Button>
             </WrapPanel>

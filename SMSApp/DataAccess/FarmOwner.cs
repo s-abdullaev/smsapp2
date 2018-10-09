@@ -40,8 +40,8 @@ namespace SMSApp.DataAccess
         public string AdditionalNotes { get; set; }
 
         /*FOREIGN KEYS*/
-        public int? UserId { get; set; }
-        public virtual User User { get; set; }
+        //public int? UserId { get; set; }
+        //public virtual User User { get; set; }
 
         public virtual ObservableCollection<Farm> Farms { get; set; } = new ObservableCollection<Farm>();
         public virtual ObservableCollection<Broadcast> Broadcasts { get; set; } = new ObservableCollection<Broadcast>();
@@ -51,6 +51,8 @@ namespace SMSApp.DataAccess
         /// </summary>
         [NotMapped]
         public bool IsSelected { get; set; }
+        [NotMapped]
+        public string DisplayName { get { return this.FirstName + " " + this.LastName; } }
 
     }
 }

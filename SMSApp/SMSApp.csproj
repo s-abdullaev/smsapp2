@@ -78,6 +78,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.Wpf.6.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -93,6 +95,7 @@
     <Reference Include="Telerik.Windows.Cloud, Version=2018.2.620.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
     <Reference Include="Telerik.Windows.Cloud.Controls, Version=2018.2.620.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
     <Reference Include="Telerik.Windows.Controls, Version=2018.2.620.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.DataVisualization, Version=2018.2.620.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
     <Reference Include="Telerik.Windows.Controls.GridView, Version=2018.2.620.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
     <Reference Include="Telerik.Windows.Controls.Input, Version=2018.2.620.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
     <Reference Include="Telerik.Windows.Data, Version=2018.2.620.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
@@ -121,14 +124,11 @@
     <Compile Include="LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808010150171_initial.cs" />
-    <Compile Include="Migrations\201808010150171_initial.Designer.cs">
-      <DependentUpon>201808010150171_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201810092132580_initial.cs" />
+    <Compile Include="Migrations\201810092132580_initial.Designer.cs">
+      <DependentUpon>201810092132580_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201809192147115_photos_changed.cs" />
-    <Compile Include="Migrations\201809192147115_photos_changed.Designer.cs">
-      <DependentUpon>201809192147115_photos_changed.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Services\AlertsService.cs" />
     <Compile Include="Services\SMSService.cs" />
     <Compile Include="Startup\Bootstrapper.cs" />
@@ -355,7 +355,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\User.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -377,8 +376,8 @@
     <Resource Include="Resources\Icons\icons8-polygon-32.png" />
     <Resource Include="Resources\Icons\icons8-select-32.png" />
     <Resource Include="Resources\Icons\icons8-undo-32.png" />
-    <EmbeddedResource Include="Migrations\201809192147115_photos_changed.resx">
-      <DependentUpon>201809192147115_photos_changed.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810092132580_initial.resx">
+      <DependentUpon>201810092132580_initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

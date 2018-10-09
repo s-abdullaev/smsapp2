@@ -33,7 +33,7 @@ namespace SMSApp.DataAccess
         [Column("AdditionalNotes", TypeName = "ntext")]
         public string AdditionalNotes { get; set; }
 
-        public virtual ICollection<Contagion> Contagions { get; set; }
+        public virtual ObservableCollection<Contagion> Contagions { get; set; }
         public virtual ObservableCollection<Photo> Photos { get; set; } = new ObservableCollection<Photo>();
     }
 }
