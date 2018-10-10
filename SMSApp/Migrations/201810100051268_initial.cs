@@ -137,7 +137,7 @@ namespace SMSApp.Migrations
                         IndustryType = c.String(),
                         AdditionalNotes = c.String(storeType: "ntext"),
                         LogoUrl = c.String(),
-                        FarmOwnerId = c.Int(nullable: false),
+                        FarmOwnerId = c.Int(),
                         User_UserId = c.Int(),
                     })
                 .PrimaryKey(t => t.FarmId)
@@ -158,7 +158,7 @@ namespace SMSApp.Migrations
                         FarmId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.GeopositionId)
-                .ForeignKey("dbo.Farms", t => t.FarmId)
+                .ForeignKey("dbo.Farms", t => t.FarmId, cascadeDelete: true)
                 .Index(t => t.FarmId);
             
             CreateTable(
@@ -174,7 +174,7 @@ namespace SMSApp.Migrations
                         SoilFertilityRating = c.Single(nullable: false),
                         Date = c.DateTime(nullable: false),
                         AdditionalNotes = c.String(storeType: "ntext"),
-                        GeopositionId = c.Int(nullable: false),
+                        GeopositionId = c.Int(),
                         User_UserId = c.Int(),
                     })
                 .PrimaryKey(t => t.SoilReadingId)

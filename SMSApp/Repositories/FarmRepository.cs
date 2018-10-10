@@ -11,7 +11,6 @@ namespace SMSApp.Repositories
         public FarmRepository(Context dbContext)
             : base(dbContext)
         {
-
         }
 
     }

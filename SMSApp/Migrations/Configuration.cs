@@ -16,10 +16,6 @@ namespace SMSApp.Migrations
 
         protected override void Seed(SMSApp.DataAccess.Context context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
             IList<FarmOwner> farmOwners = new List<FarmOwner>
             {
 
@@ -36,7 +32,7 @@ namespace SMSApp.Migrations
             //    new Farm { Name = "Farm3", Address = "Address3", City = "City3", Region = "Region3", RegistrationCertificateNum = "003", EstablishedYear = DateTime.Parse("2008-03-21"), Area = 54.5f, IndustryType = "Type3", /*FarmOwner = farmOwners[2], User = users[2]*/ }
             //};
 
-            
+
             context.FarmOwners.AddRange(farmOwners);
             context.SaveChanges();
 

@@ -18,8 +18,8 @@ namespace SMSApp.ViewModels
             _alerts = container.Resolve<AlertsService>();
         }
 
-        private IUnitOfWork uw;
-        private AlertsService _alerts;
+        protected IUnitOfWork uw;
+        protected AlertsService _alerts;
 
         public DelegateCommand OpenAddEntityCommand { get; private set; }
         public DelegateCommand OpenEditEntityCommand { get; private set; }
@@ -47,7 +47,13 @@ namespace SMSApp.ViewModels
                 RaisePropertyChanged();
                 OpenEditEntityCommand.RaiseCanExecuteChanged();
                 RemoveEntityCommand.RaiseCanExecuteChanged();
+                SelectedItemChanged();
             }
+        }
+
+        public virtual void SelectedItemChanged()
+        {
+
         }
 
         public virtual void ExecuteOpenAddItemCommand()

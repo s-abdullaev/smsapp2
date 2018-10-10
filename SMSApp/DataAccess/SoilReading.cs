@@ -12,7 +12,7 @@ namespace SMSApp.DataAccess
         public float NitrateLevel { get; set; }
         public float AcidityLevel { get; set; }
         public float SoilFertilityRating { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
         [Column("AdditionalNotes", TypeName = "ntext")]
         public string AdditionalNotes { get; set; }
 

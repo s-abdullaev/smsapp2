@@ -70,8 +70,8 @@
                         <telerik:GroupBox Header="Geopositions" Grid.Column="0">
                             <telerik:RadGridView  
                              Margin="5"
-                             ItemsSource="{Binding SelectedFarmVwMdl.Geopositions}" 
-                             SelectedItem="{Binding SelectedFarmVwMdl.SelectedGeoposition, Mode=TwoWay}" 
+                             ItemsSource="{Binding Geopositions}" 
+                             SelectedItem="{Binding SelectedGeoposition, Mode=TwoWay}" 
                              IsReadOnly="True" 
                              AutoGenerateColumns="False"
                              ShowSearchPanel="True"
@@ -91,9 +91,9 @@
                             </telerik:RadGridView>
                         </telerik:GroupBox>
                         <StackPanel HorizontalAlignment="Right" Margin="5" Grid.Column="1">
-                            <Button Margin="0 0 0 5" Width="80" Command="{Binding NewMapCommand}">New</Button>
-                            <Button Margin="0 0 0 5" Width="80" Command="{Binding ViewMapCommand}">View</Button>
-                            <Button Width="80" Command="{Binding RemoveMapCommand}">Remove</Button>
+                            <Button Margin="0 0 0 5" Width="80" Command="{Binding NewMapCmd}">New</Button>
+                            <Button Margin="0 0 0 5" Width="80" Command="{Binding ViewMapCmd}">View</Button>
+                            <Button Width="80" Command="{Binding RemoveMapCmd}">Remove</Button>
                         </StackPanel>
                     </Grid>
 
@@ -109,8 +109,8 @@
                             <telerik:RadGridView  
                              Grid.Row="2"
                              Margin="5"
-                             ItemsSource="{Binding SelectedFarmVwMdl.SelectedGeoposition.SoilReadings}" 
-                             SelectedItem="{Binding SelectedFarmVwMdl.SelectedGeoposition.SelectedSoilReading, Mode=TwoWay}" 
+                             ItemsSource="{Binding SoilReadings}" 
+                             SelectedItem="{Binding SelectedSoilReading, Mode=TwoWay}" 
                              IsReadOnly="True" 
                              AutoGenerateColumns="False"
                              ShowSearchPanel="True"
@@ -123,19 +123,21 @@
                              IsFilteringAllowed="True"
                              >
                                 <telerik:RadGridView.Columns>
-                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Year}" Header="Year" ></telerik:GridViewDataColumn>
-                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Season}" Header="Season" ></telerik:GridViewDataColumn>
-                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding GrowthStatus}" Header="Growth Status" ></telerik:GridViewDataColumn>
-                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ExpectedYield}" Header="Expected Yield" ></telerik:GridViewDataColumn>
-                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding InitialInvestment}" Header="Investment" ></telerik:GridViewDataColumn>
-                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Plant.Name}" Header="Plant" ></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Date}" Header="Date" ></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding HumusLevel}" Header="Humus Level" ></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding PottasiumLevel}" Header="Pottasium Level" ></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding PhosphorusLevel}" Header="Phosphorus Level" ></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding NitrateLevel}" Header="Nitrate Level" ></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding AcidityLevel}" Header="Acidity Level" ></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding SoilFertilityRating}" Header="Soil Fertility" ></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding AdditionalNotes}" Header="Notes" ></telerik:GridViewDataColumn>
                                 </telerik:RadGridView.Columns>
                             </telerik:RadGridView>
                         </telerik:GroupBox>
                         <StackPanel Grid.Column="1" HorizontalAlignment="Right" Margin="5">
-                            <Button Margin="0 0 0 5" Width="80" Command="{Binding NewSoilReadingCommand}">New</Button>
-                            <Button Margin="0 0 0 5" Width="80" Command="{Binding ViewSoilReadingCommand}">View</Button>
-                            <Button Width="80" Command="{Binding RemoveSoilReadingCommand}">Remove</Button>
+                            <Button Margin="0 0 0 5" Width="80" Command="{Binding NewSoilReadingCmd}">New</Button>
+                            <Button Margin="0 0 0 5" Width="80" Command="{Binding ViewSoilReadingCmd}">View</Button>
+                            <Button Width="80" Command="{Binding RemoveSoilReadingCmd}">Remove</Button>
                         </StackPanel>
                     </Grid>
                     

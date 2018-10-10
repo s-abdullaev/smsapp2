@@ -44,6 +44,8 @@ namespace SMSApp.Startup
             builder.RegisterType<BroadcastManagerView>().AsSelf();
             builder.RegisterType<LoginView>().AsSelf();
             builder.RegisterType<PhotoAddView>().AsSelf();
+            builder.RegisterType<GeopositionAddView>().AsSelf();
+            builder.RegisterType<SoilReadingAddView>().AsSelf();
 
             // ViewModels
             builder.RegisterType<MainWindowViewModel>().AsSelf();
@@ -65,6 +67,8 @@ namespace SMSApp.Startup
             builder.RegisterType<LoginViewModel>().AsSelf();
             builder.RegisterType<PhotoAddViewModel>().AsSelf();
             builder.RegisterType<FilePickerControlViewModel>().AsSelf();
+            builder.RegisterType<GeopositionAddViewModel>().AsSelf();
+            builder.RegisterType<SoilReadingAddViewModel>().AsSelf();
 
             //models
             builder.RegisterType<User>().AsSelf();
@@ -73,6 +77,8 @@ namespace SMSApp.Startup
             builder.RegisterType<Plant>().AsSelf();
             builder.RegisterType<Pest>().AsSelf();
             builder.RegisterType<Disease>().AsSelf();
+            builder.RegisterType<Geoposition>().AsSelf();
+            builder.RegisterType<SoilReading>().AsSelf();
             builder.RegisterType<Photo>().AsSelf();
 
             //singleton instance of unitOfWork for data access

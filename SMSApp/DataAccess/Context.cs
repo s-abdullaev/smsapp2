@@ -47,25 +47,25 @@ namespace SMSApp.DataAccess
             //    .WillCascadeOnDelete(false);
 
             /*FarmOwner_Farm FK Configurations*/
-            modelBuilder.Entity<Farm>()
-                .HasRequired(f => f.FarmOwner)
-                .WithMany(fo => fo.Farms)
-                .HasForeignKey(f => f.FarmOwnerId)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Farm>()
+            //    .HasOptional(f => f.FarmOwner)
+            //    .WithMany(fo => fo.Farms)
+            //    .HasForeignKey(f => f.FarmOwnerId)
+            //    .WillCascadeOnDelete(false);
 
-            /*Farm_Geoposition FK Configurations*/
-            modelBuilder.Entity<Geoposition>()
-                .HasRequired(g => g.Farm)
-                .WithMany(f => f.Geopositions)
-                .HasForeignKey(f => f.FarmId)
-                .WillCascadeOnDelete(false);
+            ///*Farm_Geoposition FK Configurations*/
+            //modelBuilder.Entity<Geoposition>()
+            //    .HasOptional(g => g.Farm)
+            //    .WithMany(f => f.Geopositions)
+            //    .HasForeignKey(f => f.FarmId)
+            //    .WillCascadeOnDelete(false);
 
-            /*Geoposition_SoilReading FK Configurations*/
-            modelBuilder.Entity<SoilReading>()
-                .HasRequired(s => s.Geoposition)
-                .WithMany(g => g.SoilReadings)
-                .HasForeignKey(s => s.GeopositionId)
-                .WillCascadeOnDelete(false);
+            ///*Geoposition_SoilReading FK Configurations*/
+            //modelBuilder.Entity<SoilReading>()
+            //    .HasOptional(s => s.Geoposition)
+            //    .WithMany(g => g.SoilReadings)
+            //    .HasForeignKey(s => s.GeopositionId)
+            //    .WillCascadeOnDelete(false);
         }
 
         public DbSet<User> Users { get; set; }

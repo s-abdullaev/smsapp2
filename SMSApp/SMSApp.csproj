@@ -124,9 +124,9 @@
     <Compile Include="LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810092132580_initial.cs" />
-    <Compile Include="Migrations\201810092132580_initial.Designer.cs">
-      <DependentUpon>201810092132580_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201810100051268_initial.cs" />
+    <Compile Include="Migrations\201810100051268_initial.Designer.cs">
+      <DependentUpon>201810100051268_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Services\AlertsService.cs" />
@@ -144,6 +144,8 @@
     <Compile Include="ViewModels\FarmManagerViewModel.cs" />
     <Compile Include="ViewModels\FarmOwnerAddViewModel.cs" />
     <Compile Include="ViewModels\FarmOwnerManagerViewModel.cs" />
+    <Compile Include="ViewModels\SoilReadingAddViewModel.cs" />
+    <Compile Include="ViewModels\GeopositionAddViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="Controls\MapControl\MapControlViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
@@ -190,6 +192,9 @@
     <Compile Include="Views\PhotoAddView.xaml.cs">
       <DependentUpon>PhotoAddView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SoilReadingAddView.xaml.cs">
+      <DependentUpon>SoilReadingAddView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PlantAddView.xaml.cs">
       <DependentUpon>PlantAddView.xaml</DependentUpon>
     </Compile>
@@ -201,6 +206,9 @@
     </Compile>
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GeopositionAddView.xaml.cs">
+      <DependentUpon>GeopositionAddView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserAddView.xaml.cs">
       <DependentUpon>UserAddView.xaml</DependentUpon>
@@ -328,6 +336,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SoilReadingAddView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\PlantAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -339,6 +351,10 @@
     <Page Include="Views\SettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GeopositionAddView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\UserAddView.xaml">
       <SubType>Designer</SubType>
@@ -376,8 +392,8 @@
     <Resource Include="Resources\Icons\icons8-polygon-32.png" />
     <Resource Include="Resources\Icons\icons8-select-32.png" />
     <Resource Include="Resources\Icons\icons8-undo-32.png" />
-    <EmbeddedResource Include="Migrations\201810092132580_initial.resx">
-      <DependentUpon>201810092132580_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810100051268_initial.resx">
+      <DependentUpon>201810100051268_initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
