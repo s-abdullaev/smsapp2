@@ -4,13 +4,16 @@
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="300"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
+
+        <GridSplitter Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" ShowsPreview="True" Height="2" Background="Gray"></GridSplitter>
 
         <telerik:RadGridView Grid.Column="0" 
                              Grid.Row="0"
@@ -48,7 +51,7 @@
             <Button Width="80" Command="{Binding RemoveEntityCommand}">Remove</Button>
         </StackPanel>
 
-        <TabControl Margin="5" Grid.Row="1" Grid.Column="0">
+        <TabControl Margin="5" Grid.Row="2" Grid.Column="0">
             <TabItem Header="Maps">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -156,6 +159,7 @@
             <TabItem Header="Seasons">
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="35"></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
@@ -163,12 +167,21 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-
-                    <telerik:GroupBox Header="Seasons" Grid.Column="0" Grid.Row="0">
+                    
+                       <Grid Grid.Column="0" Grid.Row="0" Margin="2 5 0 2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Select Geoposition:" Margin="2 0"></Label>
+                            <ComboBox Grid.Column="1" ItemsSource="{Binding Geopositions}" SelectedItem="{Binding SelectedGeoposition, Mode=TwoWay}" DisplayMemberPath="Name"></ComboBox>    
+                        </Grid>
+                        
+                    <telerik:GroupBox Header="Seasons" Grid.Column="0" Grid.Row="1">
                         <telerik:RadGridView
                              Margin="5" 
-                             ItemsSource="{Binding SelectedFarmVwMdl.Seasons}" 
-                             SelectedItem="{Binding SelectedFarmVwMdl.SelectedSeason, Mode=TwoWay}" 
+                             ItemsSource="{Binding Seasons}" 
+                             SelectedItem="{Binding SelectedSeason, Mode=TwoWay}" 
                              IsReadOnly="True" 
                              AutoGenerateColumns="False"
                              ShowSearchPanel="True"
@@ -182,22 +195,22 @@
                              >
                             <telerik:RadGridView.Columns>
                                 <telerik:GridViewDataColumn DataMemberBinding="{Binding Year}" Header="Year" ></telerik:GridViewDataColumn>
-                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Season}" Header="Season" ></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding SeasonTime}" Header="Season" ></telerik:GridViewDataColumn>
                                 <telerik:GridViewDataColumn DataMemberBinding="{Binding GrowthStatus}" Header="Growth Status" ></telerik:GridViewDataColumn>
                                 <telerik:GridViewDataColumn DataMemberBinding="{Binding ExpectedYield}" Header="Expected Yield" ></telerik:GridViewDataColumn>
                                 <telerik:GridViewDataColumn DataMemberBinding="{Binding InitialInvestment}" Header="Investment" ></telerik:GridViewDataColumn>
-                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Plant.Name}" Header="Plant" ></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding PlantNames}" Header="Plants" ></telerik:GridViewDataColumn>
                             </telerik:RadGridView.Columns>
                         </telerik:RadGridView>
                     </telerik:GroupBox>
 
-                    <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="5">
-                        <Button Margin="0 0 0 5" Width="80" Command="{Binding NewSeasonCommand}">New</Button>
-                        <Button Margin="0 0 0 5" Width="80" Command="{Binding ViewSeasonCommand}">View</Button>
-                        <Button Width="80" Command="{Binding RemoveSeasonCommand}">Remove</Button>
+                    <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Margin="5">
+                        <Button Margin="0 0 0 5" Width="80" Command="{Binding NewSeasonCmd}">New</Button>
+                        <Button Margin="0 0 0 5" Width="80" Command="{Binding ViewSeasonCmd}">View</Button>
+                        <Button Width="80" Command="{Binding RemoveSeasonCmd}">Remove</Button>
                     </StackPanel>
 
-                    <telerik:GroupBox Header="Contagions" Grid.Column="0" Grid.Row="1">
+                    <telerik:GroupBox Header="Contagions" Grid.Column="0" Grid.Row="2">
                         <telerik:RadGridView 
                              Margin="5"
                              ItemsSource="{Binding SelectedFarmVwMdl.SelectedSeason.Contagions}" 
@@ -223,7 +236,7 @@
                         </telerik:RadGridView>
                     </telerik:GroupBox>
 
-                    <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Margin="5">
+                    <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Margin="5">
                         <Button Margin="0 0 0 5" Width="80" Command="{Binding NewContagionCommand}">New</Button>
                         <Button Margin="0 0 0 5" Width="80" Command="{Binding ViewContagionCommand}">View</Button>
                         <Button Width="80" Command="{Binding RemoveContagionCommand}">Remove</Button>

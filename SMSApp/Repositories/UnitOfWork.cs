@@ -25,6 +25,9 @@ namespace SMSApp.Repositories
             Photos = new PhotoRepository(appContext);
             Plants = new PlantRepository(appContext);
             SoilReadings = new SoilReadingRepository(appContext);
+            Seasons = new SeasonRepository(appContext);
+            SeasonPlants = new SeasonPlantRepository(appContext);
+
             Instance = this;
         }
 
@@ -56,6 +59,10 @@ namespace SMSApp.Repositories
         public IPlantRepository Plants { get; private set; }
 
         public ISoilReadingRepository SoilReadings { get; private set; }
+
+        public ISeasonRepository Seasons { get; private set; }
+
+        public ISeasonPlantRepository SeasonPlants { get; private set; }
 
         public int Complete()
         {

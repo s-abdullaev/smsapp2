@@ -18,6 +18,10 @@ namespace SMSApp.ViewModels
         public DelegateCommand ViewSoilReadingCmd { get; set; }
         public DelegateCommand RemoveSoilReadingCmd { get; set; }
 
+        public DelegateCommand NewSeasonCmd { get; set; }
+        public DelegateCommand ViewSeasonCmd { get; set; }
+        public DelegateCommand RemoveSeasonCmd { get; set; }
+
         public FarmManagerViewModel(IContainer container, IUnitOfWork unitOfWork) : base(container, unitOfWork)
         {
 
@@ -25,10 +29,37 @@ namespace SMSApp.ViewModels
             ViewMapCmd = new DelegateCommand(ExecuteEditMapCommand, CanExecuteEditMapCommand);
             RemoveMapCmd = new DelegateCommand(ExecuteRemoveMapCommand, CanExecuteEditMapCommand);
 
-
             NewSoilReadingCmd = new DelegateCommand(ExecuteNewSoilReadingCommand, CanExecuteNewSoilReadingCommand);
             ViewSoilReadingCmd = new DelegateCommand(ExecuteEditSoilReadingCommand, CanExecuteEditSoilReadingCommand);
             RemoveSoilReadingCmd = new DelegateCommand(ExecuteRemoveSoilReadingCommand, CanExecuteEditSoilReadingCommand);
+
+            NewSeasonCmd = new DelegateCommand(ExecuteNewSeasonCommand, CanExecuteNewSeasonCommand);
+            ViewSeasonCmd = new DelegateCommand(ExecuteEditSeasonCommand, CanExecuteEditSeasonCommand);
+            RemoveSeasonCmd = new DelegateCommand(ExecuteRemoveSeasonCommand, CanExecuteEditSeasonCommand);
+        }
+
+
+        private ObservableCollection<Season> _seasons;
+        private Season _selectedSeason;
+        public ObservableCollection<Season> Seasons { get => _seasons; set {
+                _seasons = value;
+
+                RaisePropertyChanged();
+
+                NewSeasonCmd.RaiseCanExecuteChanged();
+                ViewSeasonCmd.RaiseCanExecuteChanged();
+                RemoveSeasonCmd.RaiseCanExecuteChanged();
+            }
+        }
+        public Season SelectedSeason { get => _selectedSeason; set {
+                _selectedSeason = value;
+
+                RaisePropertyChanged();
+
+                NewSeasonCmd.RaiseCanExecuteChanged();
+                ViewSeasonCmd.RaiseCanExecuteChanged();
+                RemoveSeasonCmd.RaiseCanExecuteChanged();
+            }
         }
 
 
@@ -94,13 +125,18 @@ namespace SMSApp.ViewModels
                 RemoveMapCmd.RaiseCanExecuteChanged();
 
                 SoilReadings = null;
+                Seasons = null;
                 SelectedSoilReading = null;
+                SelectedSeason = null;
 
                 if (_selectedGeoposition == null) return;
 
                 SoilReadings = SelectedGeoposition.SoilReadings;
+                Seasons = SelectedGeoposition.Seasons;
             }
         }
+
+       
 
         public override void ExecuteOpenAddItemCommand()
         {
@@ -108,7 +144,6 @@ namespace SMSApp.ViewModels
             view.ShowDialog();
             RaisePropertyChanged("Items");
         }
-
         public override void ExecuteEditAddItemCommand()
         {
             FarmAddView view = _container.Resolve<FarmAddView>(
@@ -187,8 +222,7 @@ namespace SMSApp.ViewModels
             view.ShowDialog();
             RaisePropertyChanged("SoilReadings");
         }
-
-
+        
         public void ExecuteRemoveSoilReadingCommand()
         {
             if (_alerts.ShowQuestionYesNoMsg("Do you want to delete this record?") != System.Windows.MessageBoxResult.Yes) return;
@@ -208,6 +242,53 @@ namespace SMSApp.ViewModels
         {
             return SelectedGeoposition != null && SelectedSoilReading != null;
         }
+
+
+
+        public void ExecuteNewSeasonCommand()
+        {
+            SeasonAddView view = _container.Resolve<SeasonAddView>(
+                new NamedParameter("viewModel", _container.Resolve<SeasonAddViewModel>(
+                    new NamedParameter("isUpdate", false),
+                    new NamedParameter("geop", SelectedGeoposition)
+                )));
+            view.ShowDialog();
+            RaisePropertyChanged("Seasons");
+        }
+
+        public void ExecuteEditSeasonCommand()
+        {
+            SeasonAddView view = _container.Resolve<SeasonAddView>(
+                new NamedParameter("viewModel", _container.Resolve<SeasonAddViewModel>(
+                    new NamedParameter("model", SelectedSeason),
+                    new NamedParameter("isUpdate", true),
+                    new NamedParameter("geop", SelectedGeoposition)
+                )));
+            view.ShowDialog();
+            RaisePropertyChanged("Seasons");
+        }
+
+        public void ExecuteRemoveSeasonCommand()
+        {
+            if (_alerts.ShowQuestionYesNoMsg("Do you want to delete this record?") != System.Windows.MessageBoxResult.Yes) return;
+
+            uw.Seasons.Remove(SelectedSeason);
+            uw.Complete();
+
+            RaisePropertyChanged("Seasons");
+        }
+
+        public bool CanExecuteNewSeasonCommand()
+        {
+            return SelectedGeoposition != null;
+        }
+
+        public bool CanExecuteEditSeasonCommand()
+        {
+            return SelectedGeoposition != null && SelectedSeason != null;
+        }
+
+
 
         public override void SelectedItemChanged()
         {

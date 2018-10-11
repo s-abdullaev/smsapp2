@@ -19,7 +19,7 @@ namespace SMSApp.DataAccess
 
         /*FOREIGN KEYS*/
         public int? FarmPlantId { get; set; }
-        public virtual FarmPlant FarmPlant { get; set; }
+        public virtual Season FarmPlant { get; set; }
         
         //public int? UserId { get; set; }
         //public virtual User User { get; set; }

@@ -17,9 +17,10 @@ namespace SMSApp.DataAccess
         public string AdditionalNotes { get; set; }
 
         /*FOREIGN KEYS*/
-        public int FarmId { get; set; }
+        public int? FarmId { get; set; }
         public virtual Farm Farm { get; set; }
 
+        public virtual ObservableCollection<Season> Seasons { get; set; } = new ObservableCollection<Season>();
         public virtual ObservableCollection<SoilReading> SoilReadings { get; set; } = new ObservableCollection<SoilReading>();
     }
 }

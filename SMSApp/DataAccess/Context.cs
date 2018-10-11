@@ -73,7 +73,7 @@ namespace SMSApp.DataAccess
         public DbSet<Farm> Farms { get; set; }
         public DbSet<Geoposition> Geopositions { get; set; }
         public DbSet<SoilReading> SoilReadings { get; set; }
-        public DbSet<FarmPlant> FarmPlants { get; set; }
+        public DbSet<Season> FarmPlants { get; set; }
         public DbSet<Plant> Plants { get; set; }
         public DbSet<Contagion> Contagions { get; set; }
         public DbSet<Disease> Diseases { get; set; }

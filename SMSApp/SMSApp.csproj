@@ -114,7 +114,12 @@
       <DependentUpon>FilePickerControlView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\FilePicker\FilePickerControlViewModel.cs" />
+    <Compile Include="Controls\ItemPicker\ItemPickerControlView.xaml.cs">
+      <DependentUpon>ItemPickerControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ItemPicker\ItemPickerControlViewModel.cs" />
     <Compile Include="Converters\NegationConverter.cs" />
+    <Compile Include="DataAccess\SeasonPlant.cs" />
     <Compile Include="Events\SignedInEvent.cs" />
     <Compile Include="ExtensionMethods\AutofacExtensions.cs" />
     <Compile Include="DataAccess\Core\ISelectable.cs" />
@@ -128,7 +133,27 @@
     <Compile Include="Migrations\201810100051268_initial.Designer.cs">
       <DependentUpon>201810100051268_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810102150066_new_tables.cs" />
+    <Compile Include="Migrations\201810102150066_new_tables.Designer.cs">
+      <DependentUpon>201810102150066_new_tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810102152252_minor_rename.cs" />
+    <Compile Include="Migrations\201810102152252_minor_rename.Designer.cs">
+      <DependentUpon>201810102152252_minor_rename.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810110001399_minor_changes.cs" />
+    <Compile Include="Migrations\201810110001399_minor_changes.Designer.cs">
+      <DependentUpon>201810110001399_minor_changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810110109111_minor_changes2.cs" />
+    <Compile Include="Migrations\201810110109111_minor_changes2.Designer.cs">
+      <DependentUpon>201810110109111_minor_changes2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\Core\ISeasonPlantRepository.cs" />
+    <Compile Include="Repositories\Core\ISeasonRepository.cs" />
+    <Compile Include="Repositories\SeasonPlantRepository.cs" />
+    <Compile Include="Repositories\SeasonRepository.cs" />
     <Compile Include="Services\AlertsService.cs" />
     <Compile Include="Services\SMSService.cs" />
     <Compile Include="Startup\Bootstrapper.cs" />
@@ -144,6 +169,7 @@
     <Compile Include="ViewModels\FarmManagerViewModel.cs" />
     <Compile Include="ViewModels\FarmOwnerAddViewModel.cs" />
     <Compile Include="ViewModels\FarmOwnerManagerViewModel.cs" />
+    <Compile Include="ViewModels\SeasonAddViewModel.cs" />
     <Compile Include="ViewModels\SoilReadingAddViewModel.cs" />
     <Compile Include="ViewModels\GeopositionAddViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
@@ -191,6 +217,9 @@
     </Compile>
     <Compile Include="Views\PhotoAddView.xaml.cs">
       <DependentUpon>PhotoAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SeasonAddView.xaml.cs">
+      <DependentUpon>SeasonAddView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SoilReadingAddView.xaml.cs">
       <DependentUpon>SoilReadingAddView.xaml</DependentUpon>
@@ -249,6 +278,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\ItemPicker\ItemPickerControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -268,7 +301,7 @@
     <Compile Include="DataAccess\Disease.cs" />
     <Compile Include="DataAccess\Farm.cs" />
     <Compile Include="DataAccess\FarmOwner.cs" />
-    <Compile Include="DataAccess\FarmPlant.cs" />
+    <Compile Include="DataAccess\Season.cs" />
     <Compile Include="DataAccess\Geoposition.cs" />
     <Compile Include="DataAccess\Message.cs" />
     <Compile Include="DataAccess\Pest.cs" />
@@ -336,6 +369,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SeasonAddView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\SoilReadingAddView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -394,6 +431,18 @@
     <Resource Include="Resources\Icons\icons8-undo-32.png" />
     <EmbeddedResource Include="Migrations\201810100051268_initial.resx">
       <DependentUpon>201810100051268_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810102150066_new_tables.resx">
+      <DependentUpon>201810102150066_new_tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810102152252_minor_rename.resx">
+      <DependentUpon>201810102152252_minor_rename.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810110001399_minor_changes.resx">
+      <DependentUpon>201810110001399_minor_changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810110109111_minor_changes2.resx">
+      <DependentUpon>201810110109111_minor_changes2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

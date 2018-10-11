@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace SMSApp.Repositories.Core
 {
-    public interface IFarmPlantRepository : IRepository<FarmPlant>
+    public interface IFarmPlantRepository : IRepository<Season>
     {
         
     }

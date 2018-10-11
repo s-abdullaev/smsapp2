@@ -59,7 +59,7 @@
         Harvested
     }
 
-    public enum Seasons
+    public enum SeasonTimes
     {
         Winter,
         Spring,
