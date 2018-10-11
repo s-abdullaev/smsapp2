@@ -4,32 +4,11 @@
              Startup="Application_Startup"
              DispatcherUnhandledException="Application_DispatcherUnhandledException">
     <Application.Resources>
-        <Style TargetType="TextBox">
-            <!--<Setter Property="Validation.ErrorTemplate">
-                <Setter.Value>
-                    <ControlTemplate>
-                        <StackPanel>
-                            <Border BorderThickness="2" BorderBrush="DarkRed">
-                                <StackPanel>
-                                    <AdornedElementPlaceholder    
-                                x:Name="errorControl" />
-                                </StackPanel>
-                            </Border>
-                            <TextBlock Text="{Binding AdornedElement.ToolTip    
-                        , ElementName=errorControl}" Foreground="Red" />
-                        </StackPanel>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>-->
-            <Style.Triggers>
-                <Trigger Property="Validation.HasError" Value="true">
-                    <Setter Property="BorderBrush" Value="Red" />
-                    <Setter Property="BorderThickness" Value="1" />
-                    <Setter Property="ToolTip"    
-                Value="{Binding RelativeSource={RelativeSource Self}    
-                    , Path=(Validation.Errors)[0].ErrorContent}" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="/Telerik.Windows.Controls;component/Themes/FontResources.xaml"/>
+                    <ResourceDictionary Source="/Styles/ValidationStyles.xaml"/>
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
     </Application.Resources>
 </Application>

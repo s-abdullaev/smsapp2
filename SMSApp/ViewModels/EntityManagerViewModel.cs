@@ -3,6 +3,7 @@ using Prism.Commands;
 using SMSApp.Repositories.Core;
 using System.Collections.Generic;
 using SMSApp.ExtensionMethods;
+using SMSApp.Services;
 
 namespace SMSApp.ViewModels
 {
@@ -14,9 +15,11 @@ namespace SMSApp.ViewModels
             OpenAddEntityCommand = new DelegateCommand(ExecuteOpenAddItemCommand);
             OpenEditEntityCommand = new DelegateCommand(ExecuteEditAddItemCommand, () => selectedItem != null);
             RemoveEntityCommand = new DelegateCommand(ExecuteRemoveItemCommand, () => selectedItem != null);
+            _alerts = container.Resolve<AlertsService>();
         }
 
-        private IUnitOfWork uw;
+        protected IUnitOfWork uw;
+        protected AlertsService _alerts;
 
         public DelegateCommand OpenAddEntityCommand { get; private set; }
         public DelegateCommand OpenEditEntityCommand { get; private set; }
@@ -44,7 +47,13 @@ namespace SMSApp.ViewModels
                 RaisePropertyChanged();
                 OpenEditEntityCommand.RaiseCanExecuteChanged();
                 RemoveEntityCommand.RaiseCanExecuteChanged();
+                SelectedItemChanged();
             }
+        }
+
+        public virtual void SelectedItemChanged()
+        {
+
         }
 
         public virtual void ExecuteOpenAddItemCommand()
@@ -57,6 +66,8 @@ namespace SMSApp.ViewModels
 
         public virtual void ExecuteRemoveItemCommand()
         {
+            if (_alerts.ShowQuestionYesNoMsg("Do you want to delete this record?") != System.Windows.MessageBoxResult.Yes) return;
+
             GetRepository().Remove(SelectedItem);
             uw.Complete();
             RaisePropertyChanged("Items");

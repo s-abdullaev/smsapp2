@@ -79,7 +79,7 @@ namespace SMSApp.ViewModels
         {
             UserAddView view = _container.Resolve<UserAddView>(
                 new NamedParameter("viewModel", _container.Resolve<UserAddViewModel>(
-                    new NamedParameter("userModel", SelectedItem),
+                    new NamedParameter("model", SelectedItem),
                     new NamedParameter("isUpdate", true)
                 )));
             view.ShowDialog();

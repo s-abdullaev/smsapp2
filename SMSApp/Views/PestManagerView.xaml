@@ -1,40 +1,43 @@
-﻿<Window x:Class="SMSApp.Views.PestManagerView"
+﻿<UserControl x:Class="SMSApp.Views.PestManagerView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        ShowInTaskbar="False" WindowStartupLocation="CenterScreen"
-        Height="600" Width="800">
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <DataGrid ItemsSource="{Binding DiseasesList}" 
-                  Background="White" 
-                  IsReadOnly="True" 
-                  AutoGenerateColumns="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id" Binding="{Binding PestId}"/>
-                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                    <DataGridTextColumn Header="Scientific name" Binding="{Binding ScientificName}"/>
-                    <DataGridTextColumn Header="Agricultural name" Binding="{Binding AgriculturalName}"/>
-                    <DataGridTextColumn Header="Scientific classification" Binding="{Binding ScientificClassification}"/>
-                    <DataGridTextColumn Header="Agricultural classification" Binding="{Binding AgriculturalClassification}"/>
-                    <DataGridTextColumn Header="Diagnostics" Binding="{Binding Detection}"/>
-                    <DataGridTextColumn Header="Risks" Binding="{Binding Risks}"/>
-                    <DataGridTextColumn Header="Prognosis" Binding="{Binding Prognosis}"/>
-                    <DataGridTextColumn Header="Danger rating" Binding="{Binding DangerRating}"/>
-                    <DataGridTextColumn Header="Speed of growth" Binding="{Binding SpeedOfGrowth}"/>
-                    <DataGridTextColumn Header="Chemical treatment" Binding="{Binding ChemicalTreatment}"/>
-                    <DataGridTextColumn Header="Non-chemical treatment" Binding="{Binding NonChemicalTreatment}"/>
-                    <DataGridTextColumn Header="Prevention" Binding="{Binding Prevention}"/>
-                    <DataGridTextColumn Header="Lifespan" Binding="{Binding Lifespan}"/>
-                    <DataGridTextColumn Header="Additional notes" Binding="{Binding AdditionalNotes}"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </ScrollViewer>
-        <WrapPanel Grid.Row="1" HorizontalAlignment="Right">
-            <Button Padding="10 5">Add Pest</Button>
-        </WrapPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <telerik:RadGridView Grid.Column="0" 
+                             Margin="5" 
+                             ItemsSource="{Binding Items}" 
+                             SelectedItem="{Binding SelectedItem, Mode=TwoWay}" 
+                             IsReadOnly="True" 
+                             AutoGenerateColumns="False"
+                             ShowSearchPanel="True"
+                             ShowGroupPanel="False"
+                             IsSearchingDeferred="False"
+                             CanUserSearchInHiddenColumns="True"
+                             CanUserGroupColumns="False"
+                             CanUserFreezeColumns="False"
+                             RowIndicatorVisibility="Collapsed"
+                             IsFilteringAllowed="True"
+                             >
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Name}" Header="Name" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding ScientificName}" Header="ScientificName" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding AgriculturalName}" Header="AgriculturalName" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding ScientificClassification}" Header="Scientific Classification" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding AgriculturalClassification}" Header="Agricultural Classification" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding DangerRating}" Header="DangerRating" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding SpeedOfGrowth}" Header="Speed Of Growth" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Lifespan}" Header="Lifespan" ></telerik:GridViewDataColumn>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Right" Margin="5">
+            <Button Margin="0 0 0 5" Width="80" Command="{Binding OpenAddEntityCommand}">New</Button>
+            <Button Margin="0 0 0 5" Width="80" Command="{Binding OpenEditEntityCommand}">View</Button>
+            <Button Width="80" Command="{Binding RemoveEntityCommand}">Remove</Button>
+        </StackPanel>
     </Grid>
-</Window>
+</UserControl>

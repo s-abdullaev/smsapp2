@@ -1,44 +1,46 @@
-﻿<Window x:Class="SMSApp.Views.DiseaseManagerView"
+﻿<UserControl x:Class="SMSApp.Views.DiseaseManagerView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        ShowInTaskbar="False" WindowStartupLocation="CenterScreen"
-        Height="600" Width="800">
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <DataGrid ItemsSource="{Binding Items}" 
-                  Background="White" 
-                  IsReadOnly="True" 
-                  AutoGenerateColumns="False"
-                      SelectedItem="{Binding SelectedItem,Mode=TwoWay}">
-                <DataGrid.Columns>
-                    <!--<DataGridTextColumn Header="Id" Binding="{Binding DiseaseId}"/>-->
-                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                    <DataGridTextColumn Header="Scientific name" Binding="{Binding ScientificName}"/>
-                    <!--<DataGridTextColumn Header="Agricultural name" Binding="{Binding AgriculturalName}"/>-->
-                    <DataGridTextColumn Header="Scientific classification" Binding="{Binding ScientificClassification}"/>
-                    <!--<DataGridTextColumn Header="Agricultural classification" Binding="{Binding AgriculturalClassification}"/>-->
-                    <!--<DataGridTextColumn Header="Diagnostics" Binding="{Binding Diagnostics}"/>-->
-                    <!--<DataGridTextColumn Header="Risks" Binding="{Binding Risks}"/>-->
-                    <DataGridTextColumn Header="Danger rating" Binding="{Binding DangerRating}"/>
-                    <DataGridTextColumn Header="Speed of transmission" Binding="{Binding SpeedOfTransmission}"/>
-                    <!--<DataGridTextColumn Header="Chemical treatment" Binding="{Binding ChemicalTreatment}"/>-->
-                    <!--<DataGridTextColumn Header="Non-chemical treatment" Binding="{Binding NonChemicalTreatment}"/>-->
-                    <DataGridTextColumn Header="Vaccinations" Binding="{Binding Vaccinations}"/>
-                    <DataGridTextColumn Header="Lifespan" Binding="{Binding Lifespan}"/>
-                    <!--<DataGridTextColumn Header="Additional notes" Binding="{Binding AdditionalNotes}"/>-->
-                </DataGrid.Columns>
-            </DataGrid>
-        </ScrollViewer>
+
+        <telerik:RadGridView Grid.Column="0" 
+                             Margin="5" 
+                             ItemsSource="{Binding Items}" 
+                             SelectedItem="{Binding SelectedItem, Mode=TwoWay}" 
+                             IsReadOnly="True" 
+                             AutoGenerateColumns="False"
+                             ShowSearchPanel="True"
+                             ShowGroupPanel="False"
+                             IsSearchingDeferred="False"
+                             CanUserSearchInHiddenColumns="True"
+                             CanUserGroupColumns="False"
+                             CanUserFreezeColumns="False"
+                             RowIndicatorVisibility="Collapsed"
+                             IsFilteringAllowed="True"
+                             >
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Name}" Header="Name" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding ScientificName}" Header="Scientific Name" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding AgriculturalName}" Header="Agricultural Name" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding ScientificClassification}" Header="Scientific Classification" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding AgriculturalClassification}" Header="Agricultural Classification" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding DangerRating}" Header="Danger Rating" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding SpeedOfTransmission}" Header="Speed Of Transmission" ></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Lifespan}" Header="Lifespan" ></telerik:GridViewDataColumn>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
         <StackPanel Grid.Column="1" HorizontalAlignment="Right" Margin="5">
             <Button Margin="0 0 0 5" Width="80" Command="{Binding OpenAddEntityCommand}">New</Button>
-            <Button Margin="0 0 0 5" Width="80" Command="{Binding OpenEditEntityCommand}">Edit</Button>
+            <Button Margin="0 0 0 5" Width="80" Command="{Binding OpenEditEntityCommand}">View</Button>
             <Button Width="80" Command="{Binding RemoveEntityCommand}">Remove</Button>
         </StackPanel>
     </Grid>
-</Window>
+</UserControl>
     
     

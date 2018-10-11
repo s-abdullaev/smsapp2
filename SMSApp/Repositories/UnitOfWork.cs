@@ -14,6 +14,20 @@ namespace SMSApp.Repositories
         {
             AppContext = appContext;
             Users = new UserRepository(appContext);
+            FarmOwners = new FarmOwnerRepository(appContext);
+            Broadcasts = new BroadcastRepository(appContext);
+            Contagions = new ContagionRepository(appContext);
+            Diseases = new DiseaseRepository(appContext);
+            Farms = new FarmRepository(appContext);
+            Geopositions = new GeopositionRepository(appContext);
+            Messages = new MessageRepository(appContext);
+            Pests = new PestRepository(appContext);
+            Photos = new PhotoRepository(appContext);
+            Plants = new PlantRepository(appContext);
+            SoilReadings = new SoilReadingRepository(appContext);
+            Seasons = new SeasonRepository(appContext);
+            SeasonPlants = new SeasonPlantRepository(appContext);
+
             Instance = this;
         }
 
@@ -24,27 +38,31 @@ namespace SMSApp.Repositories
 
         public IUserRepository Users { get; private set; }
 
-        public IBroadcastRepository Broadcasts => throw new System.NotImplementedException();
+        public IBroadcastRepository Broadcasts { get; private set; }
 
-        public IContagionRepository Contagions => throw new System.NotImplementedException();
+        public IContagionRepository Contagions { get; private set; }
 
-        public IDiseaseRepository Diseases => throw new System.NotImplementedException();
+        public IDiseaseRepository Diseases { get; private set; }
 
-        public IFarmRepository Farms => throw new System.NotImplementedException();
+        public IFarmRepository Farms { get; private set; }
 
-        public IFarmPlantRepository FarmOwners => throw new System.NotImplementedException();
+        public IFarmOwnerRepository FarmOwners { set; get; }
 
-        public IGeopositionRepository Geopositions => throw new System.NotImplementedException();
+        public IGeopositionRepository Geopositions { get; private set; }
 
-        public IMessageRepository Messages => throw new System.NotImplementedException();
+        public IMessageRepository Messages { get; private set; }
 
-        public IPestRepository Pests => throw new System.NotImplementedException();
+        public IPestRepository Pests { get; private set; }
 
-        public IPhotoRepository Photos => throw new System.NotImplementedException();
+        public IPhotoRepository Photos { get; private set; }
 
-        public IPlantRepository Plants => throw new System.NotImplementedException();
+        public IPlantRepository Plants { get; private set; }
 
-        public ISoilReadingRepository SoilReadings => throw new System.NotImplementedException();
+        public ISoilReadingRepository SoilReadings { get; private set; }
+
+        public ISeasonRepository Seasons { get; private set; }
+
+        public ISeasonPlantRepository SeasonPlants { get; private set; }
 
         public int Complete()
         {

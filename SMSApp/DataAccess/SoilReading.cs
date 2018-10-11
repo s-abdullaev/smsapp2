@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SMSApp.DataAccess
 {
-    public class SoilReading
+    public class SoilReading:Validation.ValidationModelBase
     {
         public int SoilReadingId { get; set; }
         public float HumusLevel { get; set; }
@@ -12,7 +12,7 @@ namespace SMSApp.DataAccess
         public float NitrateLevel { get; set; }
         public float AcidityLevel { get; set; }
         public float SoilFertilityRating { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
         [Column("AdditionalNotes", TypeName = "ntext")]
         public string AdditionalNotes { get; set; }
 
@@ -20,7 +20,7 @@ namespace SMSApp.DataAccess
         public int? GeopositionId { get; set; }
         public virtual Geoposition Geoposition { get; set; }
 
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
+        //public int? UserId { get; set; }
+        //public virtual User User { get; set; }
     }
 }

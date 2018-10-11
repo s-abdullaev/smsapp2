@@ -39,10 +39,11 @@
 
     public enum DangerRating
     {
+        VeryLow,
         Low,
         Moderate,
         High,
-        Higest
+        VeryHigh
     }
 
     public enum PlantGrowthStatus
@@ -58,7 +59,7 @@
         Harvested
     }
 
-    public enum Seasons
+    public enum SeasonTimes
     {
         Winter,
         Spring,

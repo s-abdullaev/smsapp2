@@ -15,6 +15,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -29,7 +30,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -63,6 +63,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Esri.ArcGISRuntime, Version=100.2.1.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <HintPath>..\packages\Esri.ArcGISRuntime.WPF.100.2.1\lib\net452\Esri.ArcGISRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
     <Reference Include="Prism, Version=7.0.0.396, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.Core.7.0.0.396\lib\net45\Prism.dll</HintPath>
     </Reference>
@@ -72,6 +78,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.Wpf.6.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -84,6 +92,15 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="Telerik.Windows.Cloud, Version=2018.2.620.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Cloud.Controls, Version=2018.2.620.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls, Version=2018.2.620.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.DataVisualization, Version=2018.2.620.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2018.2.620.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2018.2.620.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Data, Version=2018.2.620.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -93,40 +110,76 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\FilePicker\FilePickerControlView.xaml.cs">
+      <DependentUpon>FilePickerControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FilePicker\FilePickerControlViewModel.cs" />
+    <Compile Include="Controls\ItemPicker\ItemPickerControlView.xaml.cs">
+      <DependentUpon>ItemPickerControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ItemPicker\ItemPickerControlViewModel.cs" />
+    <Compile Include="Converters\NegationConverter.cs" />
+    <Compile Include="DataAccess\SeasonPlant.cs" />
+    <Compile Include="Events\SignedInEvent.cs" />
     <Compile Include="ExtensionMethods\AutofacExtensions.cs" />
     <Compile Include="DataAccess\Core\ISelectable.cs" />
+    <Compile Include="ExtensionMethods\CollectionExtensions.cs" />
     <Compile Include="ExtensionMethods\RegistryExtensions.cs" />
     <Compile Include="ExtensionMethods\StringExtensions.cs" />
-    <Compile Include="Migrations\201807242250247_users_contraints.cs" />
-    <Compile Include="Migrations\201807242250247_users_contraints.Designer.cs">
-      <DependentUpon>201807242250247_users_contraints.cs</DependentUpon>
+    <Compile Include="LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807251149549_userValidationChanges.cs" />
-    <Compile Include="Migrations\201807251149549_userValidationChanges.Designer.cs">
-      <DependentUpon>201807251149549_userValidationChanges.cs</DependentUpon>
+    <Compile Include="Migrations\201810100051268_initial.cs" />
+    <Compile Include="Migrations\201810100051268_initial.Designer.cs">
+      <DependentUpon>201810100051268_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807251307006_diseaseValidations.cs" />
-    <Compile Include="Migrations\201807251307006_diseaseValidations.Designer.cs">
-      <DependentUpon>201807251307006_diseaseValidations.cs</DependentUpon>
+    <Compile Include="Migrations\201810102150066_new_tables.cs" />
+    <Compile Include="Migrations\201810102150066_new_tables.Designer.cs">
+      <DependentUpon>201810102150066_new_tables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810102152252_minor_rename.cs" />
+    <Compile Include="Migrations\201810102152252_minor_rename.Designer.cs">
+      <DependentUpon>201810102152252_minor_rename.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810110001399_minor_changes.cs" />
+    <Compile Include="Migrations\201810110001399_minor_changes.Designer.cs">
+      <DependentUpon>201810110001399_minor_changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810110109111_minor_changes2.cs" />
+    <Compile Include="Migrations\201810110109111_minor_changes2.Designer.cs">
+      <DependentUpon>201810110109111_minor_changes2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\Core\ISeasonPlantRepository.cs" />
+    <Compile Include="Repositories\Core\ISeasonRepository.cs" />
+    <Compile Include="Repositories\SeasonPlantRepository.cs" />
+    <Compile Include="Repositories\SeasonRepository.cs" />
     <Compile Include="Services\AlertsService.cs" />
     <Compile Include="Services\SMSService.cs" />
-    <Compile Include="Migrations\201807172316494_messagesMessageTextAdded.cs" />
-    <Compile Include="Migrations\201807172316494_messagesMessageTextAdded.Designer.cs">
-      <DependentUpon>201807172316494_messagesMessageTextAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807180907298_messagesSentToFarms.cs" />
-    <Compile Include="Migrations\201807180907298_messagesSentToFarms.Designer.cs">
-      <DependentUpon>201807180907298_messagesSentToFarms.cs</DependentUpon>
-    </Compile>
     <Compile Include="Startup\Bootstrapper.cs" />
     <Compile Include="Validation\ModelWrapper.cs" />
     <Compile Include="Validation\NotifyDataErrorBase.cs" />
     <Compile Include="Validation\ValidationModelBase.cs" />
     <Compile Include="ViewModels\BroadcastManagerViewModel.cs" />
+    <Compile Include="ViewModels\DiseaseAddViewModel.cs" />
+    <Compile Include="ViewModels\DiseaseManagerViewModel.cs" />
+    <Compile Include="ViewModels\EntityAddViewModel.cs" />
     <Compile Include="ViewModels\EntityManagerViewModel.cs" />
+    <Compile Include="ViewModels\FarmAddViewModel.cs" />
+    <Compile Include="ViewModels\FarmManagerViewModel.cs" />
+    <Compile Include="ViewModels\FarmOwnerAddViewModel.cs" />
+    <Compile Include="ViewModels\FarmOwnerManagerViewModel.cs" />
+    <Compile Include="ViewModels\SeasonAddViewModel.cs" />
+    <Compile Include="ViewModels\SoilReadingAddViewModel.cs" />
+    <Compile Include="ViewModels\GeopositionAddViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="Controls\MapControl\MapControlViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\NavigationMenuViewModel.cs" />
+    <Compile Include="ViewModels\PestAddViewModel.cs" />
+    <Compile Include="ViewModels\PestManagerViewModel.cs" />
+    <Compile Include="ViewModels\PhotoAddViewModel.cs" />
+    <Compile Include="ViewModels\PlantAddViewModel.cs" />
+    <Compile Include="ViewModels\PlantManagerViewModel.cs" />
     <Compile Include="ViewModels\SendSMSViewModel.cs" />
     <Compile Include="ViewModels\BroadcastSettingsViewModel.cs" />
     <Compile Include="ViewModels\UserAddViewModel.cs" />
@@ -153,14 +206,23 @@
     <Compile Include="Views\FarmOwnerManagerView.xaml.cs">
       <DependentUpon>FarmOwnerManagerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NavigationMenuView.xaml.cs">
-      <DependentUpon>NavigationMenuView.xaml</DependentUpon>
+    <Compile Include="Controls\MapControl\MapControlView.xaml.cs">
+      <DependentUpon>MapControlView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PestAddView.xaml.cs">
       <DependentUpon>PestAddView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PestManagerView.xaml.cs">
       <DependentUpon>PestManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PhotoAddView.xaml.cs">
+      <DependentUpon>PhotoAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SeasonAddView.xaml.cs">
+      <DependentUpon>SeasonAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SoilReadingAddView.xaml.cs">
+      <DependentUpon>SoilReadingAddView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PlantAddView.xaml.cs">
       <DependentUpon>PlantAddView.xaml</DependentUpon>
@@ -173,6 +235,9 @@
     </Compile>
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GeopositionAddView.xaml.cs">
+      <DependentUpon>GeopositionAddView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserAddView.xaml.cs">
       <DependentUpon>UserAddView.xaml</DependentUpon>
@@ -209,6 +274,18 @@
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
+    <Page Include="Controls\FilePicker\FilePickerControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ItemPicker\ItemPickerControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -224,7 +301,7 @@
     <Compile Include="DataAccess\Disease.cs" />
     <Compile Include="DataAccess\Farm.cs" />
     <Compile Include="DataAccess\FarmOwner.cs" />
-    <Compile Include="DataAccess\FarmPlant.cs" />
+    <Compile Include="DataAccess\Season.cs" />
     <Compile Include="DataAccess\Geoposition.cs" />
     <Compile Include="DataAccess\Message.cs" />
     <Compile Include="DataAccess\Pest.cs" />
@@ -236,6 +313,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Styles\ControlStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Converters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ValidationStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BroadcastManagerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -264,7 +353,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NavigationMenuView.xaml">
+    <Page Include="Controls\MapControl\MapControlView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -275,6 +364,18 @@
     <Page Include="Views\PestManagerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PhotoAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SeasonAddView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SoilReadingAddView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\PlantAddView.xaml">
       <SubType>Designer</SubType>
@@ -287,6 +388,10 @@
     <Page Include="Views\SettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GeopositionAddView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\UserAddView.xaml">
       <SubType>Designer</SubType>
@@ -303,11 +408,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\User.cs" />
-    <Compile Include="Migrations\201806281259073_Initial.cs" />
-    <Compile Include="Migrations\201806281259073_Initial.Designer.cs">
-      <DependentUpon>201806281259073_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -321,28 +421,36 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201806281259073_Initial.resx">
-      <DependentUpon>201806281259073_Initial.cs</DependentUpon>
+    <Resource Include="Resources\Icons\icons8-field-48.png" />
+    <Resource Include="Resources\Icons\icons8-save-as-32.png" />
+    <Resource Include="Resources\Icons\icons8-forward-arrow-32.png" />
+    <Resource Include="Resources\Icons\icons8-hand-cursor-32.png" />
+    <Resource Include="Resources\Icons\icons8-marker-32.png" />
+    <Resource Include="Resources\Icons\icons8-polygon-32.png" />
+    <Resource Include="Resources\Icons\icons8-select-32.png" />
+    <Resource Include="Resources\Icons\icons8-undo-32.png" />
+    <EmbeddedResource Include="Migrations\201810100051268_initial.resx">
+      <DependentUpon>201810100051268_initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807172316494_messagesMessageTextAdded.resx">
-      <DependentUpon>201807172316494_messagesMessageTextAdded.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810102150066_new_tables.resx">
+      <DependentUpon>201810102150066_new_tables.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807180907298_messagesSentToFarms.resx">
-      <DependentUpon>201807180907298_messagesSentToFarms.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810102152252_minor_rename.resx">
+      <DependentUpon>201810102152252_minor_rename.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807242250247_users_contraints.resx">
-      <DependentUpon>201807242250247_users_contraints.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810110001399_minor_changes.resx">
+      <DependentUpon>201810110001399_minor_changes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807251149549_userValidationChanges.resx">
-      <DependentUpon>201807251149549_userValidationChanges.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807251307006_diseaseValidations.resx">
-      <DependentUpon>201807251307006_diseaseValidations.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810110109111_minor_changes2.resx">
+      <DependentUpon>201810110109111_minor_changes2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="Map\Map.mmpk">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SMSApp.DataAccess.Disease.datasource" />
     <None Include="Properties\DataSources\SMSApp.DataAccess.Farm.datasource" />
@@ -367,7 +475,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
-    <Folder Include="Events\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -382,4 +489,11 @@
     </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Esri.ArcGISRuntime.WPF.100.2.1\build\net452\Esri.ArcGISRuntime.WPF.targets" Condition="Exists('..\packages\Esri.ArcGISRuntime.WPF.100.2.1\build\net452\Esri.ArcGISRuntime.WPF.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Esri.ArcGISRuntime.WPF.100.2.1\build\net452\Esri.ArcGISRuntime.WPF.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Esri.ArcGISRuntime.WPF.100.2.1\build\net452\Esri.ArcGISRuntime.WPF.targets'))" />
+  </Target>
 </Project>

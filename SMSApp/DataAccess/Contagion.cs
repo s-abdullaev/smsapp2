@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SMSApp.DataAccess
 {
-    public class Contagion
+    public class Contagion :Validation.ValidationModelBase
     {
         public int ContagionId { get; set; }
         public float DamageInMoney { get; set; }
@@ -18,14 +19,14 @@ namespace SMSApp.DataAccess
 
         /*FOREIGN KEYS*/
         public int? FarmPlantId { get; set; }
-        public virtual FarmPlant FarmPlant { get; set; }
+        public virtual Season FarmPlant { get; set; }
         
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
+        //public int? UserId { get; set; }
+        //public virtual User User { get; set; }
 
-        public virtual ICollection<Disease> Diseases { get; set; }
-        public virtual ICollection<Pest> Pests { get; set; }
-        public virtual ICollection<Broadcast> Broadcasts { get; set; }
-        public virtual ICollection<Photo> Photos { get; set; }
+        public virtual ObservableCollection<Disease> Diseases { get; set; } = new ObservableCollection<Disease>();
+        public virtual ObservableCollection<Pest> Pests { get; set; } = new ObservableCollection<Pest>();
+        public virtual ObservableCollection<Broadcast> Broadcasts { get; set; } = new ObservableCollection<Broadcast>();
+        public virtual ObservableCollection<Photo> Photos { get; set; } = new ObservableCollection<Photo>();
     }
 }

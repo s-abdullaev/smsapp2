@@ -2,10 +2,32 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:view="clr-namespace:SMSApp.Views"
+        Title="SMS Farm"
+        Icon="pack://application:,,,/Resources/Icons/icons8-field-48.png"
         WindowStartupLocation="CenterScreen" Height="450" Width="800">
-    <DockPanel>
-        <view:NavigationMenuView
-            DataContext="{Binding NavVwMdl}"
-            DockPanel.Dock="Top" VerticalAlignment="Top"></view:NavigationMenuView>
-    </DockPanel>
+    <Grid>
+        <TabControl Margin="5">
+            <TabItem Header="Dashboard">
+                
+            </TabItem>
+            <TabItem Header="Farms">
+                <view:FarmManagerView DataContext="{Binding FarmVwMdl}"></view:FarmManagerView>
+            </TabItem>
+            <TabItem Header="Farm Owners">
+                <view:FarmOwnerManagerView DataContext="{Binding FarmOwnerVwMdl}"></view:FarmOwnerManagerView>
+            </TabItem>
+            <TabItem Header="Broadcasts">
+
+            </TabItem>
+            <TabItem Header="Plants">
+                <view:PlantManagerView DataContext="{Binding PlantVwMdl}"></view:PlantManagerView>
+            </TabItem>
+            <TabItem Header="Pests">
+                <view:PestManagerView DataContext="{Binding PestVwMdl}"></view:PestManagerView>
+            </TabItem>
+            <TabItem Header="Diseases">
+                <view:DiseaseManagerView DataContext="{Binding DiseaseVwMdl}"></view:DiseaseManagerView>
+            </TabItem>
+        </TabControl>
+    </Grid>
 </Window>

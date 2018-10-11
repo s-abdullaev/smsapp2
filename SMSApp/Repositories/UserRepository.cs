@@ -8,6 +8,10 @@ namespace SMSApp.Repositories
 {
     public class UserRepository : Repository<User>, IUserRepository
     {
+        private User _currentUser=null;
+
+        public User CurrentUser() { return _currentUser; }
+
         public UserRepository(Context context)
             : base(context)
         {
@@ -28,7 +32,7 @@ namespace SMSApp.Repositories
         public User GetByLogin(string login)
         {
             return mContext.Users
-                .Where(a => a.Login == login).First();
+                .Where(a => a.Login == login).FirstOrDefault();
         }
 
         public void SetPermission(User user, UserPermissions permission)
@@ -59,7 +63,13 @@ namespace SMSApp.Repositories
 
         public bool AuthUser(string login, string pwd)
         {
-            throw new System.NotImplementedException();
+            var user = GetByLogin(login);
+            if (user !=null && user.Password==pwd)
+            {
+                _currentUser = user;
+                return true;
+            }
+            return false;
         }
 
     }

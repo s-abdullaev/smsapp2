@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="SMSApp.Controls.MapControl.MapControlView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SMSApp.Views"
+        xmlns:esri="http://schemas.esri.com/arcgis/runtime/2013"
+        mc:Ignorable="d"
+        Height="450" Width="800">
+    <UserControl.Resources>
+        <Style x:Key="buttonImage" TargetType="Image">
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="16"></Setter>
+            <Setter Property="Height" Value="16"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ToolBarTray Grid.Row="0">
+            <ToolBar>
+                <Button Command="{Binding UndoCommand}">
+                    <Image Style="{StaticResource buttonImage}" Source="pack://application:,,,/Resources/Icons/icons8-undo-32.png"></Image>
+                </Button>
+                <Button Command="{Binding RedoCommand}">
+                    <Image Style="{StaticResource buttonImage}" Source="pack://application:,,,/Resources/Icons/icons8-forward-arrow-32.png"></Image>
+                </Button>
+            </ToolBar>
+            <ToolBar>
+                <Button Command="{Binding ZeroCommand}">
+                    <Image Style="{StaticResource buttonImage}" Source="pack://application:,,,/Resources/Icons/icons8-hand-cursor-32.png"></Image>
+                </Button>
+                <Button Command="{Binding DrawPointBtnClickCommand}">
+                    <Image Style="{StaticResource buttonImage}" Source="pack://application:,,,/Resources/Icons/icons8-marker-32.png"></Image>
+                </Button>
+                <Button Command="{Binding DrawPolygonBtnClickCommand}">
+                    <Image Style="{StaticResource buttonImage}" Source="pack://application:,,,/Resources/Icons/icons8-polygon-32.png"></Image>
+                </Button>
+                <Button Command="{Binding SelectByRadiusBtnClickCommand}" ToolTip="Selects regions">
+                    <Image Style="{StaticResource buttonImage}" Source="pack://application:,,,/Resources/Icons/icons8-select-32.png"></Image>
+                </Button>
+                <Button Command="{Binding RemoveBtnClickCommand}" ToolTip="Polygon Eraser">
+                    <!--<Image Style="{StaticResource buttonImage}" Source="pack://application:,,,/Resources/Icons/icons8-select-32.png"></Image>-->
+                    X
+                </Button>
+            </ToolBar>
+            <ToolBar>
+                <Button Command="{Binding SaveMapDataCommand}">
+                    <Image Style="{StaticResource buttonImage}" Source="pack://application:,,,/Resources/Icons/icons8-save-as-32.png"></Image>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+
+
+        <esri:MapView x:Name="MyMapView" Map="{Binding MyMap}" Grid.Row="1"/>
+
+        <TextBox VerticalAlignment="Bottom" Text="{Binding InfoText, Mode=TwoWay}" TextWrapping="Wrap" Grid.Column="1" Grid.Row="1" Height="100"></TextBox>
+        
+    </Grid>
+</UserControl>

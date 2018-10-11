@@ -9,7 +9,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
        
-        <Label HorizontalAlignment="Center" Margin="10" FontSize="16" FontWeight="Bold" Grid.Row="0">USER DETAILS</Label>
+        <Label HorizontalAlignment="Center" Margin="10" FontSize="16" FontWeight="Bold" Grid.Row="0">User Details</Label>
         <Grid Grid.Row="1" Margin="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"></ColumnDefinition>
@@ -24,17 +24,17 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Grid.Column="0">Name:</Label>
-            <TextBox Margin="0 0 0 2" Grid.Row="0" Grid.Column="1" Text="{Binding UserModel.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"/>
+            <TextBox Margin="0 0 0 2" Grid.Row="0" Grid.Column="1" Text="{Binding Model.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"/>
 
             <Label Grid.Row="1" Grid.Column="0">Login:</Label>
-            <TextBox Margin="0 0 0 2" Grid.Row="1" Grid.Column="1" Text="{Binding UserModel.Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"/>
+            <TextBox Margin="0 0 0 2" Grid.Row="1" Grid.Column="1" Text="{Binding Model.Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"/>
 
 
             <Label Grid.Row="2" Grid.Column="0">Password:</Label>
-            <TextBox Margin="0 0 0 2" Grid.Row="2" Grid.Column="1" Text="{Binding UserModel.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"/>
+            <TextBox Margin="0 0 0 2" Grid.Row="2" Grid.Column="1" Text="{Binding Model.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"/>
 
             <Label Grid.Row="3" Grid.Column="0">Email:</Label>
-            <TextBox Margin="0 0 0 2" Grid.Row="3" Grid.Column="1" Text="{Binding UserModel.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"/>
+            <TextBox Margin="0 0 0 2" Grid.Row="3" Grid.Column="1" Text="{Binding Model.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"/>
 
             <Label Grid.Row="4" Grid.Column="0">Permissions:</Label>
             <StackPanel Margin="0 5 0 0" Grid.Row="4" Grid.Column="1">
@@ -46,7 +46,7 @@
             </StackPanel>
             
             <WrapPanel Margin="2 20 2 2" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Right">
-                <Button Margin="0 0 10 0"  Width="80" Command="{Binding AddUserCommand}">Save</Button>
+                <Button Margin="0 0 10 0"  Width="80" Command="{Binding AddEntityCommand}">Save</Button>
                 <!--Closing window is a View's task, so implement it inside View using event handler-->
                 <Button Width="80" Click="Button_Click">Cancel</Button>
             </WrapPanel>

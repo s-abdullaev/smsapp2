@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace SMSApp.Repositories
 {
-    public class FarmPlantRepository : Repository<FarmPlant>, IFarmPlantRepository
+    public class FarmPlantRepository : Repository<Season>, IFarmPlantRepository
     {
         public FarmPlantRepository(Context dbContext)
             : base(dbContext)
